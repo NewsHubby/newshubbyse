@@ -18,6 +18,11 @@
     <%= f.text_field :name %>
   </div>
 	
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+	
 	<%= f.fields_for :fields do |builder| %>
 		<%= render 'field_fields', f: builder %>
 	<% end %>

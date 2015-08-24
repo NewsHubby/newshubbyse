@@ -1,62 +1,41 @@
 <div class="short-page">
   <div class="container">
-
+	
 
 	<div class="col-sm-6">
 		<h3><%= @category.name %></h3>
 		<p><%= @category.description %></p>
+		<% if can? :manage, PressReleaseType %>
+					<p><%= link_to 'New Press Release Type', new_category_press_release_type_path(@category) %></p>
+		<% end %>
 	</div>
+	
+	
 	
 	<div class="clearfix"></div>
 
 <% @category.press_release_types.each do |press_release_type| %>
 
       <div class="col-sm-6">
-				<%= link_to [@category, press_release_type], class: "business-field-link" do %>
+				<%= link_to "#{request.protocol}#{request.host_with_port}/#{current_press_room.slug}/pressreleases/new?press_release_type_id=#{press_release_type.id}", class: "business-field-link" do %>
+				
           <div class="panel panel-default">
             <div class="panel-body">
               <div class="media">
-                <div class="media-left media-middle">
+                <!--<div class="media-left media-middle">
                   <img class="media-object" src="media/img.png" alt="...">
-                </div>
+                </div>-->
                 <div class="media-body">
                   <h4 class="media-heading"><%= press_release_type.name %></h4>
-                  <p>DESC.</p>
+                  <p><%= press_release_type.description %></p>
                 </div>
               </div>
             </div>
           </div>
 				<% end %>
       </div>
-
-<% end %>
-
-
+<% end %>		
     </div>
-
 
   <div class="push"></div>
 </div>
-
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @category.description %>
-</p>
-
-<p>
-	<strong>Pressmeddelandetyp:</strong><br>
-	<%= form_tag new_press_room_press_release_path(current_press_room), method: :get do %>
-		<%= select_tag :press_release_type_id, options_from_collection_for_select(@category.press_release_types.all, :id, :name) %>
-		<%= submit_tag "New Press Release", name: nil%>
-	<% end %>
-</p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
-<br>
-<%= link_to 'New Press Release Type', new_category_press_release_type_path(@category) %>
