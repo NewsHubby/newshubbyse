@@ -59,7 +59,7 @@
 						</div>
 
 						<%= f.label :company_name, "Företagsnamn:" %>
-						<%= f.text_field :company_name, class: "form-control"  %>
+						<%= f.text_field :company_name, class: "form-control" %>
 						<br>
 						<div class="input-group">
 							<%= f.label :founded, "grundat: " %>
@@ -264,6 +264,59 @@
 			</div> <!-- / .col-md-8 -->
 		</div> <!-- / .row -->
 	</div> <!-- / .container -->
+
+<% if @press_room.company_name.blank? %>
+			
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
+          <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h3 class="modal-title text-center">Hej och välkommen!</h3>
+                  </div>
+                  <div class="modal-body hubertBasic">
+                      <div class="container-fluid">
+                      <div class="row">
+                      <div class="col-sm-4 hidden-xs">
+												<%= image_tag "../media/hubert.svg", alt: "Välkommen till NewsHubby", class: "img-responsive center-block", style: "height:300px;" %>
+                          </div>
+                      <div class="col-sm-8 col-xs-12">
+                      <h4>Vänligen presentera ert företag:</h4>
+												<%= f.text_field :company_name, placeholder: "Företagsnamn *" %> grundades i 
+												<%= f.date_select :founded, order: [:month, :year] %>
+                          och ligger i <%= f.text_field :location, placeholder: "Ort, Land *" %>. Ni kan hitta oss på <%= f.text_field :website, placeholder: "http://www.example.com/" %> och på Twitter <%= f.text_field :twitter, placeholder: "@twitternamn" %>, och nå oss via <%= f.text_field :press_email, placeholder: "epost för presskontakt *" %>,  eller på telefonnummer<%= f.text_field :phone, placeholder: "+46 555 55 55 55" %>
+                          <br><br>
+                          <h4>Ladda upp er företagslogotyp *</h4>
+                          <div class="input-group" style="width:100%;">
+                              <input id="uploadFile" placeholder="Vald fil&hellip;" disabled="disabled" />
+                              <div class="fileUpload btn btn-primary">
+																
+                                  <i class="fa fa-file-image-o"></i>&nbsp;Välj fil
+																	<%= f.file_field :logo, id: "uploadBtn", class: "upload", id: "uploadBtn" %>
+                              </div>
+                          </div>
+                          </form>
+                          </div> <!-- / .col -->
+                          
+                      </div> <!-- / .row -->
+                      </div> <!-- / .container-fluid -->
+                  </div>
+                  <div class="modal-footer">
+                      <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                      <small class="text-muted pull-left">* obligatoriskt</small>
+											<%= f.submit "Klar!", class: "btn btn-success btn-lg", role: "button" %>
+                  </div>
+              </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+			
+      <script>
+      $(document).ready(function(){
+          $('#myModal').modal('show')
+      });
+      </script>
+
+<% end %>
+
 <% end %>
 <% end %>
 <% end %>
