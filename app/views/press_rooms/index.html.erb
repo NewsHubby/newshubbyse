@@ -1,0 +1,96 @@
+<div id="index-bkg">
+    <div class="container">
+        <div id="indexText" class="text-center">
+            <h1>Pressmeddelanden utan PR-konsult</h1>
+            <!-- <h4>(...and pay only if you reach out)</h4> -->
+            <br>
+            <%= link_to categories_path do %><button class="btn btn-default btn-lg" data-toggle="modal" data-target="#signUp">Skapa ett pressmeddelande nu</button><% end%>
+            <br><br>
+            <h3 class="text-center">Automatiska pressmeddeladen - betala bara om ni når ut.</h3>
+        </div>
+        <div class="scrollDown"><a href="#video"><span class="btn btn-ghost">Läs mer</span><i class="fa fa-angle-down"></i></a></div>
+
+    </div>
+</div>
+<div class="container">
+    <a id="video"></a>
+    <br class="hidden-xs"><br class="hidden-xs">
+    
+    <div class="row">
+        <div class="col-sm-6">
+        <h3>Så här funkar det</h3>
+        
+        <ol>
+            <li><strong>Välj vad du vill skriva om.</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, alias, fugiat impedit rerum architecto mollitia odio, iure enim sunt facilis provident expedita sit tenetur in quis hic. Corporis, eos, sequi.</li>
+            <br>
+            <li><strong>Distribuera pressmeddelandet.</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus quidem debitis laborum itaque quae voluptatibus porro inventore ullam vero at commodi accusamus iusto a, minus nihil natus, laudantium odio. Dolore!</li>
+            <br>
+            <li><strong>Dela ditt pressrum</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, cupiditate voluptas quam repellendus laudantium voluptatibus, voluptates numquam quasi accusamus? Ducimus ea sapiente itaque dolorum ratione sunt repellendus magni, voluptatum aliquam.</li>
+        </ol> 
+    </div>
+    <div class="col-sm-6 hidden-xs">
+        <img src="media/distribution.png" class="img-responsive" id="distribution" alt="Distribute your press release through NewsHubby">
+    </div>
+        
+    </div> <!-- / .row-->
+    <div class="row text-center">
+        <br>
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signUp">Skapa ett pressmeddelande nu</button>
+    </div>
+    <br><br>
+</div><!-- /.container -->
+<div class="container-fluid latest-pressreleases">
+    <div class="container">
+        <br>
+        <h3 class="text-center">Senast publicerade pressmeddelande</h3>
+        
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12">
+							<br>
+							<h4>Latest Press Releases</h4>
+							<hr class="header-hr">
+						</div>
+					</div>
+					<div class="row">
+						<div class="masonry-container transitions-enabled">
+							<% @press_releases.each do |press_release| %>
+							<div class="col-sm-6 col-md-4 col-lg-3 brick">
+								<div class="thumbnail">
+									<% unless press_release.uploads.first.nil? %>
+									<%= link_to press_room_press_release_path(press_release.press_room, press_release) do %>
+									<%= image_tag press_release.uploads.first.file.url(:medium), class: "img-responsive", alt: "" %><% end %>
+									<% end %>
+
+									<div class="caption">
+										<time class="pull-right text-muted clearfix" datetime="2014-10-28 20:00">
+											<small>
+												<%= time_ago_in_words(press_release.embargo) %>
+											</small>
+										</time>
+										<%= link_to press_room_press_release_path(press_release.press_room, press_release) do %>
+										<h4>
+											<%= press_release.title %>
+										</h4>
+										<% end %>
+
+										<!-- <p class="fade-out">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum dolor cumque, tempora voluptas...</p> -->
+									</div> <!-- / .caption -->
+
+									<%= link_to press_release.press_room do %>
+									<%= image_tag press_release.press_room.logo.url(:thumb), class: "thumbnail-logotype clearfix" %>
+									<% end %>
+
+								</div> <!-- / .thumbnail -->
+							</div> <!-- / .brick -->
+							<% end %>					
+						</div> <!-- / .masonry-container -->
+						<div class="text-center"><%= will_paginate @press_releases %></div>
+						<!--<div class="col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+						
+					</div> <!-- /.row -->
+				</div> <!-- / .container -->
+				
+        <br>
+    </div>
+</div>

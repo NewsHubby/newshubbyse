@@ -1,0 +1,16 @@
+<%= render 'press_releases/partials/static_top' %>
+
+<%= render 'press_releases/fields/handle_date' %>
+
+
+<% @press_release.properties.each do |name, value| %>
+	
+	<% if value == "break" %>
+	<br><br>
+	<% else %>
+	<%= value %>
+	<% end %>
+	
+<% end %>
+
+<%= render 'press_releases/partials/static_bottom' %>

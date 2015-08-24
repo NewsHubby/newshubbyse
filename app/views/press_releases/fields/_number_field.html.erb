@@ -1,0 +1,50 @@
+<% if @nr_questions %>
+<div class="question" id="q">
+<% else %>
+<div class="question" id="q">
+<% end %>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-question-circle fa-lg intHelp pull-right hidden-xs text-primary hints" id="" data-toggle="tooltip" data-placement="left" title="Toggle help"></i>
+                        <p class="panel-title text-left"><%= field.question.gsub(/CompanyName/, "#{@press_room.company_name}").gsub(/CompanyName's/, "#{@press_room.company_name.possessive}") %></p>
+                    </div> <!-- / .panel-heading -->
+                    <div class="panel-body">
+    					<% if field.name.blank? %>
+    		        <%= press_release.number_field field.name, class: "form-control fixed-textarea", rows: "4", id: "textarea", onfocus: "this.value = this.value;" %>
+    					<% else %>
+    		      <%= press_release.number_field field.name, class: "form-control fixed-textarea", rows: "4", id: "textarea", onfocus: "this.value = this.value;"%>
+    					<% end %>
+                    </div> <!-- / .panel-body -->
+                </div> <!-- / .panel -->
+            </div> <!-- / .col-xs-12 -->
+        </div> <!-- / .row -->
+    </div> <!-- / .container-fluid -->
+</div> <!-- / .question -->
+
+<% if @nr_questions %>
+<div class="overlay-message" id="modal">
+<% else %>
+<div class="overlay-message" id="modal">
+<% end %>
+		<div class="panel panel-default">
+        <div class="panel-body">
+            <button type="button" class="close closeModal" id="closeIntHints"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h5>
+                <span class="text-primary"><strong>Example: </strong></span>
+            </h5>
+            <p>
+              <%= simple_format(field.example) %>
+            </p>
+            <br>
+            <h5>
+                <span class="text-primary"><strong>Tip: </strong></span>
+            </h5>
+            <p>
+             	<%= simple_format(field.tip) %>
+            </p>
+        </div> <!-- / .panel-body -->
+    </div> <!-- / .panel -->
+</div> <!-- / .overlay-message -->

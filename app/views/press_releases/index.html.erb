@@ -1,0 +1,15 @@
+INDEX
+
+
+<br>
+
+
+<% @press_releases.each do |press_release| %>
+
+<%= link_to press_release.title, press_room_press_release_path(@press_room, press_release) %><br>
+
+<% end %>
+
+<br><br>
+
+<%= link_to "Registrera konto", new_press_room_registration_path %>

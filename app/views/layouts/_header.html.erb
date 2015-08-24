@@ -1,0 +1,127 @@
+<% if current_press_room %>
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+		            <%= link_to root_url, class: "navbar-brand" do %>
+		                <%= image_tag "../media/newshubby_logotype.svg", alt:"NewsHubby logotype", id:"nav-logo", class: "img-responsive" %>
+		            <% end %>
+            </div>
+            <%= render 'layouts/search' %>
+       <ul class="nav navbar-nav navbar-right hidden-xs">
+        <li><%= link_to categories_path, class: "navbar-btn" do %><button type="button" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;Nytt pressmeddelande
+          </button><% end %></li>
+
+        <li class="dropdown hidden-xs">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_press_room.company_name %> <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><%= link_to current_press_room do %><i class="fa fa-home fa-fw"></i>&nbsp;Pressrum<% end %></li>
+                <li><%= link_to "#" do %><i class="fa fa-cog fa-fw"></i>&nbsp;Kontoinställningar<% end %></li>
+                <li class="divider"></li>
+                <li><%= link_to destroy_press_room_session_path, method: :delete do %><i class="fa fa-sign-out fa-fw">&nbsp;</i>&nbsp;Logga ut<% end %></li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right visible-xs">
+        <li><%= link_to categories_path do %><i class="fa fa-plus fa-fw"></i>&nbsp; Nytt pressmeddelande<% end %></li>
+        <li><%= link_to current_press_room do %><i class="fa fa-home fa-fw"></i>&nbsp;Pressrum<% end %></li>
+        <li><%= link_to "#" do %><i class="fa fa-cog fa-fw">&nbsp;</i>Kontoinställningar<% end %></li>
+        <li class="divider"></li>
+        <li><%= link_to destroy_press_room_session_path, method: :destroy do %><i class="fa fa-sign-out fa-fw">&nbsp;</i>&nbsp;Logga ut<% end %></li>
+    </ul>
+</div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
+</nav>
+<% else %>
+
+   <nav class="navbar navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+           </button>
+           <%= link_to root_url, class: "navbar-brand" do %>
+               <%= image_tag "../media/newshubby_logotype.svg", alt:"NewsHubby logotype", id:"nav-logo", class: "img-responsive" %>
+           <% end %>
+       </div>
+			 <%= render 'layouts/search' %>
+     <ul class="nav navbar-nav navbar-right hidden-xs">   
+			 <li>
+          <a href="#" class="navbar-btn"  data-toggle="modal" data-target="#signUp"><button type="button" class="btn btn-primary">Registrera
+          </button></a>
+      </li>
+      <li>
+          <a href="#" data-toggle="modal" data-target="#login">Logga in</a>
+      </li>
+  </ul>
+  <ul class="nav navbar-nav navbar-right visible-xs">
+   <li data-toggle="modal" data-target="#signUp"><a href="#"><span class="text-primary" ><strong>Registrera</strong></span>&nbsp;</a></li>
+   <li data-toggle="modal" data-target="#login"><a href="#">Logga in</a></li>
+</ul>
+</div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
+</nav>
+
+<div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="signUpModal" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Stäng</span></button>
+                <h4 class="modal-title" id="signUpModal">Registrera</h4>
+            </div>
+            <div class="modal-body">
+                <%= form_for(:press_room, :url => registration_path(:press_room)) do |f| %>
+                    <div class="form-group">
+                        <label for="inputEmail1">Epost</label>
+												<%= f.email_field :email, autocomplete: "off", autofocus: true, class: "form-control", id: "inputEmail1", placeholder: "", value: "" %>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword1">Lösenord</label>
+                        <%= f.password_field :password, autocomplete: "off", class: "form-control", id: "inputPassword1", placeholder: "" %>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <%= f.check_box :term_agreement %> <small>Jag har läst och accepterar NewsHubbys <%= link_to "användarvillkor", anvandarvillkor_path, target: "_blank" %></small>
+                        </label>
+                    </div>
+										<%= f.submit "Sign up", class: "btn btn-primary btn-lg btn-block" %>
+                <% end %>
+            </div> <!-- / .modal-body -->
+        </div> <!-- / .modal-content -->
+    </div> <!-- / .modal-dialog -->
+</div> <!-- / .modal -->
+
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Stäng</span></button>
+                <h4 class="modal-title" id="loginModal">Logga in</h4>
+            </div>
+            <div class="modal-body">
+                <%= form_for(:press_room, :url => session_path(:press_room)) do |f| %>
+                    <div class="form-group">
+                        <label for="inputEmail2">Epost</label>
+												<%= f.text_field :email, class: "form-control", id: "exampleInputEmail1", type: "email", placeholder: "", value: "" %>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3">Lösenord</label>
+												<%= f.password_field :password, class: "form-control", id: "inputPassword3", placeholder: "" %>
+                        <small><%= link_to "Glömt ditt lösenord?", new_password_path(:press_room) %></small>
+                    </div>
+										<%= f.submit 'Logga in', class: "btn btn-primary btn-lg btn-block" %>
+                <% end %>
+            </div> <!-- / .modal-body -->
+        </div> <!-- / .modal-content -->
+    </div> <!-- / .modal-dialog -->
+</div> <!-- / .modal -->
+<% end %>

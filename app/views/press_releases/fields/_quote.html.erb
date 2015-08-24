@@ -1,0 +1,11 @@
+												<p>
+													<% unless @press_release.properties[:quote].blank? %>
+													- <%= (auto_link(@press_release.properties[:quote].chomp(" ").chomp(".")+",", :target => '_blank')) %>
+													<% end %>
+													 says 
+													<% unless @press_room.people.where(founder: true).blank? %>
+														<%= @press_room.people.where(founder: true).first.name %>, founder of <%= @press_room.company_name %>.
+													<% else %>
+														<%= @press_room.people.first.name %> at <%= @press_room.company_name %>
+													<% end %>
+												</p>

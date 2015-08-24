@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Investment type:</strong>
+  <%= @funding.investment_type %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @funding.date %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @funding.name %>
+</p>
+
+<p>
+  <strong>Sum:</strong>
+  <%= @funding.sum %>
+</p>
+
+<p>
+  <strong>Press room:</strong>
+  <%= @funding.press_room_id %>
+</p>
+
+<%= link_to 'Edit', edit_funding_path(@funding) %> |
+<%= link_to 'Back', fundings_path %>

@@ -1,0 +1,59 @@
+<div class="row prTop">
+    <div class="col-xs-12">
+        <h4 class="pull-left">Pressmeddelande</h4>
+        <h4 class="pull-right">
+					<% unless @press_release.embargo.nil? %>
+					<% if @press_release.embargo > Date.today %>
+						Embargo Date: 
+					<% end %>
+					<%= l(@press_release.embargo, format: '%d %B %Y') unless @press_release.embargo.blank? %>
+					<% end %>
+				</h4>
+    </div> <!-- / .col-xs-12 -->
+</div> <!-- / .row01 -->
+<div class="row pr-heading">
+    <div class="col-sm-5 col-sm-offset-1">
+        <h3><%= @press_room.company_name %></h3>
+        <ul class="fa-ul">
+            <li><i class="fa-li fa fa-calendar" title="Founded"></i>grundat i <%= l(@press_room.founded, format: '%B %Y') unless @press_room.founded.blank? %></li>
+            <li><i class="fa-li fa fa-map-marker fa-lg" title="Location"></i><%= link_to @press_room.location, "https://www.google.com/maps/place/#{@press_room.latitude},#{@press_room.longitude}", target: "_blank" %></li>
+						
+            <li><i class="fa-li fa fa-home fa-lg" title="Website"></i><%= link_to @press_room.website, @press_room.website, target: "_blank" %></li>
+            <li><i class="fa-li fa fa-envelope" title="Email"></i><%= mail_to @press_room.press_email, @press_room.press_email %></li>
+						<% unless @press_room.twitter.blank? %>
+            <li><i class="fa-li fa fa-twitter fa-lg" title="Twitter"></i><%= link_to "#{@press_room.twitter.gsub(/.*\//, '')}", @press_room.twitter.gsub(/@/, 'http://twitter.com/'), target: "_blank" %></li>
+						<% end %>
+            <% unless @press_room.phone.blank? %>
+						<li><i class="fa-li fa fa-phone fa-lg" title="Phone"></i><%= link_to @press_room.phone, "tel:#{@press_room.phone}" %></li>
+						<% end %>
+        </ul>
+    </div> <!-- / .col-sm-5 col-sm-offset-1 -->
+    <div class="col-sm-5">
+        <div class="centerContainer">
+            <div class="centerContent">
+                <%= image_tag @press_room.logo.url(:large), class: "img-responsive prCompanyLogo" %>
+            </div> <!-- / .centerContent -->
+        </div> <!-- / .centerContainer -->
+    </div> <!-- / .col-xs-5 -->
+</div> <!-- / .row .pr-heading -->
+<div class="row">
+                <div class="col-xs-10 col-xs-offset-1">
+									<hr class="visible-print-block">
+                    <h1><%= @press_release.title %></h1><br>
+										<div class="feature-img-area">
+											<% unless @press_release.uploads.first.nil? %>
+	                    <% if @press_release.uploads.first.blank? %>
+											<%= image_tag "images/feature_img.png", class: "center-block feature-img", alt: "" %>
+											<% else %>
+                        <%= link_to (image_tag @press_release.uploads.first.file.url(:medium), class: "center-block feature-img", alt: ""), @press_release.uploads.first.file.url(:original) unless @press_release %>
+											<% end %><% end %>
+                        <div class="feature-img-caption">
+                            <p><small>
+															<% if @press_release.uploads.first.blank? %>
+															This text will be replaced by your image caption
+															<% else %>
+															<%= @press_release.uploads.first.caption %>
+															<% end %>
+														</small></p>
+                        </div> <!-- /.feature-img-caption -->
+                    </div> <!-- / .feature-img-area -->

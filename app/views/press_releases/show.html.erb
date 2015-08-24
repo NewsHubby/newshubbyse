@@ -1,0 +1,68 @@
+
+
+<% unless can? :manage, @press_release %><br><br><br><% end %>
+
+<% if can? :manage, @press_release %>
+    <div class="prStateContainer container-fluid hidden-print">
+        <div class="prWrapper">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="panel text-center">
+                        <div class="panel-body">
+                            <% if @press_release.exclusive? %>
+                                <h4 class="prState text-primary">Pressmeddelandet är <strong class="prStateText">olistat</strong></h4>
+                            <% else %>
+                                <h4 class="prState text-primary">Pressmeddelandet är <strong class="prStateText">offentligt</strong></h4>
+                            <% end %>
+                            
+    						<% if @press_release.exclusive? %>
+    							<p class="prLink">Använd länken nedan för dela pressmeddelandet medan det är olistat:</p>
+                                <div class="well prLink"><%= press_room_press_release_url(@press_release.press_room, @press_release) + "/?&hex=#{@press_release.hex}" %></div>
+    						<% else %>
+    						  <p class="hidden prLink">Använd länken nedan för att dela pressmeddelandet medan det ä olistat:</p>
+                                <div class="well hidden prLink"><%= press_room_press_release_url(@press_release.press_room, @press_release) + "/?&hex=#{@press_release.hex}" %></div>
+    						<% end %>
+
+                            <% if @press_release.exclusive? %>
+    				            <%= best_in_place [@press_room, @press_release], :exclusive, as: :checkbox, collection: ["Gör pressmeddelandet olistat", "Gör pressmeddelandet offentligt"], class: "btn btn-primary", id: "prStateBtn" %>
+    						<% else %>
+    					       <%= best_in_place [@press_room, @press_release], :exclusive, as: :checkbox, collection: ["Gör pressmeddelandet olistat", "Gör pressmeddelandet offentligt"], class: "btn btn-primary", id: "prStateBtn" %>
+    						<% end %>
+                        </div> <!-- / .panel-body -->
+                    </div> <!-- / .panel -->
+                </div> <!-- / .col -->
+                <div class="col-sm-4">
+                    <div class="panel text-center prSendToPress">
+                        <div class="panel-body">
+                           <div class="centerContainer">
+    					        <div class="centerContent">
+    								<h4>Låt Newshubby distribuera pressmeddelandet till media</h4><br>
+    									<%= link_to "Skicka ut pressmeddelandet", new_press_room_press_release_distribution_path(@press_room, @press_release), class: "btn btn-action btn-lg" %>
+    								<!-- <br><br><p><small>* No commitment by clicking. We'll contact you with a distribution plan and price.</small></p> -->
+    						 	</div> <!-- / .centerContent -->
+    						</div> <!-- / .centerContainer -->
+                        </div> <!-- / .panel-body -->
+                    </div> <!-- / .panel -->
+                </div> <!-- / .col -->
+            </div> <!-- / .row-->
+        </div> <!-- / .prWrapper-->
+    </div> <!-- prStateContainer -->
+
+<% end %>
+
+<div class="prOptions clearfix hidden-print">
+<% if can? :manage, @press_release %>
+    <%= link_to edit_press_room_press_release_path(@press_room, @press_release), class: "pull-left" do %><i class="fa fa-edit fa-lg"></i>&nbsp;Redigera pressmeddelande<% end %>
+<!-- <%= link_to press_room_press_release_path(@press_room, @press_release)+".pdf", format: :pdf, class: "pull-right" do %><i class="fa fa-file-pdf-o fa-lg"></i>&nbsp;Download PDF<% end %> -->
+<% else %>
+	<%= link_to press_room_path(@press_room), class: "pull-left" do %><i class="fa fa-home fa-lg"></i>&nbsp;Gå till <%= @press_room.company_name.possessive %> pressrum<% end %>
+<% end %>
+</div>
+
+<div class="container-fluid pr-container">
+	<%= render "press_releases/partials/press_release" %>
+</div>
+</div>
+</div>
+
+<br>
