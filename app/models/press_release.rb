@@ -9,7 +9,7 @@ class PressRelease < ActiveRecord::Base
   serialize :properties, Hash
   
   extend FriendlyId
-  friendly_id :title, use: [:slugged, :history]
+  friendly_id :title, use: :slugged
   
   accepts_nested_attributes_for :links, allow_destroy: true
   accepts_nested_attributes_for :uploads, allow_destroy: true

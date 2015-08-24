@@ -1,4 +1,42 @@
-<p id="notice"><%= notice %></p>
+<div class="short-page">
+  <div class="container">
+
+
+	<div class="col-sm-6">
+		<h3><%= @category.name %></h3>
+		<p><%= @category.description %></p>
+	</div>
+	
+	<div class="clearfix"></div>
+
+<% @category.press_release_types.each do |press_release_type| %>
+
+      <div class="col-sm-6">
+				<%= link_to [@category, press_release_type], class: "business-field-link" do %>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="media">
+                <div class="media-left media-middle">
+                  <img class="media-object" src="media/img.png" alt="...">
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading"><%= press_release_type.name %></h4>
+                  <p>DESC.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+				<% end %>
+      </div>
+
+<% end %>
+
+
+    </div>
+
+
+  <div class="push"></div>
+</div>
 
 <p>
   <strong>Name:</strong>

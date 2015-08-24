@@ -23,6 +23,8 @@ class PressReleasesController < ApplicationController
     @press_room = current_press_room
     @press_release = @press_room.press_releases.new(press_release_type_id: params[:press_release_type_id])
     
+    @press_release.hex = SecureRandom.urlsafe_base64(6)
+    
     @press_release.uploads.build
     @press_release.links.build
     
@@ -80,6 +82,10 @@ class PressReleasesController < ApplicationController
     def set_press_release
       @press_room = PressRoom.friendly.find(params[:press_room_id])
       @press_release = PressRelease.friendly.find(params[:id])
+      
+      if @press_release.exclusive? && @press_release.hex != params[:hex]
+        @blocked = true
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
