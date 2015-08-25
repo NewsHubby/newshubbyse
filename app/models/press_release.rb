@@ -4,7 +4,8 @@ class PressRelease < ActiveRecord::Base
   
   has_many :uploads
   has_many :links
-  has_many :distributions
+
+  has_one :distribution
   
   serialize :properties, Hash
   

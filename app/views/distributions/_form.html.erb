@@ -23,7 +23,7 @@
 
         <div class="clearfix"></div>
 
-        <h3 class="text-center">Distribution av "Pressmeddelandets titel"</h3>
+        <h3 class="text-center">Distribution av "<%= @press_release.title %>"</h3>
         <br>
         <!-- <h5 class="text-muted text-center">Steg 1 av 2</h5> -->
 
@@ -31,7 +31,7 @@
 				  <% if @distribution.errors.any? %>
 				    <div id="error_explanation">
 				      <h2><%= pluralize(@distribution.errors.count, "error") %> prohibited this distribution from being saved:</h2>
-
+							
 				      <ul>
 				      <% @distribution.errors.full_messages.each do |message| %>
 				        <li><%= message %></li>
@@ -39,7 +39,9 @@
 				      </ul>
 				    </div>
 				  <% end %>
-
+					
+					<%= f.hidden_field :press_release_id, value: @press_release.id %>
+					
         <div class="col-sm-6">
              <div class="panel">
                  <div class="panel-body">
@@ -113,27 +115,27 @@
                     <p class="help-block">Rangordna upp till fem stycken. (T ex Aftonbladet, TechCrunch, Mama)</p>
                     <div class="input-group input-group-sm">
                         <span class="input-group-addon" id="sizing-addon1">1.</span>
-                        <input type="text" class="form-control" aria-describedby="sizing-addon1">
+                        <%= f.text_field :preferred1, class: "form-control", html: { "aria-describedby" => "sizing-addon1" } %>
                     </div>
                     <br>
                     <div class="input-group input-group-sm">
                         <span class="input-group-addon" id="sizing-addon1">2.</span>
-                        <input type="text" class="form-control" aria-describedby="sizing-addon1">
+												<%= f.text_field :preferred2, class: "form-control", html: { "aria-describedby" => "sizing-addon1" } %>
                     </div>
                     <br>
                     <div class="input-group input-group-sm">
                         <span class="input-group-addon" id="sizing-addon1">3.</span>
-                        <input type="text" class="form-control" aria-describedby="sizing-addon1">
+                        <%= f.text_field :preferred3, class: "form-control", html: { "aria-describedby" => "sizing-addon1" } %>
                     </div>
                     <br>
                     <div class="input-group input-group-sm">
                         <span class="input-group-addon" id="sizing-addon1">4.</span>
-                        <input type="text" class="form-control" aria-describedby="sizing-addon1">
+                        <%= f.text_field :preferred4, class: "form-control", html: { "aria-describedby" => "sizing-addon1" } %>
                     </div>
                     <br>
                     <div class="input-group input-group-sm">
                         <span class="input-group-addon" id="sizing-addon1">5.</span>
-                        <input type="text" class="form-control" aria-describedby="sizing-addon1">
+                        <%= f.text_field :preferred5, class: "form-control", html: { "aria-describedby" => "sizing-addon1" } %>
                     </div>
                  </div>
              </div> <!-- / .panel -->
@@ -154,150 +156,15 @@
                     <p class="help-block">Om du har några övriga önskemål eller frågor</p>
                     <%= f.text_area :misc_information, class: "form-control", rows: "3" %>
                     <br>
-                    <p class="small"><span class="text-warning"><strong>Viktigt!</strong></span> För att göra ett så bra PR-arbete som möjligt ger vi ofta en journalist/ publikation rätten att vara först om en nyhet i ett par timmar, det vill säga vi ger “exklusivitet”. Det innebär att vi arbetar med utskicket i flera dagar. Under den här perioden är det viktigt att inte ni själva, eller någon annan, skickar ut pressmeddelandet, då det kan komma att minimera journalistens förtroende för er, och därmed chansen att nå ut nästa gång. Vi informerar via mail när vi är klara med hela utskicket. För mer information om hur vår distribution fungerar besök vår <a href="#">F.A.Q.</a></p>
-                    <a href="distributionconfirm.html" type="submit" class="btn btn-primary btn-lg btn-block">Nästa</a>
+                    <p class="small"><span class="text-warning"><strong>Viktigt!</strong></span> För att göra ett så bra PR-arbete som möjligt ger vi ofta en journalist/ publikation rätten att vara först om en nyhet i ett par timmar, det vill säga vi ger “exklusivitet”. Det innebär att vi arbetar med utskicket i flera dagar. Under den här perioden är det viktigt att inte ni själva, eller någon annan, skickar ut pressmeddelandet, då det kan komma att minimera journalistens förtroende för er, och därmed chansen att nå ut nästa gång. Vi informerar via mail när vi är klara med hela utskicket. För mer information om hur vår distribution fungerar besök vår <%= link_to "F.A.Q.", questions_path %></p>
+                    <%= f.submit "Nästa" , class: "btn btn-primary btn-lg btn-block" %>
                  </div>
             </div> <!-- / .panel -->
         </div> <!-- / .col-sm-6 -->
 				<% end %>
 
-        <div class="col-sm-6">
-            <div class="panel panel-info">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <i class="fa fa-info pull-right"></i> Frågor och svar
-                </h4>
-            </div>
-            <div class="panel-body">
-                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" >
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="heading1">
-                            <h4 class="panel-title">
-                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
-                                    Hur fungerar distribution via NewsHubby?<i class="fa fa-angle-down pull-right"></i>
-                                </a>
-                            </h4>
-                        </div> <!-- / .panel-heading -->
-                        <div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
-                            <div class="panel-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto adipisci earum iusto, deleniti nostrum! Recusandae sed eaque neque dolore quia eius, provident enim corrupti error aliquid. Eius cum molestiae, possimus!</p>
-                            </div> <!-- / .panel-body -->
-                        </div> <!-- / #collapse1 -->
-                    </div> <!-- / .panel -->
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="heading2">
-                            <h4 class="panel-title">
-                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
-                                    Vad menas med en publikation?<i class="fa fa-angle-down pull-right"></i>
-                                </a>
-                            </h4>
-                        </div> <!-- / .panel-heading -->
-                        <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
-                            <div class="panel-body">
-                                <p>Till publikationer räknar vi papperstidningar, tidningar på nätet, professionella bloggar (typ Techcrunch, Mashable eller liknande), nyhetssajter samt andra professionella eller nischade sajter.</p>
-                            </div> <!-- / .panel-body -->
-                        </div> <!-- / #collapse2 -->
-                    </div> <!-- / .panel -->
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="heading3">
-                            <h4 class="panel-title">
-                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                                    Vad kostar det?<i class="fa fa-angle-down pull-right"></i>
-                                </a>
-                            </h4>
-                        </div> <!-- panel-heading -->
-                        <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
-                            <div class="panel-body">
-                                <p>Det kostar 5,000:- per publikation och du väljer själv hur många publikationer du max vill betala för. Du betalar aldrig om vi inte uppnår resultat. 
-Exempel: Om du har beställt 3 publikationer och vi bara lyckas bara nå ut i 2 så betalar du enbart för 2. Om du har beställt 3 publikationer och vi lyckas nå ut i 10 så betalar du fortfarande bara för 3. Det är du som bestämmer maxpriset.
-Om du istället väljer att prenumerera kostar det 5,000:- per månad.</p>
-                            </div> <!-- panel-body -->
-                        </div> <!-- panel-collapse -->
-                    </div> <!-- panel -->
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="heading5">
-                            <h4 class="panel-title">
-                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="false" aria-controls="collapse5">
-                                    Hur betalar jag?<i class="fa fa-angle-down pull-right"></i>
-                                </a>
-                            </h4>
-                        </div> <!-- panel-heading -->
-                        <div id="collapse5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5">
-                            <div class="panel-body">
-                                <p><strong>Enstaka publikationer:</strong> Om du beställer enstaka publikationer så faktureras du om och när vi har lyckats nå ut i det antal medier som du har beställt, eller när vi anser PR-arbetet vara avslutat. (Det kan hända att vi inte lyckas nå ut i det maxantal som du har beställt och då mailar vi dig när PR-arbetet är avslutat). Vi skickar fakturan till den mailadress som du har uppgett vid inloggning. Du kan aldrig bli fakturerad för mer än det du har beställt. När fakturan kommer har du två veckor på dig att betala.</p>
-                                <p><strong>Prenumeration:</strong> Du faktureras månadsvis, och när du får fakturan har du två veckor på dig att betala. Fakturan skickas till den mailadress som du uppgav vid inloggningen.</p>
-                            </div> <!-- panel-body -->
-                        </div> <!-- panel-collapse -->
-                    </div> <!-- panel -->
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="heading4">
-                            <h4 class="panel-title">
-                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="false" aria-controls="collapse4">
-                                    Vad innebär det att prenumerera?<i class="fa fa-angle-down pull-right"></i>
-                                </a>
-                            </h4>
-                        </div> <!-- panel-heading -->
-                        <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading4">
-                            <div class="panel-body">
-                                <p>Att prenumerera innebär att du kan skapa och skicka så många pressmeddelanden du vill, när du vill - dock tidigast tre dagar från att du gör beställningen. Prenumerationen löper årsvis vilket innebär att om du beställer en prenumeration den 23 september 2015 så har du den till minst 22 september 2016 - dock löper den vidare in på nytt år om du inte säger upp den. Om du inte vill att prenumerationen ska löpa vidare så måste du säga upp den genom att maila oss innan innevarande år löper ut. Det är alltså ok att säga upp prenumerationen fram till en dag innan den löper ut. Maila från den mailadress som du har loggat in med till <a href="mailto:hello@newshubby.com">hello@newshubby.com</a></p>
-                            </div> <!-- panel-body -->
-                        </div> <!-- panel-collapse -->
-                    </div> <!-- panel -->
-
-
-                    <div class="panel panel-info">
-                        <div class="panel-heading" role="tab" id="headingFAQ">
-                            <h4 class="panel-title">
-                                <a href="#" target="_blank">
-                                    Har du fler frågor? Besök vår <strong>F.A.Q.</strong> <small class="text-muted">(öppnas i en ny flik)</small><i class="fa fa-angle-right pull-right"></i>
-                                </a>
-                            </h4>
-                        </div> <!-- panel-heading -->
-                    </div> <!-- / .panel -->
-                </div>  <!-- / .panel-group -->
-            </div> <!-- / .panel-body -->
-        </div> <!-- / .panel -->
-        </div> <!-- / .col-sm-6 -->
+				<%= render "distributions/questions" %>
 
     </div> <!--- / .container -->
     <div class="push"></div>
 </div>
-
-<%= form_for([@press_room, @press_release, @distribution], url: press_room_press_release_distributions_path) do |f| %>
-  <% if @distribution.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@distribution.errors.count, "error") %> prohibited this distribution from being saved:</h2>
-
-      <ul>
-      <% @distribution.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :no_publications %><br>
-    <%= f.text_field :no_publications %>
-  </div>
-  <div class="field">
-    <%= f.label :preferred1 %><br>
-    <%= f.text_area :preferred1 %>
-  </div>
-  <div class="field">
-    <%= f.label :distribution_date %><br>
-    <%= f.datetime_select :distribution_date %>
-  </div>
-  <div class="field">
-    <%= f.label :misc_information %><br>
-    <%= f.text_area :misc_information %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

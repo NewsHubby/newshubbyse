@@ -18,7 +18,7 @@ class DistributionsController < ApplicationController
   def new
     @press_release = PressRelease.friendly.find(params[:press_release_id])
     @press_room = PressRoom.friendly.find(params[:press_room_id])
-    @distribution = Distribution.new
+    @distribution = Distribution.new#(press_release_id: @press_release.id)
     #respond_with(@distribution)
   end
 
@@ -26,9 +26,14 @@ class DistributionsController < ApplicationController
   end
 
   def create
+    @press_release = PressRelease.friendly.find(params[:press_release_id])
+    @press_room = PressRoom.friendly.find(params[:press_room_id])
+    
+    
     @distribution = Distribution.new(distribution_params)
     @distribution.save
-    respond_with(@distribution)
+    #respond_with(press_room_press_release_distribution_path([@distribution.press_release, @distribution.press_release, @distribution]))
+    redirect_to press_room_press_release_distribution_path(@press_room.id, @press_release.id, @distribution)
   end
 
   def update
@@ -47,6 +52,6 @@ class DistributionsController < ApplicationController
     end
 
     def distribution_params
-      params.require(:distribution).permit(:no_publications, :preferred1, :distribution_date, :misc_information, :press_release_id)
+      params.require(:distribution).permit(:no_publications, :preferred1, :preferred2, :preferred3, :preferred4, :preferred5, :distribution_date, :misc_information, :press_release_id)
     end
 end

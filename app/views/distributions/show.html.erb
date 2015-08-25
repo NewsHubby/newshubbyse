@@ -1,22 +1,72 @@
-<p id="notice"><%= notice %></p>
+<div class="short-page">
+    <div class="container">
 
-<p>
-  <strong>No publications:</strong>
-  <%= @distribution.no_publications %>
-</p>
+        <div class="col-sm-6 col-sm-offset-4 col-xs-12">
+            <div class="row bs-wizard" style="border-bottom:0;">
 
-<p>
-  <strong>Preferred1:</strong>
-  <%= @distribution.preferred1 %>
-</p>
+                <div class="col-sm-4 col-xs-6 bs-wizard-step complete">
+                    <div class="text-center bs-wizard-stepnum">Steg 1</div>
+                    <div class="progress"><div class="progress-bar"></div></div>
+                    <a href="distributionselect.html" class="bs-wizard-dot"></a>
+                    <div class="bs-wizard-info text-center">Välj distribution</div>
+                </div>
 
-<p>
-  <strong>Distribution date:</strong>
-  <%= @distribution.distribution_date %>
-</p>
+                <div class="col-sm-4 col-xs-6 bs-wizard-step active">
+                    <div class="text-center bs-wizard-stepnum">Steg 2</div>
+                    <div class="progress"><div class="progress-bar"></div></div>
+                    <span class="bs-wizard-dot"></span>
+                    <div class="bs-wizard-info text-center">Bekräfta val & beställ</div>
+                </div>
 
-<p>
-  <strong>Misc information:</strong>
-  <%= @distribution.misc_information %>
-</p>
+            </div>
+        </div>
 
+        <div class="clearfix"></div>
+
+        <h3 class="text-center">Distribution av "<%= @distribution.press_release.title %>"</h3>
+        <br>
+        <!-- <h5 class="text-muted text-center">Steg 1 av 2</h5> -->
+        <div class="col-sm-7">
+            <div class="panel">
+                <div class="panel-body">
+                    <h4>Översikt</h4>
+                    <p class="help-block">Här är de val du gjort, kontrollera att allt stämmer.</p>
+                    <ul id="distribution-choices">
+                        <li><%= @distribution.no_publications %> publikationer - 10 000 kr</li>
+                        <li>Jag vill helst nå ut i:
+                            <ol>
+                                <li><%= @distribution.preferred1 %></li>
+                                <li><%= @distribution.preferred2 %></li>
+                                <li><%= @distribution.preferred3 %></li>
+                                <li><%= @distribution.preferred4 %></li>
+                                <li><%= @distribution.preferred5 %></li>
+                            </ol>
+                            <ul>
+                                <li>Ej specificerat</li>
+                            </ul>
+                        </li>
+                        <li>Första utsticksdatum: <%= l(@distribution.distribution_date, format: '%d %B %Y') %></li>
+                        <li>Meddelande till NewsHubby:<ul><li><%= simple_format(@distribution.misc_information) %></li></ul></li>
+                    </ul>
+                         
+                </div> <!-- / .panel-body -->
+            </div> <!-- / .panel -->
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Jag har läst och godkänner NewsHubbys <a href="#">användarvillkor för distribution</a>.
+                        </label>
+                    </div>
+                    <p class="small">Du faktureras maximalt för det belopp du själv har valt, om vi lyckas nå ut. När du klickar “Beställ” ger du NewsHubby ensamrätt (länk till: **) till nyheten tills den är utskickad till alla medier och ni får ett meddelande om detta av NewsHubby.</p>
+                    <a href="distributioncomplete.html" type="submit" class="btn btn-success btn-lg btn-block">Beställ</a>
+                </div>
+            </div>
+        </div>
+
+				<%= render "distributions/questions" %>
+        
+
+    </div> <!--- / .container -->
+    <div class="push"></div>
+</div>

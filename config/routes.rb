@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :press_rooms, :path => '/' do
     get :autocomplete_press_release_title, :on => :collection
     resources :press_releases, path: 'pressreleases' do
-      resources :distributions, shallow: true
+      resources :distributions#, shallow: true
     end
     resources :people
     resources :fundings
