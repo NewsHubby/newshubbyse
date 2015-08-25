@@ -31,7 +31,8 @@ class PressReleaseTypesController < ApplicationController
   # POST /press_release_types.json
   def create
     @press_release_type = PressReleaseType.new(press_release_type_params)
-
+    @category = Category.find(params[:category_id])
+    
     respond_to do |format|
       if @press_release_type.save
         format.html { redirect_to category_press_release_type_path(@category, @press_release_type), notice: 'Press release type was successfully created.' }

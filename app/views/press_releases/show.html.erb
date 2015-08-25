@@ -62,7 +62,13 @@
 <div class="container-fluid pr-container">
 	<%= render "press_releases/partials/press_release" %>
 </div>
-</div>
+
 </div>
 
+</div>
+
+<%= link_to root_path, target: "_blank", class: "pr-generated" do %>
+	<p class="text-center">PRESSMEDDELANDET SKAPAT MED</p>
+	<%= image_tag "/media/newshubby_logotype_png.png", alt: "newshubby.com", id: "newshubby-bw", class: "center-block", alt: "Link to www.newshubby.com", width: "200" %>
+<% end %>
 <br>

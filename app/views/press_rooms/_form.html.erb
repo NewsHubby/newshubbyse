@@ -27,7 +27,7 @@
 		<div class="row">
 			<div class="col-md-10">
 				<h4>
-					Redigera pressrum: <span class="text-muted"><%= @press_room.company_name %></span>
+					Redigera pressrum
 					<% if can? :update, @press_room %>
 						<span class="pull-right">
 							<%= link_to @press_room do %>
@@ -113,7 +113,6 @@
 				<h5>Introduktion</h5>
 				<div class="panel panel-defaul">
 					<div class="panel-body">
-						<strong>
 						<h4>Problem ni löser</h4>
 						<p>
 						<%= f.label :problem_solved, "Vilket problem löser #{@press_room.company_name}" %>
@@ -314,8 +313,8 @@
           $('#myModal').modal('show')
       });
       </script>
-
 <% end %>
+
 
 <% end %>
 <% end %>

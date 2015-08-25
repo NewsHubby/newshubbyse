@@ -67,6 +67,9 @@ gem 'aws-sdk'
 # Best In Place
 gem 'best_in_place', '~> 3.0.1'
 
+# Remotipart for AJAX file uploads
+gem 'remotipart', '~> 1.2'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -1,4 +1,4 @@
-<div class="question" id="q">
+<div class="question" id="q<%= index+2 %>">
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12">
@@ -14,7 +14,7 @@
 											<% elsif field_name == :text_manual %>
 								      	<%= f.text_area field.name, class: "form-control fixed-textarea", rows: "14", id: "textarea", onfocus: "this.value = this.value;" %>
 											<% else %>
-
+											<%= f.text_area field.name, class: "form-control fixed-textarea", rows: "4", id: "textarea", onfocus: "this.value = this.value;" %>
 											<% end %>
                     </div> <!-- / .panel-body -->
                 </div> <!-- / .panel -->
