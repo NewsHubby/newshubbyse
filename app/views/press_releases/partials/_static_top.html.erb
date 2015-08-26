@@ -42,11 +42,9 @@
                     <h1><%= @press_release.title %></h1><br>
 										<div class="feature-img-area">
 											<% unless @press_release.uploads.first.nil? %>
-	                    <% if @press_release.uploads.first.blank? %>
-											<%= image_tag "images/feature_img.png", class: "center-block feature-img", alt: "" %>
-											<% else %>
-                        <%= link_to (image_tag @press_release.uploads.first.file.url(:medium), class: "center-block feature-img", alt: ""), @press_release.uploads.first.file.url(:original) unless @press_release %>
-											<% end %><% end %>
+                        <%= link_to @press_release.uploads.first.file.url(:original) do %>
+												<%= image_tag @press_release.uploads.first.file.url(:medium), class: "center-block feature-img", alt: "" %>
+												<% end %><% end %>
                         <div class="feature-img-caption">
                             <p><small>
 															<% if @press_release.uploads.first.blank? %>

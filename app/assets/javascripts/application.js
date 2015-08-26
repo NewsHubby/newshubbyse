@@ -16,6 +16,7 @@
 //= require jquery.remotipart
 //= require jquery-ui
 //= require jquery_nested_form
+//= require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require autocomplete-rails
 //= require turbolinks

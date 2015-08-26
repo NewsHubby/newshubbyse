@@ -167,7 +167,7 @@
 													<% end %>
                       </div>
 											<%= link_to [@press_room, press_release] do %>
-												<%= image_tag press_release.uploads.first.file.url(:medium), alt: "" %>
+												<%= image_tag press_release.uploads.first.file.url(:medium), alt: "" unless press_release.uploads.blank? %>
 											<% end %>
                       <div class="caption">
                           <time class="pull-right text-muted clearfix" datetime="<%= press_release.embargo.strftime("%D") unless press_release.embargo %>">
