@@ -1,4 +1,3 @@
-
 <div class="shortPage">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -10,7 +9,7 @@
 				Kontoinställningar
 			</div>
 			<div class="panel-body">
-				<h4>Byt lösenord</h4>
+				<h4>Ändra epost-adress</h4>
 				<div class="row">
 					<div class="col-sm-5">
 						<div class="form-group">
@@ -18,42 +17,49 @@
 					    <%= f.email_field :email, autofocus: true, class: "form-control" %>
 						</div>
 					</div>
-					
+				</div>
+					<hr>
 				  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
 				    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
 				  <% end %>
 					
+					<h4>Byt lösenord</h4>
+					
+					<div class="row">
 						<div class="col-sm-5">
 							<div class="form-group">
 								<%= f.label :password, "Nytt lösenord" %> <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
 							</div>
 						</div>
-					</div>
 					
 					<div class="col-sm-5">
 						<div class="form-group">
 							<%= f.label :password_confirmation, "Bekräfta nytt lösenord" %> <%= f.password_field :password_confirmation, class: "form-control" %>
 						</div>
 					</div>
-					
+				</div>
+										
+				<div class="row">
 					<div class="col-sm-5">
 						<div class="form-group">
 							<%= f.label :current_password, "Nuvarande lösenord" %> <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
 						</div>
 					</div>
+					
+				</div>				
 
-				</div>
-		<div>
-			<%= f.submit "Spara", class: "btn btn-success", role: "button" %>
-		</div>
-		<hr>
-		<div>
+					<%= f.submit "Spara", class: "btn btn-success", role: "button" %>
+					<hr>
+		<div class="row">
+			<div class="col-sm-10">
 			<h4>Avsluta ditt NewsHubby-konto</h4>
 			<p>
 				Att ta bort sitt konto innebär att du tar bort ditt pressrum och alla pressmeddelanden du skapat. Det går inte att ångra sig och återfå informationen.
 			</p>
 			<%= button_to "Ta bort konto", registration_path(resource_name), class: "btn btn-danger", data: { confirm: "Helt säker? Det går inte att ångra sig och all information försvinner för evigt." }, method: :delete %>
 		</div>
+	</div>
+		
 		</div>
 		</div>
 		</div>
