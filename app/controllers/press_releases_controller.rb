@@ -1,6 +1,9 @@
 class PressReleasesController < ApplicationController
   before_action :set_press_release, only: [:show, :edit, :update, :destroy]
     
+  load_and_authorize_resource :press_room
+  load_and_authorize_resource :press_release, :through => :press_room  
+  
   # GET /press_releases
   # GET /press_releases.json
   def index
@@ -14,9 +17,9 @@ class PressReleasesController < ApplicationController
     
     
     if can? :update, @press_room
-      @press_releases = @press_room.press_releases.where(exclusive: false).where("embargo <= ?", Date.today).search(params[:search]).paginate(:page => params[:page], :per_page => 2)
-    else
       @press_releases = @press_room.press_releases.paginate(:page => params[:page], :per_page => 10)
+    else
+      @press_releases = @press_room.press_releases.where(exclusive: false).where("embargo <= ?", Date.today).search(params[:search]).paginate(:page => params[:page], :per_page => 10)
     end
     
   end
@@ -24,6 +27,11 @@ class PressReleasesController < ApplicationController
   # GET /press_releases/1
   # GET /press_releases/1.json
   def show
+    
+    if cannot? :manage, @press_release || @blocked
+      flash[:notice] = "Pressmeddelandet finns inte!"
+      redirect_to :root
+    end
   end
 
   # GET /press_releases/new

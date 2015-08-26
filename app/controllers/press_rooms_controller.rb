@@ -27,9 +27,9 @@ class PressRoomsController < ApplicationController
   def show
     
     if can? :update, @press_room
-      @press_releases = @press_room.press_releases.where(exclusive: false).where("embargo <= ?", Date.today).search(params[:search]).paginate(:page => params[:page], :per_page => 2)
-    else
       @press_releases = @press_room.press_releases.paginate(:page => params[:page], :per_page => 2)
+    else
+      @press_releases = @press_room.press_releases.where(exclusive: false).where("embargo <= ?", Date.today).search(params[:search]).paginate(:page => params[:page], :per_page => 2)
     end
     
   end

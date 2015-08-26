@@ -25,7 +25,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_press_room.company_name %> <span class="caret"></span></a>
             <ul class="dropdown-menu">
                 <li><%= link_to current_press_room do %><i class="fa fa-home fa-fw"></i>&nbsp;Pressrum<% end %></li>
-                <li><%= link_to "#" do %><i class="fa fa-cog fa-fw"></i>&nbsp;Kontoinställningar<% end %></li>
+                <li><%= link_to edit_press_room_registration_path do %><i class="fa fa-cog fa-fw"></i>&nbsp;Kontoinställningar<% end %></li>
                 <li class="divider"></li>
                 <li><%= link_to destroy_press_room_session_path, method: :delete do %><i class="fa fa-sign-out fa-fw">&nbsp;</i>&nbsp;Logga ut<% end %></li>
             </ul>
