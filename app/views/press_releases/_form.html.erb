@@ -32,17 +32,17 @@
 				<div class="text-center" id="bottom-container">
 	                <div class="col-xs-4">
 		                <%= button_tag class: "btn btn-ghost2 prestoSkipBtn pull-left", id: "prev" do %>
-						<i class="fa fa-arrow-left"></i>&nbsp;Previous
+						<i class="fa fa-arrow-left"></i>&nbsp;Föregående
 						<% end %>
 	                </div>
 	                <div class="col-xs-4">
 	                    <%= link_to [@press_room, @press_release] do %>
-					<button class="btn btn-success" id="distribute" role="button">Finish</button>
+					<button class="btn btn-success" id="distribute" role="button">Klar</button>
 					<% end %>
 	                </div>
 	                <div class="col-xs-4">
 	                    <%= button_tag class: "btn btn-ghost prestoSkipBtn pull-right", id: "next" do %>
-					Next&nbsp;<i class="fa fa-arrow-right"></i>
+					Nästa&nbsp;<i class="fa fa-arrow-right"></i>
 					<% end %>
 	                </div>
 	            </div> <!-- / #bottom-container -->
@@ -70,7 +70,7 @@
 								<div class="panel panel-default">
 									<div class="panel-heading">
 										<i class="fa fa-question-circle fa-lg intHelp pull-right hidden-xs text-primary hints" data-toggle="tooltip" data-placement="left" title="Toggle help"></i>
-										<h3 class="panel-title text-left">From what date do you allow journalists to publish information from this press release?</h3>
+										<h3 class="panel-title text-left">Från vilket datum får journalister publicera information från detta pressmeddelande?</h3>
 									</div> <!-- / .panel-heading -->
 									<div class="panel-body">
 										<%= f.date_select :embargo, class: "form-control fixed-textarea", rows: "4", id: "textarea", onfocus: "this.value = this.value;" %>
@@ -104,7 +104,7 @@
 								<div class="panel panel-default">
 									<div class="panel-heading">
 										<i class="fa fa-question-circle fa-lg intHelp pull-right hidden-xs text-primary hints" data-toggle="tooltip" data-placement="left" title="Toggle help"></i>
-										<p class="panel-title text-left">Press Release Title</p>
+										<p class="panel-title text-left">Pressmeddelandets rubrik</p>
 									</div> <!-- / .panel-heading -->
 									<div class="panel-body">
 										<%= f.text_field :title, class: "form-control fixed-textarea", rows: "4", id: "textarea", onfocus: "this.value = this.value;" %>
@@ -125,9 +125,9 @@
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-xs-12">
-								<h4 class="question-title">External Links & Videos</h4>
+								<h4 class="question-title">Länkar och videoklipp</h4>
 								<%= f.fields_for :links do |link| %>
-								<%= render 'press_releases/fields/links', f: link %>
+									<%= render 'press_releases/fields/links', f: link %>
 								<% end %>
 
 								<div class="text-center">
@@ -143,19 +143,19 @@
 				<div class="overlay-message" id="modal<%= 3 + @press_release.press_release_type.fields.count %>">
 					<div class="panel panel-default">
 						<div class="panel-body">
-							<button type="button" class="close closeModal" id="closeIntHints"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<button type="button" class="close closeModal" id="closeIntHints"><span aria-hidden="true">&times;</span><span class="sr-only">Stäng</span></button>
 							<h5>
-								<span class="text-primary"><strong>Example: </strong></span>
+								<span class="text-primary"><strong>Exempel: </strong></span>
 							</h5>
 							<p>
-								Paste your link in the link field and write a succinct description in the caption field.
+								Klistra in din länk i länkfältet och skriv en kort förklaring i beskrivnings-fältet.
 							</p>
 							<br>
 							<h5>
-								<span class="text-primary"><strong>Remember: </strong></span>
+								<span class="text-primary"><strong>Kom ihåg: </strong></span>
 							</h5>
 							<p>
-								Double check that your links are correct and working. Video links from Youtube and Vimeo will be displayed as embedded videos in your press release.
+								Dubbelkolla att dina länkar fungerar. Videolänkar från Youtube och Vimeo visas som inbakade videoklipp direkt i ditt pressmeddelande.
 							</p>
 						</div> <!-- / .panel-body -->
 					</div> <!-- / .panel -->
@@ -167,14 +167,14 @@
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-xs-12">
-								<h4 class="question-title">Images</h4>
+								<h4 class="question-title">Bilder</h4>
 								<%= f.fields_for :uploads do |upload| %>
-								<%= render 'press_releases/fields/uploads', f: upload %>	
+									<%= render 'press_releases/fields/uploads', f: upload %>	
 								<% end %>
 
 								<div class="text-center">
 									<%= f.link_to_add :uploads, class: "add-new" do %>
-										<button class="btn btn-ghost"><i class="glyphicon glyphicon-plus"></i> Add Upload</button>
+										<button class="btn btn-ghost"><i class="glyphicon glyphicon-plus"></i> Lägg till bild</button>
 									<% end %>
 								</div>
 								<br>
@@ -187,13 +187,13 @@
 				<div class="overlay-message" id="modal<%= 4 + @press_release.press_release_type.fields.count %>">
 					<div class="panel panel-default">
 						<div class="panel-body">
-							<button type="button" class="close closeModal" id="closeIntHints"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<button type="button" class="close closeModal" id="closeIntHints"><span aria-hidden="true">&times;</span><span class="sr-only">Stäng</span></button>
 
 							<h5>
-								<span class="text-primary"><strong>Remember: </strong></span>
+								<span class="text-primary"><strong>Kom ihåg: </strong></span>
 							</h5>
 							<p>
-								For now, only upload image files.
+								I dagsläget går det bara att ladda upp bilder.
 							</p>
 						</div> <!-- / .panel-body -->
 					</div> <!-- / .panel -->
@@ -210,7 +210,7 @@
 									</div> <!-- / .panel-heading -->
 									<div class="panel-body">
 										<p>
-											Read through your finished Press Release and when satisified with your answers click "Finish" to continue to your distribution options. You can always  go back and polish your answers at any time.
+											Läs igenom ditt färdiga pressmeddelande nog och klicka "Klar" när du känne dig färdig. Då får du se ditt färdiga pressmeddelande och har möjlighet att skicka ut pressmeddelandet till media. Du kan alltid gå tillbaka och ändra i ditt pressmeddelande om du vill.
 										</p>
 									</div> <!-- / .panel-body -->
 								</div> <!-- / .panel -->

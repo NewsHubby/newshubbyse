@@ -42,6 +42,7 @@ class PressReleasesController < ApplicationController
 
   # GET /press_releases/1/edit
   def edit
+    @presto = true
   end
 
   # POST /press_releases

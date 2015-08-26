@@ -24,22 +24,22 @@
 </div> <!-- / .question -->
 
 <% if @nr_questions %>
-<div class="overlay-message" id="modal">
+<div class="overlay-message" id="modal<%= index+2 %>">
 <% else %>
-<div class="overlay-message" id="modal">
+<div class="overlay-message" id="modal<%= index+2 %>">
 <% end %>
 		<div class="panel panel-default">
         <div class="panel-body">
-            <button type="button" class="close closeModal" id="closeIntHints"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <button type="button" class="close closeModal" id="closeIntHints"><span aria-hidden="true">&times;</span><span class="sr-only">Stäng</span></button>
             <h5>
-                <span class="text-primary"><strong>Example: </strong></span>
+                <span class="text-primary"><strong>Exempel: </strong></span>
             </h5>
             <p>
               <%= simple_format(field.example) %>
             </p>
             <br>
             <h5>
-                <span class="text-primary"><strong>Tip: </strong></span>
+                <span class="text-primary"><strong>Tips: </strong></span>
             </h5>
             <p>
              	<%= simple_format(field.tip) %>

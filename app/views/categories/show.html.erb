@@ -6,7 +6,7 @@
 		<h3><%= @category.name %></h3>
 		<p><%= @category.description %></p>
 		<% if can? :manage, PressReleaseType %>
-					<p><%= link_to 'New Press Release Type', new_category_press_release_type_path(@category) %></p>
+					<p><%= link_to 'Ny pressmeddelande-typ', new_category_press_release_type_path(@category) %></p>
 		<% end %>
 	</div>
 	
@@ -28,6 +28,13 @@
                 <div class="media-body">
                   <h4 class="media-heading"><%= press_release_type.name %></h4>
                   <p><%= press_release_type.description %></p>
+
+									<% if can? :manage, PressReleaseType %>
+									<p>
+										<%= link_to "Redigera pressmeddelandetyp", edit_category_press_release_type_path(@category, press_release_type) %> <br> <%= link_to "Ta bort pressmeddelandetyp", category_press_release_type_path(@category, press_release_type), method: "_destroy" %>
+									</p>
+									<% end %>
+									
                 </div>
               </div>
             </div>
