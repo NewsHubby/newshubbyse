@@ -17,6 +17,8 @@
 //= require jquery-ui
 //= require jquery_nested_form
 //= require jquery.turbolinks
+//= require masonry/jquery.masonry
+//= require masonry/jquery.imagesloaded.min
 //= require bootstrap-sprockets
 //= require autocomplete-rails
 //= require turbolinks

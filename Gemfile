@@ -73,6 +73,9 @@ gem 'remotipart', '~> 1.2'
 # Load JavaScript properly
 gem 'jquery-turbolinks'
 
+# Masonry
+gem 'masonry-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
