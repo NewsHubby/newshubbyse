@@ -28,10 +28,13 @@ class PressReleasesController < ApplicationController
   # GET /press_releases/1.json
   def show
     
-    if cannot? :manage, @press_release || @blocked
-      flash[:notice] = "Pressmeddelandet finns inte!"
-      redirect_to :root
+    if cannot? :manage, @press_release
+      if @blocked
+        flash[:notice] = "Pressmeddelandet finns inte!"
+        redirect_to :root
+      end
     end
+    
   end
 
   # GET /press_releases/new
