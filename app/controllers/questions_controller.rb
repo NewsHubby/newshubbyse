@@ -1,8 +1,12 @@
 class QuestionsController < ApplicationController
+  load_and_authorize_resource :question
+
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
 
+  #load_and_authorize_resource :question, :through => :press_room
+  
   def index
     @questions = Question.all
     respond_with(@questions)

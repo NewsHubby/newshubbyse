@@ -63,7 +63,7 @@ class PressReleaseTypesController < ApplicationController
   def destroy
     @press_release_type.destroy
     respond_to do |format|
-      format.html { redirect_to press_release_types_url, notice: 'Press release type was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: 'Press release type was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

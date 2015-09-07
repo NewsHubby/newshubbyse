@@ -4,7 +4,6 @@ class Ability
   def initialize(press_room)
     
     press_room ||= PressRoom.new # guest user (not logged in)
-    #can :manage, :all
 
     if press_room.admin?
       can :manage, :all
@@ -15,6 +14,8 @@ class Ability
 
       can :manage, PressRelease, press_room_id: press_room.id
 
+      can :read, Question
+      
       #can :manage, Link, press_room_id: press_room.id
 
       #can :manage, Upload, press_room_id: press_room.id

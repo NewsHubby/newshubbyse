@@ -57,7 +57,7 @@
 											<% if link.link.include? "vimeo.com" %>
                         <div class="col-sm-4 brick">
                             <div class="embed-responsive embed-responsive-4by3">
-                                <iframe class="embed-responsive-item" src="//player.vimeo.com/video/<%= link.link.gsub(/.*com\//, '') %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                <iframe class="embed-responsive-item" src="//player.vimeo.com/video/<%= link.link.gsub(/.*com\//, '') %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>	
                             </div>
                             <p><small><%= link.caption %></small></p>
                         </div>
@@ -67,6 +67,4 @@
                 </div> <!-- / .col-xs-10 col-xs-offset-1 -->
             </div> <!-- / .row -->
 						<% end %>
-
-
 

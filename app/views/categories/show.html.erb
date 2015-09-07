@@ -31,7 +31,7 @@
 
 									<% if can? :manage, PressReleaseType %>
 									<p>
-										<%= link_to "Redigera pressmeddelandetyp", edit_category_press_release_type_path(@category, press_release_type) %> <br> <%= link_to "Ta bort pressmeddelandetyp", category_press_release_type_path(@category, press_release_type), method: "_destroy" %>
+										<%= link_to "Redigera pressmeddelandetyp", edit_category_press_release_type_path(@category, press_release_type) %> <br> <%= link_to "Ta bort pressmeddelandetyp", category_press_release_type_path(@category, press_release_type), method: :delete, data: { confirm: 'Helt säker? Du kan inte ångra dig' }  %>
 									</p>
 									<% end %>
 									
