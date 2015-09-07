@@ -97,7 +97,7 @@
 				</div> <!-- / .overlay-message -->
 
 
-				<div class="question" id="q<%= 2 + @press_release.press_release_type.fields.count %>">
+				<div class="question" id="q<%= 2 + @field_count %>">
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-xs-12">
@@ -116,12 +116,12 @@
 				</div> <!-- / .question -->
 				
 				<%= f.fields_for :properties, OpenStruct.new(@press_release.properties) do |builder| %>
-					<% @press_release.press_release_type.fields.each_with_index do |field, index| %>
+					<% @press_release.press_release_type.fields.where.not(field_type: "line_break").each_with_index do |field, index| %>
 						<%= render "press_releases/fields/#{field.field_type}", field: field, index: index, f: builder %>
 					<% end %>
 				<% end %>
 
-				<div class="question" id="q<%= 3 + @press_release.press_release_type.fields.count %>">
+				<div class="question" id="q<%= 3 + @field_count %>">
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-xs-12">
@@ -140,7 +140,7 @@
 					</div> <!-- / .container-fluid -->
 				</div> <!-- / .question -->
 
-				<div class="overlay-message" id="modal<%= 3 + @press_release.press_release_type.fields.count %>">
+				<div class="overlay-message" id="modal<%= 3 + @field_count %>">
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<button type="button" class="close closeModal" id="closeIntHints"><span aria-hidden="true">&times;</span><span class="sr-only">Stäng</span></button>
@@ -162,7 +162,7 @@
 				</div> <!-- / .overlay-message -->
 
 
-				<div class="question" id="q<%= 4 + @press_release.press_release_type.fields.count %>">
+				<div class="question" id="q<%= 4 + @field_count %>">
 
 					<div class="container-fluid">
 						<div class="row">
@@ -184,7 +184,7 @@
 				</div> <!-- / .question -->
 
 
-				<div class="overlay-message" id="modal<%= 4 + @press_release.press_release_type.fields.count %>">
+				<div class="overlay-message" id="modal<%= 4 + @field_count %>">
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<button type="button" class="close closeModal" id="closeIntHints"><span aria-hidden="true">&times;</span><span class="sr-only">Stäng</span></button>
@@ -200,7 +200,7 @@
 				</div> <!-- / .overlay-message -->
 
 
-				<div class="question" id="q<%= 5 + @press_release.press_release_type.fields.count %>">
+				<div class="question" id="q<%= 5 + @field_count %>">
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-xs-12">

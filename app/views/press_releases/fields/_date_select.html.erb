@@ -9,7 +9,6 @@
                         <p class="panel-title text-left"><%= field.question.gsub(/CompanyName/, "#{@press_room.company_name}").gsub(/CompanyName's/, "#{@press_room.company_name.possessive}") %></p>
                     </div> <!-- / .panel-heading -->
                     <div class="panel-body">
-						<%= f.label field.name %><br />
 						<% if @date.blank? %>
 						<%= f.date_select field.name %>
 						<% else %>

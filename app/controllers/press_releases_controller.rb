@@ -54,6 +54,8 @@ class PressReleasesController < ApplicationController
   # GET /press_releases/1/edit
   def edit
     @presto = true
+    
+    @field_count = @press_release.press_release_type.fields.where.not(field_type: "line_break").count
   end
 
   # POST /press_releases
