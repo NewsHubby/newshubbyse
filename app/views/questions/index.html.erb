@@ -1,12 +1,18 @@
 <div class="short-page">
 	<div class="container">
+		
 		<div class="col-sm-8 col-sm-offset-2">
+			<% if can? :manage, Question %>
+				<%= link_to 'Nytt FAQ-inlägg', new_question_path %>
+			<% end %>
+			
 			<div class="panel panel-info">
 				<div class="panel-heading">
 					<h4 class="panel-title">
 						<i class="fa fa-info pull-right"></i> Frågor och svar
 					</h4>
 				</div>
+				
 				<div class="panel-body">
 					<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" >
 						<% @questions.each_with_index do |question, index| %>
@@ -21,6 +27,11 @@
 							<div id="collapse<%= index %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= index %>">
 								<div class="panel-body">
 									<p><%= question.answer %></p>
+									
+									<% if can? :manage, Question %>
+										<p><%= link_to 'Redigera fråga', edit_question_path(question) %></p>
+										<p><%= link_to 'Ta bort fråga', question, method: :delete, data: { confirm: 'Helt säker? Omöjligt att ångra!' } %></p>
+									<% end %>
 								</div> <!-- / .panel-body -->
 							</div> <!-- / #collapse1 -->
 						</div> <!-- / .panel -->
@@ -300,31 +311,3 @@
 	</div> <!--- / .container -->
 	<div class="push"></div>
 </div> <!-- / .short-page -->
-
-<h1>Listing questions</h1>
-
-<table>
-	<thead>
-		<tr>
-			<th>Question</th>
-			<th>Answer</th>
-			<th colspan="3"></th>
-		</tr>
-	</thead>
-
-	<tbody>
-		<% @questions.each do |question| %>
-		<tr>
-			<td><%= question.question %></td>
-			<td><%= question.answer %></td>
-			<td><%= link_to 'Show', question %></td>
-			<td><%= link_to 'Edit', edit_question_path(question) %></td>
-			<td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		</tr>
-		<% end %>
-	</tbody>
-</table>
-
-<br>
-
-<%= link_to 'Nytt FAQ-inlägg', new_question_path %>
