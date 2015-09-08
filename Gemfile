@@ -75,6 +75,7 @@ gem 'masonry-rails'
 
 group :production do
   gem 'puma'
+  gem 'mysql2'
 end
 
 # Use ActiveModel has_secure_password
