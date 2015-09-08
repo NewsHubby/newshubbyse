@@ -22,4 +22,3 @@
 //= require bootstrap-sprockets
 //= require autocomplete-rails
 //= require turbolinks
-//= require_tree .
