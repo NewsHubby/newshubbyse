@@ -100,6 +100,7 @@ GEM
       cocaine (~> 0.5.3)
       mime-types
     possessive (1.0.1)
+    puma (2.13.4)
     rack (1.5.3)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -180,6 +181,7 @@ DEPENDENCIES
   nested_form
   paperclip (~> 4.2)
   possessive
+  puma
   rails (= 4.1.8)
   rails4-autocomplete
   remotipart (~> 1.2)
