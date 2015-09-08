@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap-sprockets
 //= require best_in_place
 //= require jquery_ujs
 //= require jquery.remotipart
@@ -19,6 +20,6 @@
 //= require jquery.turbolinks
 //= require masonry/jquery.masonry
 //= require masonry/jquery.imagesloaded.min
-//= require bootstrap-sprockets
 //= require autocomplete-rails
 //= require turbolinks
+//= require_tree .
