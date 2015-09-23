@@ -64,7 +64,7 @@ class PressRoomsController < ApplicationController
   def update
     respond_to do |format|
       if @press_room.update(press_room_params)
-        format.html { redirect_to @press_room, notice: 'Press room was successfully updated.' }
+        format.html { redirect_to @press_room, notice: 'Pressrummet sparades.' }
         format.json { render :show, status: :ok, location: @press_room }
       else
         format.html { render :edit }

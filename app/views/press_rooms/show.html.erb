@@ -31,7 +31,7 @@
                                   
                                   <div class="col-sm-8">
                                       <h2><%= @press_room.company_name %></h2>
-                                          <p>grundat i <%= l(@press_room.founded, format: '%B %Y' unless @press.room.founded.blank) %></p>
+                                          <p>grundat i <%= l(@press_room.founded, format: '%B %Y') unless @press_room.founded.blank? %></p>
                                           <ul id="company-basic-info-list">
                                               <li><i class="fa fa-map-marker fa-fw"></i>&nbsp;<%= link_to "https://www.google.com/maps/place/#{@press_room.latitude},#{@press_room.longitude}", target: "_blank" do %><%= @press_room.location %><% end %></li>
                                               <li><i class="fa fa-home fa-fw"></i>&nbsp;<%= link_to @press_room.website, @press_room.website %></li>
@@ -43,7 +43,7 @@
                                   <div class="col-sm-4">
 																		<div class="centerContainer">
 																			<div class="centerContent">
-                                      <%= image_tag @press_room.logo.url(:medium), class: "img-responsive", alt: "#{@press_room.company_name.pluralize} logotype" %>
+                                      <%= image_tag @press_room.logo.url(:medium), class: "img-responsive", alt: "#{@press_room.company_name.pluralize} logotype" unless @press_room.company_name.blank? %>
 																			</div>
 																		</div>
                                   </div>

@@ -120,12 +120,12 @@
 						</p>
 						<h4>Företagsmodell</h4>
 						<p>
-						<%= f.label :business_model, "Beskriv #{@press_room.company_name.possessive} företagsmodell, gärna med priser och liknande" %><br>
+						<%= f.label :business_model, "Beskriv #{@press_room.company_name.possessive} företagsmodell, gärna med priser och liknande" unless @press_room.company_name.blank? %><br>
 						<%= f.text_area :business_model, rows: 3, placeholder: "Business Model", class: "form-control" %>
 						</p>
 						<h4>Konkurrenter</h4>
 						<p>
-						<%= f.label :competition, "Vilka är #{@press_room.company_name.possessive} konkurenter?" %>
+						<%= f.label :competition, "Vilka är #{@press_room.company_name.possessive} konkurenter?"  unless @press_room.company_name.blank? %>
 						<%= f.text_area :competition, rows: 3, placeholder: "Competitors", class: "form-control" %>
 						</p>
 						<% if can? :manage, @press_room %>
