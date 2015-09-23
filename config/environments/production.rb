@@ -97,7 +97,7 @@ Rails.application.configure do
     :s3_credentials => {
       bucket: 'newshubby',
       access_key_id: Rails.application.secrets.amazon_access_key,
-      secret_access_key: Rails.application.secrets.secret_amazon_access_key
+      secret_access_key: Rails.application.secrets.amazon_secret_access_key
     }
   }
   
