@@ -8,7 +8,7 @@ class PressReleaseTypesController < ApplicationController
   # GET /press_release_types
   # GET /press_release_types.json
   def index
-    @category = Category.find(params[:id])
+    @category = Category.friendly.find(params[:id])
     @press_release_types = @category.press_release_types.all
   end
 
@@ -19,7 +19,7 @@ class PressReleaseTypesController < ApplicationController
 
   # GET /press_release_types/new
   def new
-    @category = Category.find(params[:category_id])
+    @category = Category.friendly.find(params[:category_id])
     @press_release_type = @category.press_release_types.new(category_id: params[:category_id])
   end
 
@@ -31,7 +31,7 @@ class PressReleaseTypesController < ApplicationController
   # POST /press_release_types.json
   def create
     @press_release_type = PressReleaseType.new(press_release_type_params)
-    @category = Category.find(params[:category_id])
+    @category = Category.friendly.find(params[:category_id])
     
     respond_to do |format|
       if @press_release_type.save
@@ -71,7 +71,7 @@ class PressReleaseTypesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_press_release_type
-      @category = Category.find(params[:category_id])
+      @category = Category.friendly.find(params[:category_id])
       @press_release_type = PressReleaseType.find(params[:id])
     end
 
