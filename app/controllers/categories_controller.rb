@@ -41,7 +41,7 @@ class CategoriesController < ApplicationController
   private
     def set_category
       @category = Category.friendly.find(params[:id])
-      @press_release_type = PressReleaseType.find(params[:id])
+      #@press_release_type = PressReleaseType.find(params[:id])
     end
 
     def category_params
