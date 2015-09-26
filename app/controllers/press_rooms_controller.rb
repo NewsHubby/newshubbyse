@@ -91,6 +91,6 @@ class PressRoomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def press_room_params
-      params.require(:press_room).permit(:company_name, :twitter, :phone, :founded, :website, :press_email, :location, :logo, :longitude, :latitude, :term_agreement, :competition, :problem_solved, :business_model, people_attributes: [:id, :name, :position, :presentation, :founder, :_destroy], fundings_attributes: [:id, :name, :sum, :investment_type, :date, :_destroy])
+      params.require(:press_room).permit(:id, :company_name, :twitter, :phone, :founded, :website, :press_email, :location, :logo, :longitude, :latitude, :term_agreement, :competition, :problem_solved, :business_model, people_attributes: [:id, :name, :position, :presentation, :founder, :_destroy], fundings_attributes: [:id, :name, :sum, :investment_type, :date, :_destroy])
     end
 end
