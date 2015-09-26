@@ -95,10 +95,10 @@ Rails.application.configure do
     :storage => :s3,
 #    :s3_host_name => 'REMOVE_THIS_LINE_IF_UNNECESSARY',
     :s3_credentials => {
-      bucket: 'newshubby',
+      bucket: 'newshubbyse',
       access_key_id: Rails.application.secrets.amazon_access_key,
       secret_access_key: Rails.application.secrets.amazon_secret_access_key,
-      host_name: 'eu-central-1'
+      #host_name: 'eu-central-1'
     }
   }
   
