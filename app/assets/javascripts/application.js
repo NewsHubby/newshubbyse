@@ -18,8 +18,6 @@
 //= require jquery-ui
 //= require jquery_nested_form
 //= require jquery.turbolinks
-//= require masonry/jquery.masonry
-//= require masonry/jquery.imagesloaded.min
 //= require autocomplete-rails
 //= require turbolinks
 //= require_tree .
