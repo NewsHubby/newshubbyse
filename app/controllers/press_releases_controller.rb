@@ -39,6 +39,13 @@ class PressReleasesController < ApplicationController
 
   # GET /press_releases/new
   def new
+    
+    introduction_failed = true if @press_room.company_name.blank? || @press_room.website.blank? || @press_room.founded.blank?
+    if introduction_failed == true
+      flash[:notice] = "Färdigställ företagsinformationen först, tack!"
+      redirect_to edit_press_room_path(current_press_room)
+    end
+    
     @press_room = current_press_room
     @press_release = @press_room.press_releases.new(press_release_type_id: params[:press_release_type_id])
     
@@ -48,7 +55,9 @@ class PressReleasesController < ApplicationController
     @press_release.links.build
     
     @press_release.save
-    redirect_to edit_press_room_press_release_path(@press_room, @press_release)
+    if introduction_failed == false
+      redirect_to edit_press_room_press_release_path(@press_room, @press_release)
+    end
   end
 
   # GET /press_releases/1/edit

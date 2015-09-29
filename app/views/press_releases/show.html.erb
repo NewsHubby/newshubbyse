@@ -55,7 +55,7 @@
     <%= link_to edit_press_room_press_release_path(@press_room, @press_release), class: "pull-left" do %><i class="fa fa-edit fa-lg"></i>&nbsp;Redigera pressmeddelande<% end %>
 <!-- <%= link_to press_room_press_release_path(@press_room, @press_release)+".pdf", format: :pdf, class: "pull-right" do %><i class="fa fa-file-pdf-o fa-lg"></i>&nbsp;Download PDF<% end %> -->
 <% else %>
-	<%= link_to press_room_path(@press_room), class: "pull-left" do %><i class="fa fa-home fa-lg"></i>&nbsp;Gå till <%= @press_room.company_name.possessive %> pressrum<% end %>
+	<%= link_to press_room_path(@press_room), class: "pull-left" do %><i class="fa fa-home fa-lg"></i>&nbsp;Gå till <%= @press_room.company_name %> pressrum<% end %>
 <% end %>
 </div>
 

@@ -9,7 +9,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <i class="fa fa-question-circle fa-lg intHelp pull-right hidden-xs text-primary hints" id="" data-toggle="tooltip" data-placement="left" title="Toggle help"></i>
-                        <p class="panel-title text-left"><%= field.question.gsub(/CompanyName/, "#{@press_room.company_name}").gsub(/CompanyName's/, "#{@press_room.company_name.possessive}") %></p>
+                        <p class="panel-title text-left"><%= field.question.gsub(/CompanyName/, "#{@press_room.company_name}").gsub(/CompanyName's/, "#{@press_room.company_name}") %></p>
                     </div> <!-- / .panel-heading -->
                     <div class="panel-body">
     					<% if field.name.blank? %>
