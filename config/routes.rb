@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :press_release_types
   end
   
-  devise_for :press_rooms#, :controllers => { :registrations => "registrations" }
+  devise_for :press_rooms, :controllers => { :registrations => "registrations" }
   
   resources :press_rooms, :path => '/' do
     get :autocomplete_press_release_title, :on => :collection
