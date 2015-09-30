@@ -115,9 +115,27 @@
 					</div> <!-- / .container-fluid -->
 				</div> <!-- / .question -->
 				
+				<% break_counter = 0 %>
+				
+				<% field_counter = "" %>
+				
 				<%= f.fields_for :properties, OpenStruct.new(@press_release.properties) do |builder| %>
-					<% @press_release.press_release_type.fields.where.not(field_type: "line_break").each_with_index do |field, index| %>
-						<%= render "press_releases/fields/#{field.field_type}", field: field, index: index, f: builder %>
+					<% @press_release.press_release_type.fields.each_with_index do |field, index| %>
+						
+						<!-- Den här approachen funkar! -->
+						
+						<% field_counter = index - break_counter %>
+							
+						<% if field.field_type == "line_break" %>
+				
+							<% break_counter += 1 %>
+
+							<% field_counter = index - break_counter %>
+				
+						<% end %>
+						
+						<%= render "press_releases/fields/#{field.field_type}", field_counter: field_counter, field: field, index: index, f: builder %>
+						
 					<% end %>
 				<% end %>
 
