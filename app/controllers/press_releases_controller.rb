@@ -40,28 +40,30 @@ class PressReleasesController < ApplicationController
   # GET /press_releases/new
   def new
     
-    introduction_failed = true if @press_room.company_name.blank? || @press_room.website.blank? || @press_room.founded.blank?
-    if introduction_failed == true
-      flash[:notice] = "Färdigställ företagsinformationen först, tack!"
-      redirect_to edit_press_room_path(current_press_room)
-    end
+    
     
     @press_room = current_press_room
     @press_release = @press_room.press_releases.new(press_release_type_id: params[:press_release_type_id])
     
     @press_release.hex = SecureRandom.urlsafe_base64(6)
     
+    @field_count = @press_release.press_release_type.fields.where.not(field_type: "line_break").count
+    
     @press_release.uploads.build
     @press_release.links.build
     
     @press_release.save
-    if introduction_failed == false
-      redirect_to edit_press_room_press_release_path(@press_room, @press_release)
-    end
+    redirect_to edit_press_room_press_release_path(@press_room, @press_release)
   end
 
   # GET /press_releases/1/edit
   def edit
+    introduction_failed = true if @press_room.company_name.blank? || @press_room.website.blank? || @press_room.founded.blank?
+    if introduction_failed == true
+      flash[:notice] = "Färdigställ företagsinformationen först, tack!"
+      redirect_to edit_press_room_path(current_press_room)
+    end
+    
     @presto = true
     
     @field_count = @press_release.press_release_type.fields.where.not(field_type: "line_break").count
