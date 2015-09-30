@@ -16,11 +16,11 @@
 						<% if can? :manage, PressRelease %>
 						<div class="pr-thumbnail-options">
 
-							<%= link_to press_room_press_release_path(press_release.press_room, press_release) do %> <button class="btn btn-sm btn-primary"><i class="fa fa-eye"></i>&nbsp;View</button><% end %>
+							<%= link_to press_room_press_release_path(press_release.press_room, press_release) do %> <button class="btn btn-sm btn-primary"><i class="fa fa-eye"></i>&nbsp;Läs</button><% end %>
 
-							<%= link_to edit_press_room_press_release_path(@press_room, press_release), title: "Edit" do %><button class="btn btn-sm btn-default"><i class="fa fa-pencil" title="Edit this press release">&nbsp;Edit</i></button><% end %>
+							<%= link_to edit_press_room_press_release_path(@press_room, press_release), title: "Edit" do %><button class="btn btn-sm btn-default"><i class="fa fa-pencil" title="Redigera pressmeddelande">&nbsp;Redigera</i></button><% end %>
 
-							<%= link_to press_room_press_release_path(@press_room, press_release), title: "Delete" , method: :delete, data: { confirm: "Are you sure that you want to permanently delete this press release? This action can not be undone." } do %><button class="btn btn-sm btn-danger"><i class="fa fa-times" title="Permanently delete this press release">&nbsp;Delete</i></button><% end %>
+							<%= link_to press_room_press_release_path(@press_room, press_release), title: "Delete" , method: :delete, data: { confirm: "Är du säker på att du vill ta bort pressmeddelandet? Du kan inte ångra det senare." } do %><button class="btn btn-sm btn-danger"><i class="fa fa-times" title="Permanently delete this press release">&nbsp;Ta bort</i></button><% end %>
 						</div>
 						<% end %>
 
@@ -41,7 +41,7 @@
 							<% if press_release.exclusive? %>
 							<div class="text-center">
 								<%= link_to press_room_press_release_path(press_release.press_room, press_release) do %>
-								<span class="label label-danger"><i class="fa fa-eye-slash" title="This press release is only exclusively visible">&nbsp;Unlisted</i></span>
+								<span class="label label-danger"><i class="fa fa-eye-slash" title="This press release is only exclusively visible">&nbsp;Dolt</i></span>
 								<% end %>
 							</div>
 							<% end %>

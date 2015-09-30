@@ -10,23 +10,23 @@
                     <div class="panel text-center">
                         <div class="panel-body">
                             <% if @press_release.exclusive? %>
-                                <h4 class="prState text-primary">Pressmeddelandet är <strong class="prStateText">olistat</strong></h4>
+                                <h4 class="prState text-primary">Pressmeddelandet är <strong class="prStateText">dolt</strong></h4>
                             <% else %>
                                 <h4 class="prState text-primary">Pressmeddelandet är <strong class="prStateText">offentligt</strong></h4>
                             <% end %>
                             
     						<% if @press_release.exclusive? %>
-    							<p class="prLink">Använd länken nedan för dela pressmeddelandet medan det är olistat:</p>
+    							<p class="prLink">Använd länken nedan för dela pressmeddelandet medan det är dolt:</p>
                                 <div class="well prLink"><%= press_room_press_release_url(@press_release.press_room, @press_release) + "/?&hex=#{@press_release.hex}" %></div>
     						<% else %>
-    						  <p class="hidden prLink">Använd länken nedan för att dela pressmeddelandet medan det ä olistat:</p>
+    						  <p class="hidden prLink">Använd länken nedan för att dela pressmeddelandet medan det ä dolt:</p>
                                 <div class="well hidden prLink"><%= press_room_press_release_url(@press_release.press_room, @press_release) + "/?&hex=#{@press_release.hex}" %></div>
     						<% end %>
 
                             <% if @press_release.exclusive? %>
-    				            <%= best_in_place [@press_room, @press_release], :exclusive, as: :checkbox, collection: ["Gör pressmeddelandet olistat", "Gör pressmeddelandet offentligt"], class: "btn btn-primary", id: "prStateBtn" %>
+    				            <%= best_in_place [@press_room, @press_release], :exclusive, as: :checkbox, collection: ["Gör pressmeddelandet dolt", "Gör pressmeddelandet offentligt"], class: "btn btn-primary", id: "prStateBtn" %>
     						<% else %>
-    					       <%= best_in_place [@press_room, @press_release], :exclusive, as: :checkbox, collection: ["Gör pressmeddelandet olistat", "Gör pressmeddelandet offentligt"], class: "btn btn-primary", id: "prStateBtn" %>
+    					       <%= best_in_place [@press_room, @press_release], :exclusive, as: :checkbox, collection: ["Gör pressmeddelandet dolt", "Gör pressmeddelandet offentligt"], class: "btn btn-primary", id: "prStateBtn" %>
     						<% end %>
                         </div> <!-- / .panel-body -->
                     </div> <!-- / .panel -->

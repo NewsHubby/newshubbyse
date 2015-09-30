@@ -17,9 +17,9 @@ class PressReleasesController < ApplicationController
     
     
     if can? :update, @press_room
-      @press_releases = @press_room.press_releases.paginate(:page => params[:page], :per_page => 10)
+      @press_releases = @press_room.press_releases.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
     else
-      @press_releases = @press_room.press_releases.where(exclusive: false).where("embargo <= ?", Date.today).search(params[:search]).paginate(:page => params[:page], :per_page => 10)
+      @press_releases = @press_room.press_releases.where(exclusive: false).where("embargo <= ?", Date.today).search(params[:search]).order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
     end
     
   end
@@ -105,7 +105,7 @@ class PressReleasesController < ApplicationController
   def destroy
     @press_release.destroy
     respond_to do |format|
-      format.html { redirect_to press_releases_url, notice: 'Press release was successfully destroyed.' }
+      format.html { redirect_to press_room_press_releases_url, notice: 'Pressmeddelandet borttaget.' }
       format.json { head :no_content }
     end
   end
