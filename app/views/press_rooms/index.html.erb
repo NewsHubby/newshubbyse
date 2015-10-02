@@ -1,43 +1,148 @@
 <div id="index-bkg">
     <div class="container">
         <div id="indexText" class="text-center">
-            <h1>Pressmeddelanden utan PR-konsult</h1>
-            <!-- <h4>(...and pay only if you reach out)</h4> -->
+            <h2>Skapa & skicka pressmeddelanden - Betala bara när ni når ut</h2>
             <br>
-            <%= link_to categories_path do %><button class="btn btn-default btn-lg" data-toggle="modal" data-target="#signUp">Skapa ett pressmeddelande nu</button><% end%>
+            <%= link_to categories_path do %><button class="btn btn-success btn-lg" data-toggle="modal" data-target="#signUp">Registrera gratis nu</button><% end%>
             <br><br>
-            <h3 class="text-center">Automatiska pressmeddeladen - betala bara om ni når ut.</h3>
+            <!-- <h3 class="text-center">Automatiska pressmeddeladen - betala bara om ni når ut.</h3> -->
         </div>
         <div class="scrollDown"><a href="#video"><span class="btn btn-ghost">Läs mer</span><i class="fa fa-angle-down"></i></a></div>
 
     </div>
 </div>
-<div class="container">
-    <a id="video"></a>
-    <br class="hidden-xs"><br class="hidden-xs">
-    
-    <div class="row">
-        <div class="col-sm-6">
-        <h3>Så här funkar det</h3>
+<div class="container-fluid" style="background-color: #f1f1f1">
+    <div class="container frontpage-container">
+        <a id="video"></a>
+        <br class="hidden-xs"><br class="hidden-xs">
+        <div class="row">
+            <div class="col-sm-6">
+                <p style="font-size: 1.2em;">NewsHubby erbjuder en automatisk onlinetjänst för att skapa pressmeddelanden och matchmaking mellan företag och journalister.</p><br>
+                <h4>Så här funkar det</h4>
+                
+                <ol>
+                    <li>Logga in och välj din bransch samt vinkel på ditt pressmeddelande</li>
+                    <br>
+                    <li>Skapa enkelt ditt pressmeddelande genom att följa våra mallar</li>
+                    <br>
+                    <li>Skicka! NewsHubby matchar ditt pressmeddelande mot en databas av journalister som är relevanta för din nyhet. </li>
+                </ol> 
+            </div>
+            <div class="col-sm-6 hidden-xs">
+                <img src="media/distribution.png" class="img-responsive" id="distribution" alt="Distribute your press release through NewsHubby">
+            </div>
+            
+        </div> <!-- / .row-->
+        <div class="row text-center">
+    	    <%= link_to categories_path do %><button class="btn btn-success btn-lg" data-toggle="modal" data-target="#signUp">Skapa ett pressmeddelande nu</button><% end %>
+        </div>
+
+    </div><!-- /.container -->
+</div><!-- /.container-fluid -->
+<div class="container-fluid" style="background-color: #f8f8f8;">
+    <div class="container">
+        <a id="video"></a>
+        <br class="hidden-xs"><br class="hidden-xs">
         
-        <ol>
-            <li><strong>Välj vad du vill skriva om.</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, alias, fugiat impedit rerum architecto mollitia odio, iure enim sunt facilis provident expedita sit tenetur in quis hic. Corporis, eos, sequi.</li>
-            <br>
-            <li><strong>Distribuera pressmeddelandet.</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus quidem debitis laborum itaque quae voluptatibus porro inventore ullam vero at commodi accusamus iusto a, minus nihil natus, laudantium odio. Dolore!</li>
-            <br>
-            <li><strong>Dela ditt pressrum</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, cupiditate voluptas quam repellendus laudantium voluptatibus, voluptates numquam quasi accusamus? Ducimus ea sapiente itaque dolorum ratione sunt repellendus magni, voluptatum aliquam.</li>
-        </ol> 
+        <div class="row">
+            <h1 class="text-center">Prismodeller</h1>
+            
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <p class="text-center" style="font-size: 1.2em;">Att skaffa ett NewsHubby-konto är gratis. Du kan ta ställning till vilken modell du vill använda när det väl är dags att distribuera ditt pressmeddelande.</p><br>
+                </div>
+            </div>
+            
+            <div class="col-sm-5 col-sm-offset-1">
+            <div style="border: 4px dashed #eee; border-radius: 20px; padding: 10px;">
+                <div class="panel panel-default" style="border-radius: 15px;">
+                    <div class="panel-body">
+                        <h3 class="text-center">Freemium <span class="text-muted">Gratis</span></h3>
+                        <ul class="fa-ul">
+                            <li><i class="fa-li fa fa-check text-success"></i>Eget pressrum</li><br>
+                            <li><i class="fa-li fa fa-check text-success"></i>Tillgång till pressmeddelande-guider</li><br>
+                            <li><i class="fa-li fa fa-check text-success"></i>Skapa obegränsat antal pressmeddelanden</li>
+                            
+                        </ul>
+                        <br>
+                        <div class="text-center">
+                            <%= link_to categories_path do %><button class="btn btn-success" data-toggle="modal" data-target="#signUp">Registrera</button><% end %>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center"><i class="fa fa-plus fa-2x" style="color: #5cb85c;"></i></div>
+                <br>
+                <div class="panel panel-default" style="
+
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#efefef+0,ebebeb+50,e6e6e6+51,fefefe+100 */
+    background: #efefef; /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  #efefef 0%, #ebebeb 50%, #e6e6e6 51%, #fefefe 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#efefef), color-stop(50%,#ebebeb), color-stop(51%,#e6e6e6), color-stop(100%,#fefefe)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg,  #efefef 0%,#ebebeb 50%,#e6e6e6 51%,#fefefe 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg,  #efefef 0%,#ebebeb 50%,#e6e6e6 51%,#fefefe 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg,  #efefef 0%,#ebebeb 50%,#e6e6e6 51%,#fefefe 100%); /* IE10+ */
+    background: linear-gradient(135deg,  #efefef 0%,#ebebeb 50%,#e6e6e6 51%,#fefefe 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#fefefe',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    box-shadow: rgba(0,0,0,.2) 1px 1px 1px;
+    border-radius: 15px;
+    margin-bottom: 0;
+                ">
+                    <div class="panel-body">
+                        <h3 class="text-center"><span class="text-muted">Frivilligt tillägg</span><br>Betala per publikation <br><span class="text-muted">5000 SEK / publikation</span></h3>
+                        <ul class="fa-ul">
+                            <li><i class="fa-li fa fa-check text-success"></i>Matchning och distribution till journalister. Betala <strong>endast</strong> när ni når ut, och bestäm själv vad det maximalt får kosta.</li>
+                        </ul>
+                        <!-- <div class="row">
+                            <div class="col-sm-10 col-sm-offset-1">
+                            Vad får jag för...?
+                                <input id="priceSlider" type ="range" min ="5000" max="35000" step ="5000" value ="5000"/>
+                            </div>
+                        </div> -->
+                        
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-sm-5">
+                <div class="panel panel-default" style="
+
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fef6e2+0,feeab2+50,ffe18f+51,fdf1d1+100 */
+    background: #fef6e2; /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  #fef6e2 0%, #feeab2 50%, #ffe18f 51%, #fdf1d1 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#fef6e2), color-stop(50%,#feeab2), color-stop(51%,#ffe18f), color-stop(100%,#fdf1d1)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg,  #fef6e2 0%,#feeab2 50%,#ffe18f 51%,#fdf1d1 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg,  #fef6e2 0%,#feeab2 50%,#ffe18f 51%,#fdf1d1 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg,  #fef6e2 0%,#feeab2 50%,#ffe18f 51%,#fdf1d1 100%); /* IE10+ */
+    background: linear-gradient(135deg,  #fef6e2 0%,#feeab2 50%,#ffe18f 51%,#fdf1d1 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fef6e2', endColorstr='#fdf1d1',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+
+    box-shadow: rgba(0,0,0,.2) 1px 1px 1px;
+    border-radius: 15px;
+
+
+    ">
+                    <div class="panel-body">
+                        <h3 class="text-center">Premium <span class="text-muted">2000 SEK / mån</span></h3>
+                        <ul class="fa-ul">
+                            <li><i class="fa-li fa fa-check text-success"></i>Eget pressrum</li><br>
+                            <li><i class="fa-li fa fa-check text-success"></i>Tillgång till pressmeddelande-guider</li><br>
+                            <li><i class="fa-li fa fa-check text-success"></i>Skapa obegränsat antal pressmeddelanden</li><br>
+                            <li><i class="fa-li fa fa-check text-success"></i><strong>Obegränsad</strong> matchning och distribution till journalister</li>
+                        </ul>
+                        <br>
+                        <div class="text-center">
+                            <%= link_to categories_path do %><button class="btn btn-success" data-toggle="modal" data-target="#signUp">Registrera</button><% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div> <!-- / .row-->
     </div>
-    <div class="col-sm-6 hidden-xs">
-        <img src="media/distribution.png" class="img-responsive" id="distribution" alt="Distribute your press release through NewsHubby">
-    </div>
-        
-    </div> <!-- / .row-->
-    <div class="row text-center">
-        <br>
-				<%= link_to categories_path do %><button class="btn btn-default btn-lg" data-toggle="modal" data-target="#signUp">Skapa ett pressmeddelande nu</button><% end %>				
-    </div>
-    <br><br>
 </div><!-- /.container -->
 <div class="container-fluid latest-pressreleases">
     <div class="container">
