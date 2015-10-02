@@ -36,3 +36,5 @@ bower.json
 .elasticbeanstalk/
 
 db/schema.rb
+
+db/schema.rb
