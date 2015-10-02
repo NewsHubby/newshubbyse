@@ -34,3 +34,7 @@ bower.json
 # Ignore pow environment settings
 .powenv
 .elasticbeanstalk/
+
+db/schema.rb
+
+db/schema.rb
