@@ -6,7 +6,9 @@
 		<h3><%= @category.name %></h3>
 		<p><%= @category.description %></p>
 		<% if can? :manage, PressReleaseType %>
-					<p><%= link_to 'Ny pressmeddelande-typ', new_category_press_release_type_path(@category) %></p>
+					<br><%= link_to new_category_press_release_type_path(@category) do %>
+					<button type="button" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;Ny pressmeddelande-typ</button>
+					<% end %>
 		<% end %>
 	</div>
 	
