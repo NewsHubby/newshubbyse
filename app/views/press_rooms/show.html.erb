@@ -159,7 +159,7 @@
 													<% if can? :update, press_release %>
                           <%= link_to edit_press_room_press_release_path(@press_room, press_release), class: "btn btn-sm btn-default", role: "button" do %><i class="fa fa-pencil" title="Edit this press release">&nbsp;Redigera</i><% end %>
 
-                          <%= link_to press_room_press_release_path(@press_room, press_release), title: "Delete" , method: :delete, data: { confirm: "Är du säker på att du vill ta bort pressmeddelandet? Du kan inte ångra det senare." } do %><i class="fa fa-times" title="Permanently delete this press release">&nbsp;Ta bort</i><% end %>
+                         <%= link_to press_room_press_release_path(@press_room, press_release), title: "Delete" , method: :delete, data: { confirm: "Är du säker på att du vill ta bort pressmeddelandet? Du kan inte ångra det senare." } do %><button class="btn btn-sm btn-danger"><i class="fa fa-times" title="Permanently delete this press release">&nbsp;Ta bort</i></button><% end %>
 													<% end %>
                       </div>
 											<%= link_to [@press_room, press_release] do %>
