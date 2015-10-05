@@ -3,8 +3,8 @@ class DistributionsController < ApplicationController
 
   respond_to :html
 
-  load_and_authorize_resource :press_room
-  load_and_authorize_resource :distribution, :through => :press_room
+#  load_and_authorize_resource :press_room
+#  load_and_authorize_resource :distribution, :through => :press_room
 
   def index
     @distributions = Distribution.all

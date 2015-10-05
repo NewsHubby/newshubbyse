@@ -45,7 +45,7 @@
                                 <li>Ej specificerat</li>
                             </ul>
                         </li>
-                        <li>Första utsticksdatum: <%= l(@distribution.distribution_date, format: '%d %B %Y') %></li>
+                        <li>Första utsticksdatum: <% if @distribution.distribution_date.blank? %>Inget distributionsdatum valt<% else %><%= l(@distribution.distribution_date, format: '%d %B %Y') %></li><% end %>
                         <li>Meddelande till NewsHubby:<ul><li><%= simple_format(@distribution.misc_information) %></li></ul></li>
                     </ul>
                          

@@ -13,7 +13,11 @@ class Ability
       can :manage, PressRoom, id: press_room.id
 
       can :manage, PressRelease, press_room_id: press_room.id
-
+      
+      #can :manage, Distribution do |distribution|
+       # distribution.press_release.joins(:press_release).where("press_release.press_room_id = ?", press_room.id).any?
+      #end
+      
       can :read, Question
       
       #can :manage, Link, press_room_id: press_room.id
