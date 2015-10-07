@@ -17,39 +17,42 @@
 
       <div class="col-sm-6">
 				<%= link_to category, class: "business-field-link" do %>
-          <div class="panel panel-default">
+          <div class="panel panel-default fixed-height-panel">
             <div class="panel-body">
               <div class="media">
-                 <!--<div class="media-left media-middle">
-                  <img class="media-object" src="media/img.png" alt="...">
-                </div>-->
+
+                <div class="media-left media-middle">
+                  <img class="media-object" src="media/guide_icon.png" alt="...">
+                </div>
+
                 <div class="media-body">
                   <h4 class="media-heading"><%= category.name %></h4>
                   <p><%= category.description %></p>
+                  <button type="button" class="btn btn-primary">Välj</button>
 									
-									<p>
-										<% if can? :manage, Category %>
-											<%= link_to edit_category_path(category), class: "pull-right" do %>
-                        <button type="button" class="btn btn-primary"><i class="fa fa-edit"></i>&nbsp;Redigera kategori</button>
-                      <% end %>
+                </div> <!-- / .media-body -->
 
-                      <%= link_to category_path(category), method: "_destroy" do %>
-                        <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i>&nbsp;Ta bort kategori</button>
-                      <% end %>
-										<% end %>
-									</p>
-                </div>
-              </div>
-            </div>
-          </div>
+              </div> <!-- / .media -->
+            </div> <!-- / .panel-body -->
+          </div> <!-- / .panel -->
+            <% if can? :manage, Category %>
+              <%= link_to edit_category_path(category), class: "pull-right" do %>
+                <button type="button" class="btn btn-primary"><i class="fa fa-edit"></i>&nbsp;Redigera kategori</button>
+              <% end %>
+
+              <%= link_to category_path(category), method: "_destroy" do %>
+                <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i>&nbsp;Ta bort kategori</button>
+              <% end %>
+            <% end %>
+            <br><br>
 				<% end %>
-      </div>
+      </div> <!-- / .col -->
 
 <% end %>
 
 
-    </div>
+    </div> <!-- / .container -->
 
 
   <div class="push"></div>
-</div>
+</div> <!-- / .short-page -->
