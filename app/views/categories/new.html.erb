@@ -1,5 +1,15 @@
-<h1>New category</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', categories_path %>
+<div class="short-page">
+	<div class="container">
+		<h1 class="text-center">New category</h1>
+		<div class="row">
+			<%= render 'form' %>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2">
+				<%= link_to 'Back', categories_path, class: "btn btn-danger" %>
+			</div>
+		</div>
+	</div>
+	<div class="push"></div>
+</div> <!-- / short-page -->

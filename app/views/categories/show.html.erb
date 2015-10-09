@@ -6,7 +6,9 @@
 		<h3><%= @category.name %></h3>
 		<p><%= @category.description %></p>
 		<% if can? :manage, PressReleaseType %>
-					<p><%= link_to 'Ny pressmeddelande-typ', new_category_press_release_type_path(@category) %></p>
+					<br><%= link_to new_category_press_release_type_path(@category) do %>
+					<button type="button" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;Ny pressmeddelande-typ</button><br><br>
+					<% end %>
 		<% end %>
 	</div>
 	
@@ -17,29 +19,35 @@
 <% @category.press_release_types.each do |press_release_type| %>
 
       <div class="col-sm-6">
-				<%= link_to "#{request.protocol}#{request.host_with_port}/#{current_press_room.slug}/pressreleases/new?press_release_type_id=#{press_release_type.id}", class: "business-field-link" do %>
+		<%= link_to "#{request.protocol}#{request.host_with_port}/#{current_press_room.slug}/pressreleases/new?press_release_type_id=#{press_release_type.id}", class: "business-field-link" do %>
 				
-          <div class="panel panel-default">
+          <div class="panel panel-default fixed-height-panel">
             <div class="panel-body">
               <div class="media">
-                <!--<div class="media-left media-middle">
-                  <img class="media-object" src="media/img.png" alt="...">
-                </div>-->
+                <!-- <div class="media-left media-middle">
+                  <img class="media-object" src="media/categories_icon.png" alt="...">
+                </div> -->
                 <div class="media-body">
                   <h4 class="media-heading"><%= press_release_type.name %></h4>
                   <p><%= press_release_type.description %></p>
-
-									<% if can? :manage, PressReleaseType %>
-									<p>
-										<%= link_to "Redigera pressmeddelandetyp", edit_category_press_release_type_path(@category, press_release_type) %> <br> <%= link_to "Ta bort pressmeddelandetyp", category_press_release_type_path(@category, press_release_type), method: :delete, data: { confirm: 'Helt säker? Du kan inte ångra dig' }  %>
-									</p>
-									<% end %>
-									
+                  <button type="button" class="btn btn-primary">Välj</button>		
                 </div>
               </div>
             </div>
           </div>
-				<% end %>
+		<% end %>
+		<% if can? :manage, PressReleaseType %>
+
+			<%= link_to edit_category_press_release_type_path(@category, press_release_type) do %>
+				<button type="button" class="btn btn-primary pull-right"><i class="fa fa-edit"></i>&nbsp;Redigera pressmeddelandetyp</button>
+			<% end %>
+
+			<%= link_to category_press_release_type_path(@category, press_release_type), method: :delete, data: { confirm: 'Helt säker? Du kan inte ångra dig' } do %>
+				<button type="button" class="btn btn-danger"><i class="fa fa-trash"></i>&nbsp;Ta bort pressmeddelandetyp</button>
+			<% end %>
+
+		<% end %>
+
       </div>
 <% end %>		
     </div>
