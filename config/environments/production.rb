@@ -79,6 +79,9 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   
+  config.action_mailer.default_url_options = { host: "http://se.newshubby.com" }
+  
+  
   # Mailer settings
   config.action_mailer.smtp_settings = {
     address: "smtp.mandrillapp.com",

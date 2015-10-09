@@ -1,0 +1,16 @@
+Hej  <%= @distribution.press_release.press_room.company_name unless @distribution.press_release.press_room.company_name.blank? %>,
+
+Tack för er beställning av distibution av ert pressmeddelande
+
+Vi kommer att <% if @distribution.distribution_date.blank? %>höra av oss till er angående när ni vill att distributionen ska påbörjas.<% else %>påbörja pressutskicket den <%= l(@distribution.distribution_date, format: '%d %B %Y') %> klockan 08:00 och informerar er via mail när vi är klara.<% end %> Räkna med att det tar några dagar eller upp till en vecka att nå ut då vi kontaktar flera journalister/medier och att vi många gånger väljer att ge någon exklusivitet, det vill säga ensamrätt i ett par timmar. Detta gör vi för att öka möjligheten att en journalist ska vilja skriva om er nyhet.
+
+OBS! Det är viktigt att inte ni själva, eller någon annan, skickar ut pressmeddelandet medan vi arbetar med det då det kan komma att minska era chanser att nå ut. 
+
+Vi följer upp via mail efterhand PR-arbetet fortlöper.
+
+Vi hörs snart igen! 
+
+Hälsningar NewsHubby-teamet
+
+
+Specifikationen över vad ni beställt från oss hittar ni här: <%= press_room_press_release_distribution_url(@distribution.press_release.press_room, @distribution.press_release, @distribution) %>

@@ -1,0 +1,5 @@
+Email: <%= @distribution.press_release.press_room.email %>
+
+PressRelease: <%= press_room_press_release_url(@distribution.press_release.press_room, @distribution.press_release) %>
+
+Distributionsdetaljer: <%= press_room_press_release_distribution_url(@distribution.press_release.press_room, @distribution.press_release, @distribution) %>
