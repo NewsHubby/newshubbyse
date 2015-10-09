@@ -1,6 +1,6 @@
 Hej  <%= @distribution.press_release.press_room.company_name unless @distribution.press_release.press_room.company_name.blank? %>,
 
-Tack för er beställning av distibution av ert pressmeddelande
+Tack för er beställning av distribution av ert pressmeddelande.
 
 Vi kommer att <% if @distribution.distribution_date.blank? %>höra av oss till er angående när ni vill att distributionen ska påbörjas.<% else %>påbörja pressutskicket den <%= l(@distribution.distribution_date, format: '%d %B %Y') %> klockan 08:00 och informerar er via mail när vi är klara.<% end %> Räkna med att det tar några dagar eller upp till en vecka att nå ut då vi kontaktar flera journalister/medier och att vi många gånger väljer att ge någon exklusivitet, det vill säga ensamrätt i ett par timmar. Detta gör vi för att öka möjligheten att en journalist ska vilja skriva om er nyhet.
 
