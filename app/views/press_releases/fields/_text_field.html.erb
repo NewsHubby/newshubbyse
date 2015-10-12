@@ -8,14 +8,20 @@
                         <p class="panel-title text-left"><%= field.question.gsub(/CompanyName/, "#{@press_room.company_name}").gsub(/CompanyName's/, "#{@press_room.company_name}") %></p>
                     </div> <!-- / .panel-heading -->
                     <div class="panel-body">
-											<% field_name = field.name.to_sym %>
-											<% if @press_release.properties[field_name].blank? %>
-								        <%= f.text_area field.name, class: "form-control fixed-textarea", rows: "4", id: "textarea", onfocus: "this.value = this.value;", value: "#{field.prefill.gsub(/CompanyName/, "#{@press_room.company_name}").gsub(/CompanyName's/, "#{@press_room.company_name}")}" %>
-											<% elsif field_name == :text_manual %>
-								      	<%= f.text_area field.name, class: "form-control fixed-textarea", rows: "14", id: "textarea", onfocus: "this.value = this.value;" %>
-											<% else %>
-											<%= f.text_area field.name, class: "form-control fixed-textarea", rows: "4", id: "textarea", onfocus: "this.value = this.value;" %>
-											<% end %>
+    					<% field_name = field.name.to_sym %>
+    					<% if @press_release.properties[field_name].blank? %>
+    		        <%= f.text_area field.name, class: "form-control fixed-textarea", rows: "4", id: "textarea", onfocus: "this.value = this.value;", value: "#{field.prefill.gsub(/CompanyName/, "#{@press_room.company_name}").gsub(/CompanyName's/, "#{@press_room.company_name}")}" %>
+    					<% elsif field_name == :text_manual %>
+    		      	<%= f.text_area field.name, class: "form-control fixed-textarea", rows: "14", id: "textarea", onfocus: "this.value = this.value;" %>
+    					<% else %>
+    					<%= f.text_area field.name, class: "form-control fixed-textarea", rows: "4", id: "textarea", onfocus: "this.value = this.value;" %>
+    					<% end %>
+                    <h5>
+                        <span class="text-primary"><strong>Exempel: </strong></span>
+                    </h5>
+                    <p>
+                        <%= simple_format(field.example) %>
+                    </p>
                     </div> <!-- / .panel-body -->
                 </div> <!-- / .panel -->
             </div> <!-- / .col-xs-12 -->
@@ -35,7 +41,7 @@
                 <span class="text-primary"><strong>Exempel: </strong></span>
             </h5>
             <p>
-              <%= simple_format(field.example) %>
+                <%= simple_format(field.example) %>
             </p>
             <br>
             <h5>
