@@ -2,8 +2,7 @@ Rails.application.routes.draw do
 
   get '/om' => 'press_rooms#about'
   get '/anvandarvillkor' => 'press_rooms#terms_and_conditions'
-  
-  
+  get '/tack' => 'distributions#distribution_complete'
   
   resources :questions, :path => 'faq'
   

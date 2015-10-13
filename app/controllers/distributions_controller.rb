@@ -18,6 +18,7 @@ class DistributionsController < ApplicationController
 
   def show
     respond_with(@distribution)
+    flash[:notice] = "Tack för er beställning! Vi har skickat ett bekräftelsemail med mer information till den mailadress ni tidigare angett."
   end
 
   def new
@@ -42,7 +43,6 @@ class DistributionsController < ApplicationController
     DistributionMailer.distribution_mail(@distribution).deliver
     DistributionMailer.distribution_client_confirmation(@distribution).deliver
     
-    flash[:notice] = "Tack för er beställning! Vi har skickat ett bekräftelsemail med mer information till den mailadress ni tidigare angett."
     redirect_to press_room_press_release_distribution_path(@press_room.id, @press_release.id, @distribution)
   end
 
