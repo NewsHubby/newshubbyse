@@ -6,6 +6,11 @@ class DistributionsController < ApplicationController
 #  load_and_authorize_resource :press_room
 #  load_and_authorize_resource :distribution, :through => :press_room
 
+
+  def distribution_complete
+
+  end
+
   def index
     @distributions = Distribution.all
     respond_with(@distributions)
