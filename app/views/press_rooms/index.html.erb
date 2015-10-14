@@ -35,9 +35,9 @@
         </div> <!-- / .row-->
         <div class="row text-center">
 					<% if current_press_room %>
-    	    <%= link_to categories_path do %><button class="btn btn-success btn-lg" data-toggle="modal" data-target="#signUp">Skapa ett pressmeddelande nu</button><% end %>
+    	    <%= link_to categories_path do %><button class="btn btn-success btn-lg">Skapa ett pressmeddelande nu</button><% end %>
 					<% else %>
-					<%= link_to new_press_room_registration_path do %><button class="btn btn-success btn-lg" data-toggle="modal" data-target="#signUp">Skapa ett pressmeddelande nu</button><% end %>
+					<%= link_to "#" do %><button class="btn btn-success btn-lg" data-toggle="modal" data-target="#signUp">Skapa ett pressmeddelande nu</button><% end %>
 					<% end %>
         </div>
 
