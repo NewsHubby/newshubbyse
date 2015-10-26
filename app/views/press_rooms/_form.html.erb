@@ -70,35 +70,35 @@
 							<div class="input-group-addon">
 								<i class="fa fa-home fa-fw" title="Company website"></i>
 							</div>
-							<%= f.text_field :website, class: "form-control input-sm", placeholder: "E.g. www.example.com" %>
+							<%= f.text_field :website, class: "form-control input-sm", placeholder: "www.example.com" %>
 						</div>
 						<br>
 						<div class="input-group">
 							<div class="input-group-addon">
 								<i class="fa fa-twitter fa-fw" title="Twitter"></i>
 							</div>
-							<%= f.text_field :twitter, class: "form-control input-sm", placeholder: "E.g. @twitter" %>
+							<%= f.text_field :twitter, class: "form-control input-sm", placeholder: "@twitter" %>
 						</div>
 						<br>
 						<div class="input-group">
 							<div class="input-group-addon">
 								<i class="fa fa-envelope fa-fw" title="Press contact email"></i>
 							</div>
-							<%= f.text_field :press_email, class: "form-control input-sm", placeholder: "E.g. press@example.com" %>
+							<%= f.text_field :press_email, class: "form-control input-sm", placeholder: "press@example.com" %>
 						</div>
 						<br>
 						<div class="input-group">
 							<div class="input-group-addon">
 								<i class="fa fa-phone fa-fw" title="Press contact phone number"></i>
 							</div>
-							<%= f.text_field :phone, class: "form-control input-sm", placeholder: "E.g. +1 555 555 555" %>
+							<%= f.text_field :phone, class: "form-control input-sm", placeholder: "+1 555 555 555" %>
 						</div>
 						<br>
 						<div class="input-group">
 							<div class="input-group-addon">
 								<i class="fa fa-map-marker fa-fw" title="Company headquarters location"></i>
 							</div>
-							<%= f.text_field :location, class: "form-control input-sm", placeholder: "E.g. 1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA" %>
+							<%= f.text_field :location, class: "form-control input-sm", placeholder: "Exempelgatan 1, Stockholm, Sverige" %>
 						</div>
 						<br>
 						<% if can? :update, @press_room %>
@@ -116,17 +116,17 @@
 						<h4>Problem ni löser</h4>
 						<p>
 						<%= f.label :problem_solved, "Vilket problem löser #{@press_room.company_name}" %>
-						<%= f.text_area :problem_solved, rows: 3, placeholder: "Problem Solved", class: "form-control" %>
+						<%= f.text_area :problem_solved, rows: 3, placeholder: "", class: "form-control" %>
 						</p>
 						<h4>Företagsmodell</h4>
 						<p>
 						<%= f.label :business_model, "Beskriv #{@press_room.company_name} företagsmodell, gärna med priser och liknande" unless @press_room.company_name.blank? %><br>
-						<%= f.text_area :business_model, rows: 3, placeholder: "Business Model", class: "form-control" %>
+						<%= f.text_area :business_model, rows: 3, placeholder: "", class: "form-control" %>
 						</p>
 						<h4>Konkurrenter</h4>
 						<p>
 						<%= f.label :competition, "Vilka är #{@press_room.company_name} konkurenter?"  unless @press_room.company_name.blank? %>
-						<%= f.text_area :competition, rows: 3, placeholder: "Competitors", class: "form-control" %>
+						<%= f.text_area :competition, rows: 3, placeholder: "", class: "form-control" %>
 						</p>
 						<% if can? :manage, @press_room %>
 							<div class="text-right">
@@ -149,7 +149,7 @@
 								</div>
 								<div class="form-group">
 									<%= funding.label :name, "Finansiärens namns" %><br>
-									<%= funding.text_field :name, placeholder: "Name", class: "form-control" %>
+									<%= funding.text_field :name, placeholder: "", class: "form-control" %>
 								</div>
 								<div class="form-group">
 									<%= funding.label :date, "Finansieringsdatum" %><br>
@@ -159,7 +159,7 @@
 									<%= funding.label :sum, "Investerad summa" %><br>
 									<div class="input-group">
 										<div class="input-group-addon">SEK</div>
-										<%= funding.number_field :sum, class: "form-control", placeholder: "190000"  %>
+										<%= funding.number_field :sum, class: "form-control", placeholder: ""  %>
 									</div>
 								</div>
 							</div>
@@ -182,12 +182,12 @@
 									<div class="panel-body">
 										<%= f.link_to_remove do %><i class="fa fa-close fa-lg pull-right"></i><% end %>
 										<%= person.label :name, "Namn" %><br>
-										<%= person.text_field :name, class: "form-control", placeholder: "Namn" %><br>
+										<%= person.text_field :name, class: "form-control", placeholder: "" %><br>
 
 										<%= person.label :position, "Arbetstitel" %><br>
 										<%= person.text_field :position, class: "form-control", placeholder: "Arbetstitel eller -funktion" %><br>
 										<%= person.label :presentation, "Beskriv personen kort" %>
-										<%= person.text_area :presentation, placeholder: "Beskrivning", class: "form-control" %>
+										<%= person.text_area :presentation, placeholder: "", class: "form-control" %>
 									</div>
 								</div>
 							</div> <!-- / .col -->
@@ -237,16 +237,16 @@
 						<% end %>
 						<% end %>
 						<div class="caption">
-							<time class="pull-right text-muted clearfix" datetime="2014-10-28 20:00">
-								<small>
-									<%= time_ago_in_words(press_release.embargo) unless press_release.embargo.blank? %>
-								</small>
-							</time>
+							<time class="pull-right text-muted clearfix" datetime="<%= press_release.embargo.strftime("%D") unless press_release.embargo.blank? %>">
+                              <small>
+                                  <%= l(press_release.embargo, format: '%d %B %Y') unless press_release.embargo.blank? %>
+                              </small>
+                          </time>
 							<h4><%= link_to press_release.title, press_room_press_release_path(@press_room, press_release) %></h4>
 							<% if press_release.exclusive? %>
 							<div class="text-center">
 								<%= link_to press_room_press_release_path(press_release.press_room, press_release) do %>
-								<span class="label label-danger"><i class="fa fa-eye-slash" title="This press release is only exclusively visible">&nbsp;Olistad</i></span>
+								<span class="label label-danger"><i class="fa fa-eye-slash" title="Detta pressmeddelande visas bara för de som har direktlänk till det">&nbsp;Dolt</i></span>
 								<% end %>
 							</div>
 							<% end %>
@@ -258,7 +258,7 @@
 
 				</div> <!-- / .row -->
 				<div class="text-center">
-					<%= link_to "Se alla pressmeddelanden", press_room_press_releases_path(@press_room), class: "btn btn-default", role: "button" %>
+					<%= link_to "Visa alla pressmeddelanden", press_room_press_releases_path(@press_room), class: "btn btn-default", role: "button" %>
 				</div>
 			</div> <!-- / .col-md-8 -->
 		</div> <!-- / .row -->

@@ -5,7 +5,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <i class="fa fa-question-circle fa-lg intHelp pull-right hidden-xs text-primary hints" id="" data-toggle="tooltip" data-placement="left" title="Toggle help"></i>
-                        <p class="panel-title text-left"><%= field.question.gsub(/CompanyName/, "#{@press_room.company_name}").gsub(/CompanyName's/, "#{@press_room.company_name}") %></p>
+                        <h3 class="panel-title text-left"><%= field.question.gsub(/CompanyName/, "#{@press_room.company_name}").gsub(/CompanyName's/, "#{@press_room.company_name}") %></h3>
                     </div> <!-- / .panel-heading -->
                     <div class="panel-body">
     					<% field_name = field.name.to_sym %>
