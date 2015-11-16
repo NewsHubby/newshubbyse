@@ -279,7 +279,7 @@
 												<%= image_tag "../media/hubert.svg", alt: "Välkommen till NewsHubby", class: "img-responsive center-block", style: "height:300px;" %>
                           </div>
                       <div class="col-sm-8 col-xs-12">
-                      <h4>§ presentera ert företag:</h4>
+                      <h4>Vänligen presentera ert företag:</h4>
 												<%= f.text_field :company_name, placeholder: "Företagsnamn *" %> grundades i
 												<%= f.date_select :founded, order: [:month, :year] %>
                           och ligger i <%= f.text_field :location, placeholder: "Ort, Land *" %>. Ni kan hitta oss på <%= f.text_field :website, placeholder: "http://www.example.com/" %> och på Twitter <%= f.text_field :twitter, placeholder: "@twitternamn" %>, och nå oss via <%= f.text_field :press_email, placeholder: "epost för presskontakt *" %>,  eller på telefonnummer <%= f.text_field :phone, placeholder: "+46 555 55 55 55" %>
