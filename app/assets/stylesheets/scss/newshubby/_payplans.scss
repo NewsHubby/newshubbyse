@@ -1,0 +1,35 @@
+.ppContainer {
+    table, th, td {
+        border: none;   
+    }
+    
+    th, td {
+        padding: 1em;
+    }
+    
+    th {
+        text-align: center;
+        font-size: 1.5em;
+    }
+    
+    tr:nth-child(even) {
+        background-color: rgba(0,0,0,.05);
+    }
+    
+    table {
+        border-collapse: collapse;
+        background-color: #fff;
+        text-align: center;
+        width: 100%;
+        border-radius: 10px;
+    }
+    
+    i {
+        color: #5cb85c;
+    }
+}
+
+#premium {
+    background-color: #5cb85c;
+    color: #fff;
+}

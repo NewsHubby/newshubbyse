@@ -1,16 +1,18 @@
 <div id="index-bkg">
+    <div class="switch-site"><small><a href="http://www.newshubby.com/">Go to NewsHubby's international site</a></small></div>
     <div class="container">
         <div id="indexText" class="text-center">
-            <h2>Skapa & skicka pressmeddelanden - Betala bara när ni når ut</h2>
+            <!-- <img src="../media/newshubby_logotype_se_white.svg" alt="" width="300"> -->
+            <h1>Pressmeddelanden för alla branscher</h1>
+            <h3>- betala bara när ni når ut</h3>
             <br>
             <% if current_press_room %>
-                <%= link_to categories_path do %><button class="btn btn-success btn-lg">Skapa ett pressmeddelande nu</button>
-            <% end %>
+                <%= link_to categories_path do %><button class="btn btn-success btn-lg">Skapa ett pressmeddelande nu</button><% end %>
             <% else %>
                 <%= link_to "#" do %><button class="btn btn-success btn-lg" data-toggle="modal" data-target="#signUp">Registrera gratis nu</button><% end %>
             <% end %>
             <br><br>
-            <!-- <h3 class="text-center">Automatiska pressmeddeladen - betala bara om ni når ut.</h3> -->
+            <!-- <h3 class="text-center"></h3> -->
         </div>
         <div class="scrollDown"><a href="#video"><span class="btn btn-ghost">Läs mer</span><i class="fa fa-angle-down"></i></a></div>
 
@@ -126,7 +128,7 @@
 <div class="container-fluid latest-pressreleases">
     <div class="container">
         <br>
-        <h3 class="text-center">Senast publicerade pressmeddelande</h3>
+        <h3 class="text-center">Senast publicerade pressmeddelanden</h3>
         
 				<div class="container">
 					<div class="row">

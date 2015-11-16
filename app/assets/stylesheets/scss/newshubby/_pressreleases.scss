@@ -1,0 +1,170 @@
+
+.pr-container {
+    background-color: #fbfbfb;
+    max-width: 768px;
+    -moz-box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+#preview-area .pr-container {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.pr-container a {
+    color: $nhBlue;
+}
+
+.pr-heading {
+    background-color: #fff;
+    border-bottom: 2px solid #eee;
+}
+
+.prTop {
+    background-color: #626262;
+    color: #fff;
+}
+
+.prCompanyLogo {
+    max-width: 75%;
+    margin: 10px;
+}
+
+.prStateContainer {
+    background: rgba(0,0,0,.5);
+    padding-top: 66px;
+}
+
+.prSendToPress {
+    height: 240px;
+}
+
+.prOptions {
+    margin: 0 auto;
+    margin-top: 16px;
+    padding: 5px;
+    a {
+        color: inherit;
+        font-weight: 600;
+    }
+}
+
+.feature-img-area {
+    max-width: 100%;
+    margin: 5px 0;
+    background-color: #fff;
+    border: 3px solid #fff;
+    
+}
+
+.feature-img {
+    max-width: 100%;
+    max-height: 300px;
+}
+
+.feature-img-caption {
+
+}
+
+#pr-answer-01 {
+    font-weight: 400;
+}
+
+.pr-generated, .pr-generated p {
+    color: #777;
+    text-decoration: none;
+    font-size: .86em;
+    &:active {
+        text-decoration: none;
+    }
+    &:focus {
+        text-decoration: none;
+    }
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.pr-generated:hover > #newshubby-bw {
+    filter: grayscale(0);
+    -webkit-filter: grayscale(0);
+}
+
+#sidebar-area {
+    .prWrapper {
+        max-width: 768px !important;
+    }
+}
+
+#newshubby-bw {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+}
+
+@media (min-width: 768px) {
+
+    .prWrapper {
+        //width: 768px;
+        margin: 0 auto;
+    }
+
+    .feature-img-area {
+        max-width: 306px;
+        float: right;
+        margin: 0 0 5px 5px;
+        box-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+    }
+
+    .feature-img {
+        max-width: 300px;
+        max-height: 300px;
+    }
+
+    .pr-container {
+        font-size: 1em;
+    }
+
+    .prOptions {
+        width: 750px;
+        padding: 0;
+    }
+
+}
+
+@media print {
+    title {
+        display: none;
+    }
+    
+    a[href]:after {
+        content: none;
+    }
+    
+    /* .prTop {
+        background-color: #626262 !important;
+        h4 {
+            color: #fff !important;
+        }
+    } */
+    
+    .pr-heading {
+        border-bottom: none;
+    }
+    
+    /*.feature-img-area {
+       border: 3px solid #eee;
+    }
+    
+    .feature-img-caption {
+        background-color: #eee !important;
+    } */
+    
+    .pr-generated {
+        page-break-inside: avoid;
+    }
+
+}

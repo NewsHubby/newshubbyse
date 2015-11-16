@@ -1,0 +1,275 @@
+
+/* Index */
+
+#index-bkg {
+    height: 100vh;
+    //padding-top: 50px;
+
+    //background-color: $nh-newpink;
+    
+   background: url(../media/stockholm.jpg) no-repeat center center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    color: #fff !important;
+
+    // h1 {
+    //     position: absolute;
+    //     top: 20%;
+    //     left: 50%;
+    //     transform: translate(-50%,-50%);
+    //     -webkit-transform: translate(-50%,-50%);
+    //     width: 100%;
+    // }
+}
+
+#indexText {
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    font-size: 1.5em;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    width: 98%;
+}
+
+.frontpage-container {
+    height: 80vh;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+}
+
+.switch-site {
+    margin-top: 45px;
+    float: right;
+    padding: 16px;
+
+    a {
+        color: white;
+    }
+}
+
+#index-buttons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    width: 90%;
+}
+
+.gold-panel {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fef6e2+0,feeab2+50,ffe18f+51,fdf1d1+100 */
+    background: #fef6e2; /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  #fef6e2 0%, #feeab2 50%, #ffe18f 51%, #fdf1d1 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#fef6e2), color-stop(50%,#feeab2), color-stop(51%,#ffe18f), color-stop(100%,#fdf1d1)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg,  #fef6e2 0%,#feeab2 50%,#ffe18f 51%,#fdf1d1 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg,  #fef6e2 0%,#feeab2 50%,#ffe18f 51%,#fdf1d1 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg,  #fef6e2 0%,#feeab2 50%,#ffe18f 51%,#fdf1d1 100%); /* IE10+ */
+    background: linear-gradient(135deg,  #fef6e2 0%,#feeab2 50%,#ffe18f 51%,#fdf1d1 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fef6e2', endColorstr='#fdf1d1',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    box-shadow: rgba(0,0,0,.2) 1px 1px 1px;
+    border-radius: 15px;
+}
+
+.silver-panel {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#efefef+0,ebebeb+50,e6e6e6+51,fefefe+100 */
+    background: #efefef; /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  #efefef 0%, #ebebeb 50%, #e6e6e6 51%, #fefefe 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#efefef), color-stop(50%,#ebebeb), color-stop(51%,#e6e6e6), color-stop(100%,#fefefe)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg,  #efefef 0%,#ebebeb 50%,#e6e6e6 51%,#fefefe 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg,  #efefef 0%,#ebebeb 50%,#e6e6e6 51%,#fefefe 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg,  #efefef 0%,#ebebeb 50%,#e6e6e6 51%,#fefefe 100%); /* IE10+ */
+    background: linear-gradient(135deg,  #efefef 0%,#ebebeb 50%,#e6e6e6 51%,#fefefe 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#fefefe',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    box-shadow: rgba(0,0,0,.2) 1px 1px 1px;
+    border-radius: 15px;
+    margin-bottom: 0;
+}
+
+#diyLogo {
+	position: absolute;
+	right: 16px;
+	bottom: 16px;
+	width: 200px;
+	height: auto;
+}
+
+#distribution {
+    padding: 30px 60px;
+}
+
+
+
+.latest-pressreleases {
+    background-color: #f5f5f5;
+}
+
+.indexSplash {
+    background-color: #fff;
+    padding: 3em 0 3em 0;
+}
+
+.indexSplash .thumbnail {
+    border: none;
+}
+
+/* .indexSplash .thumbnail img {
+    max-width: 280px;
+    max-height: 280px;
+} */
+
+indexSplash .thumbnail .caption h3 {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+#indexText {
+    h1 {
+       // font-size: 2em; 
+    }
+
+	h1, h2, h3, h4, h5 ,h6 {
+        font-weight: 300;
+    }
+	
+}
+
+#indexBody h2, #indexBody h3,
+
+{ text-shadow: 1px 1px 0.01em rgba(255, 255, 255, 0.9); }
+
+#indexBody h1 {
+    color: #fff;
+    text-shadow: 1px 1px 0.01em rgba(0,0,0, 0.9);
+}
+
+#indexSearch {
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+#indexSearch input, #indexSearch button {
+	border: 0 !important;
+	outline: 0px !important;
+	-webkit-appearance: none;
+}
+
+// #indexSearch .btn-default {
+// 	color: $nhBlue;
+// }
+
+.logon-tabs .panel{
+	border-radius: 0 4px 4px 4px;
+}
+
+.logon-tabs .nav-tabs a {
+	background-color: #eee;
+	border-color: #eee;
+	color: inherit;
+}
+
+.logon-tabs .nav-tabs a:hover {
+	border-color: #eee;
+}
+
+.media-object {
+	max-width: 100px;
+	max-height: 100px;
+	vertical-align: middle;
+}
+
+.indexLogon .btn-primary {
+	// background-color: $nhPink;
+	color: #fff;
+}
+
+.indexLogon .btn-primary:hover, 
+.indexLogon .btn-primary:focus {
+	background-color: #9b9b9b;
+	color: #fff;
+}
+
+.indexChevronDown {
+    position: absolute;
+    left: 50%;
+    margin-top: 5px;
+    transform: translate(-50%, 0%); /* Yep! */
+    width: 48%;
+    height: 55%;
+    color: #a0a0a0;
+    font-size: 1.5em;
+}
+.newsletterSignup {
+    position: absolute;
+    text-align: center;
+    bottom: 76px;
+    width: 100%;
+}
+
+.ghostPanel {
+    background-color: transparent;
+    //border: 2px solid white !important;
+    color: white !important;
+    
+    .panel-heading {
+        background-color: transparent !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        
+    }
+    
+    input {
+        background-color: transparent;
+        border: 2px solid white;
+        color: white !important;
+        font-weight: 800;  
+        
+        &:focus {
+            border: 2px solid white;
+        }
+    }
+    
+    ::-webkit-input-placeholder {
+        color: white;
+    }
+    
+    ::-moz-placeholder {
+        color: white;
+    }
+    
+    :-ms-input-placeholder {
+        color: white;
+    }
+    
+}
+
+@media (min-width: 768px) {
+    
+    #index-bkg {
+        
+    }
+
+    #indexText {
+        max-width: 800px;
+    }
+    
+    .newsletterSignup {
+        width: 350px;
+        text-align: right;
+        right: 16px;
+        bottom: 26px;
+    }
+
+    #index-buttons {
+        width: initial;
+    }
+}
+
+/* Medium devices (tablets, 992px and up) */
+@media (min-width: 992px) {
+
+}

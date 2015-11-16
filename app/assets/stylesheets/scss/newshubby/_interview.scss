@@ -1,0 +1,84 @@
+.intBody {
+
+}
+
+.intQ {
+    background-color: #f8f8f8;
+    border-bottom: 2px solid #eee;
+    border-radius: 3px 3px 0 0;
+}
+
+.intQ h4 {
+    margin: 0;
+    padding: 15px 0 15px 15px;
+}
+
+.intA {
+    background-color: #fff;
+    border-radius: 0 0 3px 3px;
+}
+
+.intA .form-control {
+    border: none;
+}
+
+.intC {
+}
+
+#textareaFeedback {
+	color: #aaa;
+}
+
+#prevBtn {
+    border-radius: 0 0 0 3px;
+}
+
+#nextBtn {
+    border-radius: 0 0 3px 0;
+}
+
+.intExample {
+    margin: 20px;
+}
+
+.intCircle {
+	background-color: $nhBlue;
+	border-color: $nhBlue;
+	color: #fff;
+	margin-right: 15px;
+}
+
+.intNumerals {
+	background-color: #e0e0e0;
+	border-color: #e0e0e0;
+	color: #fff;
+	margin-right: 15px;
+}
+
+.intHelp {
+	color: gray;
+	opacity: 0.8;
+    transition: opacity 100ms;
+    padding: 5px;
+    position: absolute;
+    right: 15px;
+}
+
+.intHelp:hover {
+    color: $nhPink;
+	opacity: 1;
+}
+
+.intPink {
+	color: $nhPink;
+}
+
+.hubertBasic select:focus {
+	outline: #000 solid 1px;
+}
+
+@media (min-width: 768px) {
+    .intContainer {
+        margin-top: 60px;
+    } 
+}

@@ -56,9 +56,10 @@
                   <h5>
                       Introduktion
 											<% if can? :update, @press_room %>
-											<%= link_to edit_press_room_path, id: "edit-company-details-btn", class: "edit-pencil pull-right" do  %>
+											 <%= link_to edit_press_room_path(@press_room, anchor: "companydetails"), id: "edit-company-details-btn", class: "edit-pencil pull-right" do  %>
                           <small><i class="fa fa-pencil">&nbsp;Ändra</i></small>
-                      <% end %><% end %>
+                        <% end %>
+                      <% end %>
                   </h5>
                   <div class="panel panel-default">
                       <div class="panel-body">
@@ -87,7 +88,7 @@
                   <h5>
                       Finansiering
 											<% if can? :update, @press_room %>
-											<%= link_to edit_press_room_path, id: "edit-company-funding-btn", class: "edit-pencil pull-right" do  %>
+											<%= link_to edit_press_room_path(@press_room, anchor: "funding"), id: "edit-company-funding-btn", class: "edit-pencil pull-right" do  %>
                           <small><i class="fa fa-pencil">&nbsp;Ändra</i></small>
                       <% end %><% end %>
                   </h5>
@@ -114,7 +115,7 @@
 
                       <h5>Teamet
 													<% if can? :update, @press_room %>
-													<%= link_to edit_press_room_path, id: "edit-company-people-btn", class: "edit-pencil pull-right" do  %>
+													<%= link_to edit_press_room_path(@press_room, anchor: "keypeople"), id: "edit-company-people-btn", class: "edit-pencil pull-right" do  %>
 		                          <small><i class="fa fa-pencil">&nbsp;Ändra</i></small>
 		                      <% end %><% end %>
                       </h5>

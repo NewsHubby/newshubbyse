@@ -1,0 +1,84 @@
+
+/* Navigation */
+
+.navbar {
+	border: 0;
+    background-color: #f8f8f8;
+
+}
+
+.navbar-brand {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+}
+
+.icon-bar {
+    background-color: $nhBlue;
+}
+
+.navbar-btn {
+	padding: 0 !important;
+}
+
+// .dropdown li a:hover i {
+//     color: #fc1d27;
+// }
+
+
+.nav a {
+    color: #333;
+    font-weight: 300;
+}
+
+.navbar-brand {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.navbar-brand img {
+	height: 40px;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+	border-color: white;
+}
+
+.nav-tabs {
+	border: none;
+}
+
+.navbar .form-control {
+	border: none;
+}
+
+.transparentNavbar {
+    background-color: #f8f8f8;
+}
+
+#searchBtn {
+    border: 1px solid white !important;
+}
+#searchBtn:hover {
+    border: 1px solid #e6e6e6 !important;
+}
+
+@media (min-width: 768px) {
+    .transparentNavbar {
+        background-color: rgba(248,248,248,0);
+    }
+
+    .navbar-brand {
+        position: initial;
+        transform: none;
+        -webkit-transform: none;
+    }
+    
+    /* OM navLogo .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+} */
+}

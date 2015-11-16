@@ -1,0 +1,38 @@
+#company-funding ul {
+	padding-left: 28px;
+
+	li {
+		margin-bottom: 10px;
+	}
+}
+
+#company-basic-info:hover #edit-company-basic-info-btn {
+    opacity: 1;
+}
+
+#company-details:hover #edit-company-details-btn {
+    opacity: 1;
+}
+
+#company-people:hover #edit-company-people-btn {
+    opacity: 1;
+}
+
+#company-funding:hover #edit-company-funding-btn {
+    opacity: 1;
+}
+
+#edit-pressroom-btn:hover {
+    opacity: 1;
+}
+
+#company-basic-info {
+    h2 {
+        margin-top: 0;
+    }
+}
+
+#company-basic-info-list {
+	list-style: none;
+	padding-left: 0;
+}
