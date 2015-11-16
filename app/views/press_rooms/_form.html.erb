@@ -137,12 +137,12 @@
 				</div> <!-- / .panel -->
 					<a class="anchor" name="funding"></a>
 					<h5>Finansiering</h5>
-					
+
 					<%= f.fields_for :fundings do |funding| %>
 						<div class="panel panel-deafault">
 							<div class="panel-body">
 								<%= f.link_to_remove do %><i class="fa fa-close fa-lg pull-right"></i><% end %>
-								
+
 								<div class="form-group">
 									<%= funding.label :investment_type, "Finansieringstyp" %><br>
 									<%= funding.select :investment_type, ["Private Investor", "Venture Capital", "Bootstrapped", "No funding", "Other"], class: "form-control" %>
@@ -233,7 +233,7 @@
 						<% unless press_release.uploads.blank? %>
 						<%= image_tag press_release.uploads.first.file.url(:medium), alt: "" unless press_release.uploads.blank? %>
 						<% else %>
-						<%= image_tag "images/feature_img.png", alt: "" %> 
+						<%= image_tag "images/feature_img.png", alt: "" %>
 						<% end %>
 						<% end %>
 						<div class="caption">
@@ -265,7 +265,7 @@
 	</div> <!-- / .container -->
 
 <% if @press_room.company_name.blank? %>
-			
+
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
           <div class="modal-dialog modal-lg">
               <div class="modal-content">
@@ -279,23 +279,23 @@
 												<%= image_tag "../media/hubert.svg", alt: "Välkommen till NewsHubby", class: "img-responsive center-block", style: "height:300px;" %>
                           </div>
                       <div class="col-sm-8 col-xs-12">
-                      <h4>Vänligen presentera ert företag:</h4>
-												<%= f.text_field :company_name, placeholder: "Företagsnamn *" %> grundades i 
+                      <h4>§ presentera ert företag:</h4>
+												<%= f.text_field :company_name, placeholder: "Företagsnamn *" %> grundades i
 												<%= f.date_select :founded, order: [:month, :year] %>
-                          och ligger i <%= f.text_field :location, placeholder: "Ort, Land *" %>. Ni kan hitta oss på <%= f.text_field :website, placeholder: "http://www.example.com/" %> och på Twitter <%= f.text_field :twitter, placeholder: "@twitternamn" %>, och nå oss via <%= f.text_field :press_email, placeholder: "epost för presskontakt *" %>,  eller på telefonnummer<%= f.text_field :phone, placeholder: "+46 555 55 55 55" %>
+                          och ligger i <%= f.text_field :location, placeholder: "Ort, Land *" %>. Ni kan hitta oss på <%= f.text_field :website, placeholder: "http://www.example.com/" %> och på Twitter <%= f.text_field :twitter, placeholder: "@twitternamn" %>, och nå oss via <%= f.text_field :press_email, placeholder: "epost för presskontakt *" %>,  eller på telefonnummer <%= f.text_field :phone, placeholder: "+46 555 55 55 55" %>
                           <br><br>
                           <h4>Ladda upp er företagslogotyp *</h4>
                           <div class="input-group" style="width:100%;">
                               <input id="uploadFile" placeholder="Vald fil&hellip;" disabled="disabled" />
                               <div class="fileUpload btn btn-primary">
-																
+
                                   <i class="fa fa-file-image-o"></i>&nbsp;Välj fil
 																	<%= f.file_field :logo, id: "uploadBtn", class: "upload", id: "uploadBtn" %>
                               </div>
                           </div>
                           </form>
                           </div> <!-- / .col -->
-                          
+
                       </div> <!-- / .row -->
                       </div> <!-- / .container-fluid -->
                   </div>
@@ -307,7 +307,7 @@
               </div><!-- /.modal-content -->
           </div><!-- /.modal-dialog -->
       </div><!-- /.modal -->
-			
+
       <script>
       $(document).ready(function(){
           $('#myModal').modal('show')
