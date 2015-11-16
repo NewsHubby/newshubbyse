@@ -282,7 +282,7 @@
                       <h4>Vänligen presentera ert företag:</h4>
 												<%= f.text_field :company_name, placeholder: "Företagsnamn *" %> grundades i
 												<%= f.date_select :founded, order: [:month, :year] %>
-                          och ligger i <%= f.text_field :location, placeholder: "Ort, Land *" %>. Ni kan hitta oss på <%= f.text_field :website, placeholder: "http://www.example.com/" %> och på Twitter <%= f.text_field :twitter, placeholder: "@twitternamn" %>, och nå oss via <%= f.text_field :press_email, placeholder: "epost för presskontakt *" %>,  eller på telefonnummer <%= f.text_field :phone, placeholder: "+46 555 55 55 55" %>
+                          och ligger i <%= f.text_field :location, placeholder: "Ort, Land *" %>. Ni kan hitta oss på http://<%= f.text_field :website, placeholder: "www.example.com/" %> och på Twitter <%= f.text_field :twitter, placeholder: "@twitternamn" %>, och nå oss via <%= f.text_field :press_email, placeholder: "epost för presskontakt *" %>,  eller på telefonnummer <%= f.text_field :phone, placeholder: "+46 555 55 55 55" %>
                           <br><br>
                           <h4>Ladda upp er företagslogotyp *</h4>
                           <div class="input-group" style="width:100%;">
