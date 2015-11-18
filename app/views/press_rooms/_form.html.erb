@@ -50,12 +50,12 @@
 							<%= image_tag @press_room.logo.url(:medium), class: "img-responsive center-block", style: "max-width: 50%" %>
 							<!-- <input id="uploadFile" placeholder="Choose File" disabled="disabled" /> -->
 							<div class="text-center">
-							<input id="uploadFile" placeholder="Välj fil" disabled="disabled" />
+
+								<input class="uploadFile" placeholder="Välj fil" disabled="disabled" />
 								<div class="fileUpload btn btn-primary">
 									<span><i class="fa fa-file-image-o"></i>&nbsp;Välj bild</span>
-									<%= f.file_field :logo, id: "uploadBtn", class: "upload" %>
+									<%= f.file_field :logo, class: "upload" %>
 								</div>
-							</div>
 						</div>
 
 						<%= f.label :company_name, "Företagsnamn:" %>
@@ -284,14 +284,13 @@
 												<%= f.date_select :founded, order: [:month, :year] %>
                           och ligger i <%= f.text_field :location, placeholder: "Ort, Land *" %>. Ni kan hitta oss på http://<%= f.text_field :website, placeholder: "www.example.com/" %> och på Twitter <%= f.text_field :twitter, placeholder: "@twitternamn" %>, och nå oss via <%= f.text_field :press_email, placeholder: "epost för presskontakt *" %>,  eller på telefonnummer <%= f.text_field :phone, placeholder: "+46 555 55 55 55" %>
                           <br><br>
-                          <h4>Ladda upp er företagslogotyp *</h4>
+                          <h4>Ladda upp er företagslogotyp</h4>
                           <div class="input-group" style="width:100%;">
-                              <input id="uploadFile" placeholder="Vald fil&hellip;" disabled="disabled" />
-                              <div class="fileUpload btn btn-primary">
-
-                                  <i class="fa fa-file-image-o"></i>&nbsp;Välj fil
-																	<%= f.file_field :logo, id: "uploadBtn", class: "upload", id: "uploadBtn" %>
-                              </div>
+							<input class="uploadFile" placeholder="Välj fil" disabled="disabled" />
+  							<div class="fileUpload btn btn-primary">
+  								<span><i class="fa fa-file-image-o"></i>&nbsp;Välj bild</span>
+  								<%= f.file_field :logo, class: "upload" %>
+  							</div>
                           </div>
                           </form>
                           </div> <!-- / .col -->
