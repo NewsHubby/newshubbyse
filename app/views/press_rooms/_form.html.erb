@@ -280,7 +280,7 @@
                           </div>
                       <div class="col-sm-8 col-xs-12">
                       <h4>Vänligen presentera ert företag:</h4>
-												<%= f.text_field :company_name, placeholder: "Företagsnamn *" %> grundades i
+												<%= f.text_field :company_name, id: "company_name", placeholder: "Företagsnamn *" %> grundades i
 												<%= f.date_select :founded, order: [:month, :year] %>
                           och ligger i <%= f.text_field :location, placeholder: "Ort, Land *" %>. Ni kan hitta oss på http://<%= f.text_field :website, placeholder: "www.example.com/" %> och på Twitter <%= f.text_field :twitter, placeholder: "@twitternamn" %>, och nå oss via <%= f.text_field :press_email, placeholder: "epost för presskontakt *" %>,  eller på telefonnummer <%= f.text_field :phone, placeholder: "+46 555 55 55 55" %>
                           <br><br>
@@ -301,7 +301,7 @@
                   <div class="modal-footer">
                       <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
                       <small class="text-muted pull-left">* obligatoriskt</small>
-											<%= f.submit "Klar!", class: "btn btn-success btn-lg", role: "button" %>
+											<%= f.submit "Klar", id: "done_button", class: "btn btn-success btn-lg", disabled: true, role: "button" %>
                   </div>
               </div><!-- /.modal-content -->
           </div><!-- /.modal-dialog -->
@@ -309,7 +309,20 @@
 
       <script>
       $(document).ready(function(){
-          $('#myModal').modal('show')
+          $('#myModal').modal('show');
+
+					$('#company_name').keyup(function() {
+						if ($('#company_name').val() === '') {
+						  //('#done_button').prop('disabled', true); For jQuery >= 1.6
+							$("#done_button").attr('disabled','disabled'); // For jQuery < 1.6
+						}
+						else {
+							//('#done_button').prop('disabled', false); For jQuery >= 1.6
+							$("#done_button").removeAttr('disabled'); // For jQuery < 1.6
+
+						}
+					});
+
       });
       </script>
 <% end %>
