@@ -4,13 +4,13 @@
 
 
 <% @press_release.properties.each do |name, value| %>
-	
+
 	<% if value == "break" %>
 		<br><br>
 	<% else %>
-		<%= value %>
+		<%= simple_format(h(value)) %>
 	<% end %>
-	
+
 <% end %>
 
 <%= render 'press_releases/partials/static_bottom' %>

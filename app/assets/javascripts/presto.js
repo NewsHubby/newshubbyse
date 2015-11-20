@@ -7,6 +7,13 @@ $(document).ready(function() {
     var qCount = $('.question').length; // count the number of .question divs
     //console.log('There are ' + qCount + ' question divs present'); // log number of .question in console. Sanity check.
 
+    function enableFormListenToChange() {
+        $("form :input").change(function() {
+            $("form").data("changed", true);
+        });
+    }
+    enableFormListenToChange();
+
     var hideModal = function() {
         $('.overlay').hide(); // hide any dimmed modal background
         $('[id^=modal]').hide(); // hide any hint modal
@@ -170,6 +177,13 @@ $(document).ready(function() {
             activeBtn();
             focusPls();
             handleBtns();
+
+            var form = $('#prestoNavUL').closest('form');
+            if (form.data("changed")) {
+                saving();
+                form.submit();
+                form.data("changed", false);
+            }
         });
     };
 
