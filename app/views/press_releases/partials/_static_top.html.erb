@@ -4,7 +4,7 @@
         <h4 class="pull-right">
 					<% unless @press_release.embargo.nil? %>
 					<% if @press_release.embargo > Date.today %>
-						Embargo Date: 
+						Embargo Date:
 					<% end %>
 					<%= l(@press_release.embargo, format: '%d %B %Y') unless @press_release.embargo.blank? %>
 					<% end %>
@@ -17,7 +17,7 @@
         <ul class="fa-ul">
             <li><i class="fa-li fa fa-calendar" title="Founded"></i>grundat i <%= l(@press_room.founded, format: '%B %Y') unless @press_room.founded.blank? %></li>
             <li><i class="fa-li fa fa-map-marker fa-lg" title="Location"></i><%= link_to @press_room.location, "https://www.google.com/maps/place/#{@press_room.latitude},#{@press_room.longitude}", target: "_blank" %></li>
-						
+
             <li><i class="fa-li fa fa-home fa-lg" title="Website"></i><%= link_to @press_room.website, @press_room.website, target: "_blank" %></li>
             <li><i class="fa-li fa fa-envelope" title="Email"></i><%= mail_to @press_room.press_email, @press_room.press_email %></li>
 						<% unless @press_room.twitter.blank? %>
@@ -42,7 +42,7 @@
                     <h1><%= @press_release.title %></h1><br>
 										<div class="feature-img-area">
 											<% unless @press_release.uploads.first.nil? %>
-                        <%= link_to @press_release.uploads.first.file.url(:original) do %>
+                        <%= link_to @press_release.uploads.first.file.url(:original), target: "_blank" do %>
 												<%= image_tag @press_release.uploads.first.file.url(:medium), class: "center-block feature-img", alt: "" %>
 												<% end %><% end %>
                         <div class="feature-img-caption">

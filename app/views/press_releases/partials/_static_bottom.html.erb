@@ -8,13 +8,13 @@
 											<% elsif link.link.include? "youtu.be" %>
 											<% elsif link.link.include? "vimeo.com"%>
 											<% else %>
-												
+
 												<% if link.link.start_with?("http://") || link.link.start_with?("https://") %>
                         <li><%= link_to link.caption, link.link, target: "_blank" %></li>
 												<% else %>
 												<li><%= link_to link.caption, "http://"+link.link, target: "_blank" %></li>
 												<% end %>
-												
+
 											<% end %>
 											<% end %>
 											<% end %>
@@ -24,7 +24,7 @@
 											<% @press_release.uploads.all[1..-1].each do |upload| %>
 											<% unless upload.file.blank? %>
                         <div class="col-xs-4 brick">
-													<%= link_to upload.file.url, class: "thumbnail" do %>
+													<%= link_to upload.file.url, class: "thumbnail", target: "_blank" do %>
                                 <%= image_tag upload.file.url(:medium), alt: "" %>
                                 <p><small><%= upload.caption %></small></p>
                            <% end %>
@@ -32,8 +32,8 @@
 											<% end %>
 											<% end %>
 											<% end %>
-											
-											
+
+
 											<% @press_release.links.each do |link| %>
 											<% unless link.link.nil? %>
 											<% if link.link.include? "youtube.com" %>
@@ -44,7 +44,7 @@
                             <p><small><%= link.caption %></small></p>
                         </div>
 											<% end %>
-											
+
 											<% if link.link.include? "youtu.be" %>
                         <div class="col-sm-4 brick">
                             <div class="embed-responsive embed-responsive-4by3">
@@ -53,11 +53,11 @@
                             <p><small><%= link.caption %></small></p>
                         </div>
 											<% end %>
-											
+
 											<% if link.link.include? "vimeo.com" %>
                         <div class="col-sm-4 brick">
                             <div class="embed-responsive embed-responsive-4by3">
-                                <iframe class="embed-responsive-item" src="//player.vimeo.com/video/<%= link.link.gsub(/.*com\//, '') %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>	
+                                <iframe class="embed-responsive-item" src="//player.vimeo.com/video/<%= link.link.gsub(/.*com\//, '') %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                             </div>
                             <p><small><%= link.caption %></small></p>
                         </div>
@@ -67,4 +67,3 @@
                 </div> <!-- / .col-xs-10 col-xs-offset-1 -->
             </div> <!-- / .row -->
 						<% end %>
-
