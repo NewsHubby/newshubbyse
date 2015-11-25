@@ -852,7 +852,7 @@ hr.horizontal-divider:after {
 /* Index */
 #index-bkg {
   height: 100vh;
-  background: url(../media/stockholm.jpg) no-repeat center center;
+  background: url(../media/malmo.jpg) no-repeat center center;
   background-size: cover;
   color: #fff !important;
 }
