@@ -37,21 +37,20 @@
     </div> <!-- / .col-xs-5 -->
 </div> <!-- / .row .pr-heading -->
 <div class="row">
-                <div class="col-xs-10 col-xs-offset-1">
-									<hr class="visible-print-block">
-                    <h1><%= @press_release.title %></h1><br>
-										<div class="feature-img-area">
-											<% unless @press_release.uploads.first.nil? %>
-                        <%= link_to @press_release.uploads.first.file.url(:original), target: "_blank" do %>
-												<%= image_tag @press_release.uploads.first.file.url(:medium), class: "center-block feature-img", alt: "" %>
-												<% end %><% end %>
-                        <div class="feature-img-caption">
-                            <p><small>
-															<% if @press_release.uploads.first.blank? %>
-															This text will be replaced by your image caption
-															<% else %>
-															<%= @press_release.uploads.first.caption %>
-															<% end %>
-														</small></p>
-                        </div> <!-- /.feature-img-caption -->
-                    </div> <!-- / .feature-img-area -->
+  <div class="col-xs-10 col-xs-offset-1">
+    <hr class="visible-print-block">
+    <h1><%= @press_release.title %></h1><br>
+    <% unless @press_release.uploads.first.nil? %>
+    <div class="feature-img-area">
+      <%= link_to @press_release.uploads.first.file.url(:original), target: "_blank" do %>
+      <%= image_tag @press_release.uploads.first.file.url(:medium), class: "center-block feature-img", alt: "" %>
+      <% end %>
+      <% if @press_release.uploads.first.caption.blank? %>
+      <div class="feature-img-caption">
+        <p><small>
+            <%= @press_release.uploads.first.caption %>
+        </small></p>
+      </div> <!-- /.feature-img-caption -->
+      <% end %>
+    </div> <!-- / .feature-img-area -->
+    <% end %>
