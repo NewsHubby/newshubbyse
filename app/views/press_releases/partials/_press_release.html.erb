@@ -5,11 +5,15 @@
 
 <% @press_release.properties.each do |name, value| %>
 
-	<% if value == "break" %>
-		<br><br>
-	<% else %>
-		<%= value %>
-	<% end %>
+    <% if value == "break" %>
+     <br><br>
+ <% else %>
+     <% if name == "this_will_have_newline_applied" %>
+     <%= simple_format(h(value)) %>
+     <% else %>
+     <%= value %>
+     <% end %>
+    <% end %>
 
 <% end %>
 
