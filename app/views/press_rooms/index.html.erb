@@ -1,15 +1,14 @@
 <div id="index-bkg">
     <div class="switch-site"><small><a href="http://www.newshubby.com/">Go to NewsHubby's international site</a></small></div>
-    <div class="container">
-        <div id="indexText" class="text-center">
-            <!-- <img src="../media/newshubby_logotype_se_white.svg" alt="" width="300"> -->
-            <h1>Pressmeddelanden för alla branscher</h1>
-            <h3>- betala bara när ni når ut</h3>
-            <br>
+    <div class="container index-container">
+        <div id="indexText">
+            <h1>Välkommen!</h1>
+            <h2>Här hjälper vi dig att skapa och nå ut med dina pressmeddelanden
+            </h2>
             <% if current_press_room %>
-                <%= link_to categories_path do %><button class="btn btn-success btn-lg">Skapa ett pressmeddelande nu</button><% end %>
+            <%= link_to categories_path do %><button class="btn btn-action btn-lg">Skapa ett pressmeddelande nu</button><% end %>
             <% else %>
-                <%= link_to "#" do %><button class="btn btn-success btn-lg" data-toggle="modal" data-target="#signUp">Registrera gratis nu</button><% end %>
+            <%= link_to "#" do %><button class="btn btn-action btn-lg" data-toggle="modal" data-target="#signUp">Skapa ett pressmeddelande nu</button><% end %>
             <% end %>
             <br><br>
             <!-- <h3 class="text-center"></h3> -->
@@ -18,35 +17,108 @@
 
     </div>
 </div>
-<div class="container-fluid" style="background-color: #f1f1f1">
-    <div class="container frontpage-container">
+<div class="container-fluid pink-container">
+    <div class="container index-container frontpage-container">
         <a id="video"></a>
         <br class="hidden-xs"><br class="hidden-xs">
         <div class="row">
-            <div class="col-sm-6">
-                <p style="font-size: 1.2em;">NewsHubby erbjuder en automatisk onlinetjänst för att skapa pressmeddelanden och matchmaking mellan företag och journalister.</p><br>
-                <h4>Så här funkar det</h4>
-                
-                <ol>
-                    <li>Logga in och välj din bransch samt vinkel på ditt pressmeddelande</li>
-                    <br>
-                    <li>Skapa enkelt ditt pressmeddelande genom att följa våra mallar</li>
-                    <br>
-                    <li>Skicka! NewsHubby matchar ditt pressmeddelande mot en databas av journalister som är relevanta för din nyhet. </li>
-                </ol> 
+            <h2 class="text-center">Så här använder du newshubby</h2>
+            <br>
+            <div class="col-sm-4">
+                <div class="panel dark-pink-panel">
+                    <div class="panel-body">
+                        <p>
+                            1. Välj din bransch och typ av nyhet du vill skriva om bland våra många pressmeddelande-guider.
+                        </p>
+                        <br>
+                        <div class="row">
+                            <div class="col-xs-6 text-center">
+                                <p class="">
+                                    <i class="fa fa-desktop"></i>
+                                    <br>
+                                    TECH
+                                </p>
+                            </div>
+                            <div class="col-xs-6 text-center">
+                                <p class="text-center">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <br>
+                                    DETALJHANDEL
+                                </p>
+                            </div>
+                            <div class="col-xs-6 text-center">
+                                <p class="text-center">
+                                    <i class="fa fa-music"></i>
+                                    <br>
+                                    MUSIK
+                                </p>
+                            </div>
+                            <div class="col-xs-6 text-center">
+                                <p class="text-center">
+                                    <i class="fa fa-camera-retro"></i>
+                                    <br>
+                                    MODE
+                                </p>
+                            </div>
+                            <div class="col-xs-6 text-center">
+                                <p class="text-center">
+                                    <i class="fa fa-suitcase"></i>
+                                    <br>
+                                    ÖVR. NÄRINGSLIV
+                                </p>
+                            </div>
+                            <div class="col-xs-6 text-center">
+                                <p class="text-center">
+                                    <i class="fa fa-ellipsis-h"></i>
+                                    <br>
+                                    MER
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-6 hidden-xs">
-                <img src="media/distribution.png" class="img-responsive" id="distribution" alt="Distribute your press release through NewsHubby">
+            <div class="col-sm-4">
+                <div class="panel dark-pink-panel">
+                    <div class="panel-body">
+                        <p>
+                            2. Skapa enkelt ditt interaktiva pressmeddelande innehållandes text, bilder, videor och länkar med vårt gör-det-själv-verktyg.
+                        </p>
+                        <div style="height: 1em; line-height: 1em; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);">
+                            <p class="text-center" style="vertical-align: middle;">
+                                <span style="vertical-align:middle;"><i class="fa fa-align-left"></i> + <i class="fa fa-picture-o"></i> + </span>
+                                <span style="font-size:3em; vertical-align:middle;"><i class="fa fa-file-o"></i></span>
+                                <span style="vertical-align:middle;"> + <i class="fa fa-film"></i> + <i class="fa fa-link"></i></span>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            
+            <div class="col-sm-4">
+                <div class="panel dark-pink-panel">
+                    <div class="panel-body">
+                        <p>
+                            3. Luta dig tillbaka medan newshubby scannar ditt pressmeddelande och distribuerar det till relevanta journalister och mediekanaler.
+                        </p>
+                        <br>
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);">
+                            <p class="text-center">
+                                <i class="fa fa-globe fa-5x"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div> <!-- / .row-->
+        <br>
         <div class="row text-center">
-			<% if current_press_room %>
-                <%= link_to categories_path do %><button class="btn btn-success btn-lg">Skapa ett pressmeddelande nu</button>
+            <% if current_press_room %>
+            <%= link_to categories_path do %><button class="btn btn-gost btn-lg">Skapa ett pressmeddelande nu</button>
             <% end %>
-			<% else %>
-                <%= link_to "#" do %><button class="btn btn-success btn-lg" data-toggle="modal" data-target="#signUp">Skapa ett pressmeddelande nu</button><% end %>
-			<% end %>
+            <% else %>
+            <%= link_to "#" do %><button class="btn btn-ghost btn-lg" data-toggle="modal" data-target="#signUp">Skapa ett pressmeddelande nu</button><% end %>
+            <% end %>
         </div>
 
     </div><!-- /.container -->
@@ -55,29 +127,28 @@
     <div class="container">
         <a id="video"></a>
         <br class="hidden-xs"><br class="hidden-xs">
-        
+
         <div class="row">
             <h1 class="text-center">Prismodeller</h1>
-            
+
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
                     <p class="text-center" style="font-size: 1.2em;">Att skaffa ett NewsHubby-konto är gratis. Du kan ta ställning till vilken modell du vill använda när det väl är dags att distribuera ditt pressmeddelande.</p><br>
                 </div>
             </div>
-            
+
             <div class="col-sm-5 col-sm-offset-1">
-            <div style="border: 4px dashed #eee; border-radius: 20px; padding: 10px;">
-                <div class="panel panel-default" style="border-radius: 15px;">
-                    <div class="panel-body">
-                        <h3 class="text-center">Freemium <span class="text-muted">Gratis</span></h3>
-                        <ul class="fa-ul">
-                            <li><i class="fa-li fa fa-check text-success"></i>Eget pressrum</li><br>
-                            <li><i class="fa-li fa fa-check text-success"></i>Tillgång till pressmeddelande-guider</li><br>
-                            <li><i class="fa-li fa fa-check text-success"></i>Skapa obegränsat antal pressmeddelanden</li>
-                            
-                        </ul>
-                        <br>
-                        <!-- <div class="text-center">
+                <div style="border: 4px dashed #eee; border-radius: 20px; padding: 10px;">
+                    <div class="panel panel-default" style="border-radius: 15px;">
+                        <div class="panel-body">
+                            <h3 class="text-center">Freemium <span class="text-muted">Gratis</span></h3>
+                            <ul class="fa-ul">
+                                <li><i class="fa-li fa fa-check text-success"></i>Eget pressrum</li><br>
+                                <li><i class="fa-li fa fa-check text-success"></i>Tillgång till pressmeddelande-guider</li><br>
+                                <li><i class="fa-li fa fa-check text-success"></i>Skapa obegränsat antal pressmeddelanden</li>
+                            </ul>
+                            <br>
+                            <!-- <div class="text-center">
                             <%= link_to categories_path do %><button class="btn btn-success" data-toggle="modal" data-target="#signUp">Registrera</button><% end %>
                         </div> -->
                     </div>
@@ -92,86 +163,86 @@
                             <li><i class="fa-li fa fa-check text-success"></i>Betala <strong>endast</strong> när ni når ut, och bestäm själv vad det maximalt får kosta.</li>
                         </ul>
                         <!-- <div class="row">
-                            <div class="col-sm-10 col-sm-offset-1">
-                            Vad får jag för...?
-                                <input id="priceSlider" type ="range" min ="5000" max="35000" step ="5000" value ="5000"/>
-                            </div>
-                        </div> -->
-                        
+                        <div class="col-sm-10 col-sm-offset-1">
+                        Vad får jag för...?
+                        <input id="priceSlider" type ="range" min ="5000" max="35000" step ="5000" value ="5000"/>
                     </div>
-                </div>
-                </div>
-            </div>
+                </div> -->
 
-            <div class="col-sm-5">
-                <div class="panel panel-default gold-panel">
-                    <div class="panel-body">
-                        <h3 class="text-center">Premium <span class="text-muted">2000 SEK / mån</span></h3>
-                        <ul class="fa-ul">
-                            <li><i class="fa-li fa fa-check text-success"></i>Eget pressrum</li><br>
-                            <li><i class="fa-li fa fa-check text-success"></i>Tillgång till pressmeddelande-guider</li><br>
-                            <li><i class="fa-li fa fa-check text-success"></i>Skapa obegränsat antal pressmeddelanden</li><br>
-                            <li><i class="fa-li fa fa-check text-success"></i><strong>Obegränsad</strong> matchning och distribution till journalister</li>
-                        </ul>
-                        <br>
-                        <!-- <div class="text-center">
-                            <%= link_to categories_path do %><button class="btn btn-success" data-toggle="modal" data-target="#signUp">Registrera</button><% end %>
-                        </div> -->
-                    </div>
-                </div>
             </div>
-        </div> <!-- / .row-->
+        </div>
     </div>
-    <br>
+</div>
+
+<div class="col-sm-5">
+    <div class="panel panel-default gold-panel">
+        <div class="panel-body">
+            <h3 class="text-center">Premium <span class="text-muted">2000 SEK / mån</span></h3>
+            <ul class="fa-ul">
+                <li><i class="fa-li fa fa-check text-success"></i>Eget pressrum</li><br>
+                <li><i class="fa-li fa fa-check text-success"></i>Tillgång till pressmeddelande-guider</li><br>
+                <li><i class="fa-li fa fa-check text-success"></i>Skapa obegränsat antal pressmeddelanden</li><br>
+                <li><i class="fa-li fa fa-check text-success"></i><strong>Obegränsad</strong> matchning och distribution till journalister</li>
+            </ul>
+            <br>
+            <!-- <div class="text-center">
+            <%= link_to categories_path do %><button class="btn btn-success" data-toggle="modal" data-target="#signUp">Registrera</button><% end %>
+        </div> -->
+    </div>
+</div>
+</div>
+</div> <!-- / .row-->
+</div>
+<br>
 </div><!-- /.container -->
 
 <div class="container-fluid latest-pressreleases">
     <div class="container">
         <br>
         <h3 class="text-center">Senast publicerade pressmeddelanden</h3>
-        
-				<div class="container">
-					<div class="row">
-					</div>
-					<div class="row">
-						<div class="masonry-container transitions-enabled">
-							<% @press_releases.each do |press_release| %>
-							<div class="col-sm-6 col-md-4 col-lg-3 brick">
-								<div class="thumbnail">
-									<% unless press_release.uploads.first.nil? %>
-									<%= link_to press_room_press_release_path(press_release.press_room, press_release) do %>
-									<%= image_tag press_release.uploads.first.file.url(:medium), class: "img-responsive", alt: "" %><% end %>
-									<% end %>
 
-									<div class="caption">
-										<time class="pull-right text-muted clearfix" datetime="2014-10-28 20:00">
-											<small>
-												<%= time_ago_in_words(press_release.embargo) %>
-											</small>
-										</time>
-										<%= link_to press_room_press_release_path(press_release.press_room, press_release) do %>
-										<h4>
-											<%= press_release.title %>
-										</h4>
-										<% end %>
+        <div class="container">
+            <div class="row">
+            </div>
+            <div class="row">
+                <div class="masonry-container transitions-enabled">
+                    <% @press_releases.each do |press_release| %>
+                    <div class="col-sm-6 col-md-4 col-lg-3 brick">
+                        <div class="thumbnail">
+                            <% unless press_release.uploads.first.nil? %>
+                            <%= link_to press_room_press_release_path(press_release.press_room, press_release) do %>
+                            <%= image_tag press_release.uploads.first.file.url(:medium), class: "img-responsive", alt: "" %><% end %>
+                            <% end %>
 
-										<!-- <p class="fade-out">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum dolor cumque, tempora voluptas...</p> -->
-									</div> <!-- / .caption -->
+                            <div class="caption">
+                                <time class="pull-right text-muted clearfix" datetime="2014-10-28 20:00">
+                                    <small>
+                                        <%= time_ago_in_words(press_release.embargo) %>
+                                    </small>
+                                </time>
+                                <%= link_to press_room_press_release_path(press_release.press_room, press_release) do %>
+                                <h4>
+                                    <%= press_release.title %>
+                                </h4>
+                                <% end %>
 
-									<%= link_to press_release.press_room do %>
-									<%= image_tag press_release.press_room.logo.url(:thumb), class: "thumbnail-logotype clearfix" %>
-									<% end %>
+                                <!-- <p class="fade-out">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum dolor cumque, tempora voluptas...</p> -->
+                            </div> <!-- / .caption -->
 
-								</div> <!-- / .thumbnail -->
-							</div> <!-- / .brick -->
-							<% end %>					
-						</div> <!-- / .masonry-container -->
-						<div class="text-center"><%= will_paginate @press_releases %></div>
-						<!--<div class="col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
-						
-					</div> <!-- /.row -->
-				</div> <!-- / .container -->
-				
+                            <%= link_to press_release.press_room do %>
+                            <%= image_tag press_release.press_room.logo.url(:thumb), class: "thumbnail-logotype clearfix" %>
+                            <% end %>
+
+                        </div> <!-- / .thumbnail -->
+                    </div> <!-- / .brick -->
+                    <% end %>
+                </div> <!-- / .masonry-container -->
+                <div class="text-center"><%= will_paginate @press_releases %></div>
+                <!--<div class="col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+
+            </div> <!-- /.row -->
+        </div> <!-- / .container -->
+
         <br>
     </div>
 </div>
@@ -226,8 +297,8 @@ $(document).ready(function () {
 });
 
 /* $('#indexTab a').click(function (e) {
-	e.preventDefault()
-	$(this).tab('show')
+e.preventDefault()
+$(this).tab('show')
 }) */
 
 </script>
