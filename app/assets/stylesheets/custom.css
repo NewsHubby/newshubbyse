@@ -891,7 +891,7 @@ hr.horizontal-divider:after {
 .dark-pink-panel {
   background: #c2414a;
   border-radius: 6px;
-  min-height: 300px;
+  min-height: 130px;
 }
 
 .index-container {
@@ -912,6 +912,18 @@ hr.horizontal-divider:after {
   min-height: 80vh;
   padding-top: 5vh;
   padding-bottom: 5vh;
+}
+
+.panel-dashed {
+  border: 4px dashed #ea505a;
+  border-radius: 15px;
+  color: #ea505a;
+}
+
+.panel-pink {
+  background-color: #ea505a;
+  color: #fff;
+  border-radius: 15px;
 }
 
 .switch-site {
