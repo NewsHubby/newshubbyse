@@ -1,15 +1,19 @@
 .footer {
-	position: sticky;
+	//position: sticky;
 	bottom: 0;
 	width: 100%;
 	min-height: 60px;
   	background-color: #444;
 	text-align: center;
-
+	clear: both;
 }
 
 .footer > .container {
 	padding-top: 20px;
+}
+
+.footer-hidden {
+	display: none;
 }
 
 .footer a {

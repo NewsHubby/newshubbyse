@@ -4,13 +4,13 @@
 
 <% if can? :manage, @press_room %>
 
-	<%= nested_form_for(@press_room) do |f| %>
-	<% if @press_room.errors.any? %>
-		<h2><%= pluralize(@press_room.errors.count, "error") %> prohibited this newsroom from being saved:</h2>
-		<ul>
-		<% @press_room.errors.full_messages.each do |message| %>
-		<li><%= message %></li>
-		<% end %>
+<%= nested_form_for(@press_room) do |f| %>
+<% if @press_room.errors.any? %>
+<h2><%= pluralize(@press_room.errors.count, "error") %> prohibited this newsroom from being saved:</h2>
+<ul>
+	<% @press_room.errors.full_messages.each do |message| %>
+	<li><%= message %></li>
+	<% end %>
 	<% end %>
 
 	<div class="container">
@@ -29,14 +29,14 @@
 				<h4>
 					Redigera pressrum
 					<% if can? :update, @press_room %>
-						<span class="pull-right">
-							<%= link_to @press_room do %>
-								<small>Se pressrum</small>
-							<% end %>
-						</span>
+					<span class="pull-right">
+						<%= link_to @press_room do %>
+						<small>Se pressrum</small>
+						<% end %>
+					</span>
 					<% end %>
 				</h4>
-			<hr class="header-hr">
+				<hr class="header-hr">
 			</div><!-- col -->
 		</div><!-- row -->
 		<div class="row">
@@ -56,278 +56,277 @@
 									<span><i class="fa fa-file-image-o"></i>&nbsp;Välj bild</span>
 									<%= f.file_field :logo, class: "upload" %>
 								</div>
-						</div>
+							</div>
 
-						<%= f.label :company_name, "Företagsnamn:" %>
-						<%= f.text_field :company_name, class: "form-control" %>
-						<br>
-						<div class="input-group">
-							<%= f.label :founded, "grundat: " %>
-							<%= f.date_select :founded, order: [:month, :year], class: "form-control input-sm" %>
-						</div>
-						<br>
-						<div class="input-group">
-							<div class="input-group-addon">
-								<i class="fa fa-home fa-fw" title="Company website"></i>
+							<%= f.label :company_name, "Företagsnamn:" %>
+							<%= f.text_field :company_name, class: "form-control" %>
+							<br>
+							<div class="input-group">
+								<%= f.label :founded, "grundat: " %>
+								<%= f.date_select :founded, order: [:month, :year], class: "form-control input-sm" %>
 							</div>
-							<%= f.text_field :website, class: "form-control input-sm", placeholder: "www.example.com" %>
-						</div>
-						<br>
-						<div class="input-group">
-							<div class="input-group-addon">
-								<i class="fa fa-twitter fa-fw" title="Twitter"></i>
+							<br>
+							<div class="input-group">
+								<div class="input-group-addon">
+									<i class="fa fa-home fa-fw" title="Company website"></i>
+								</div>
+								<%= f.text_field :website, class: "form-control input-sm", placeholder: "www.example.com" %>
 							</div>
-							<%= f.text_field :twitter, class: "form-control input-sm", placeholder: "@twitter" %>
-						</div>
-						<br>
-						<div class="input-group">
-							<div class="input-group-addon">
-								<i class="fa fa-envelope fa-fw" title="Press contact email"></i>
+							<br>
+							<div class="input-group">
+								<div class="input-group-addon">
+									<i class="fa fa-twitter fa-fw" title="Twitter"></i>
+								</div>
+								<%= f.text_field :twitter, class: "form-control input-sm", placeholder: "@twitter" %>
 							</div>
-							<%= f.text_field :press_email, class: "form-control input-sm", placeholder: "press@example.com" %>
-						</div>
-						<br>
-						<div class="input-group">
-							<div class="input-group-addon">
-								<i class="fa fa-phone fa-fw" title="Press contact phone number"></i>
+							<br>
+							<div class="input-group">
+								<div class="input-group-addon">
+									<i class="fa fa-envelope fa-fw" title="Press contact email"></i>
+								</div>
+								<%= f.text_field :press_email, class: "form-control input-sm", placeholder: "press@example.com" %>
 							</div>
-							<%= f.text_field :phone, class: "form-control input-sm", placeholder: "+1 555 555 555" %>
-						</div>
-						<br>
-						<div class="input-group">
-							<div class="input-group-addon">
-								<i class="fa fa-map-marker fa-fw" title="Company headquarters location"></i>
+							<br>
+							<div class="input-group">
+								<div class="input-group-addon">
+									<i class="fa fa-phone fa-fw" title="Press contact phone number"></i>
+								</div>
+								<%= f.text_field :phone, class: "form-control input-sm", placeholder: "+1 555 555 555" %>
 							</div>
-							<%= f.text_field :location, class: "form-control input-sm", placeholder: "Exempelgatan 1, Stockholm, Sverige" %>
-						</div>
-						<br>
-						<% if can? :update, @press_room %>
+							<br>
+							<div class="input-group">
+								<div class="input-group-addon">
+									<i class="fa fa-map-marker fa-fw" title="Company headquarters location"></i>
+								</div>
+								<%= f.text_field :location, class: "form-control input-sm", placeholder: "Exempelgatan 1, Stockholm, Sverige" %>
+							</div>
+							<br>
+							<% if can? :update, @press_room %>
 							<div class="text-right">
 								<%= f.submit "Spara ändringar", class: "btn btn-success", role: "button" %>
 							</div>
-						<% end %>
-					</div> <!-- / .panel-body -->
-				</div> <!-- / .panel -->
+							<% end %>
+						</div> <!-- / .panel-body -->
+					</div> <!-- / .panel -->
 
-				<a class="anchor" name="companydetails"></a>
-				<h5>Introduktion</h5>
-				<div class="panel panel-defaul">
-					<div class="panel-body">
-						<h4>Problem ni löser</h4>
-						<p>
-						<%= f.label :problem_solved, "Vilket problem löser #{@press_room.company_name}" %>
-						<%= f.text_area :problem_solved, rows: 3, placeholder: "", class: "form-control" %>
-						</p>
-						<h4>Företagsmodell</h4>
-						<p>
-						<%= f.label :business_model, "Beskriv #{@press_room.company_name} företagsmodell, gärna med priser och liknande" unless @press_room.company_name.blank? %><br>
-						<%= f.text_area :business_model, rows: 3, placeholder: "", class: "form-control" %>
-						</p>
-						<h4>Konkurrenter</h4>
-						<p>
-						<%= f.label :competition, "Vilka är #{@press_room.company_name} konkurenter?"  unless @press_room.company_name.blank? %>
-						<%= f.text_area :competition, rows: 3, placeholder: "", class: "form-control" %>
-						</p>
-						<% if can? :manage, @press_room %>
+					<a class="anchor" name="companydetails"></a>
+					<h5>Introduktion</h5>
+					<div class="panel panel-defaul">
+						<div class="panel-body">
+							<h4>Problem ni löser</h4>
+							<p>
+								<%= f.label :problem_solved, "Vilket problem löser #{@press_room.company_name}" %>
+								<%= f.text_area :problem_solved, rows: 3, placeholder: "", class: "form-control" %>
+							</p>
+							<h4>Företagsmodell</h4>
+							<p>
+								<%= f.label :business_model, "Beskriv #{@press_room.company_name} företagsmodell, gärna med priser och liknande" unless @press_room.company_name.blank? %><br>
+								<%= f.text_area :business_model, rows: 3, placeholder: "", class: "form-control" %>
+							</p>
+							<h4>Konkurrenter</h4>
+							<p>
+								<%= f.label :competition, "Vilka är #{@press_room.company_name} konkurenter?"  unless @press_room.company_name.blank? %>
+								<%= f.text_area :competition, rows: 3, placeholder: "", class: "form-control" %>
+							</p>
+							<% if can? :manage, @press_room %>
 							<div class="text-right">
 								<%= f.submit "Spara ändringar", class: "btn btn-success", role: "button" %>
 							</div>
-						<% end %>
-					</div> <!-- / .panel-body -->
-				</div> <!-- / .panel -->
+							<% end %>
+						</div> <!-- / .panel-body -->
+					</div> <!-- / .panel -->
 					<a class="anchor" name="funding"></a>
 					<h5>Finansiering</h5>
 
 					<%= f.fields_for :fundings do |funding| %>
-						<div class="panel panel-deafault">
-							<div class="panel-body">
-								<%= f.link_to_remove do %><i class="fa fa-close fa-lg pull-right"></i><% end %>
+					<div class="panel panel-deafault">
+						<div class="panel-body">
+							<%= f.link_to_remove do %><i class="fa fa-close fa-lg pull-right"></i><% end %>
 
-								<div class="form-group">
-									<%= funding.label :investment_type, "Finansieringstyp" %><br>
-									<%= funding.select :investment_type, ["Private Investor", "Venture Capital", "Bootstrapped", "No funding", "Other"], class: "form-control" %>
-								</div>
-								<div class="form-group">
-									<%= funding.label :name, "Finansiärens namns" %><br>
-									<%= funding.text_field :name, placeholder: "", class: "form-control" %>
-								</div>
-								<div class="form-group">
-									<%= funding.label :date, "Finansieringsdatum" %><br>
-									<%= funding.date_select :date, order:  [:day, :month, :year]  %>
-								</div>
-								<div class="form-group">
-									<%= funding.label :sum, "Investerad summa" %><br>
-									<div class="input-group">
-										<div class="input-group-addon">SEK</div>
-										<%= funding.number_field :sum, class: "form-control", placeholder: ""  %>
-									</div>
+							<div class="form-group">
+								<%= funding.label :investment_type, "Finansieringstyp" %><br>
+								<%= funding.select :investment_type, ["Private Investor", "Venture Capital", "Bootstrapped", "No funding", "Other"], class: "form-control" %>
+							</div>
+							<div class="form-group">
+								<%= funding.label :name, "Finansiärens namns" %><br>
+								<%= funding.text_field :name, placeholder: "", class: "form-control" %>
+							</div>
+							<div class="form-group">
+								<%= funding.label :date, "Finansieringsdatum" %><br>
+								<%= funding.date_select :date, order:  [:day, :month, :year]  %>
+							</div>
+							<div class="form-group">
+								<%= funding.label :sum, "Investerad summa" %><br>
+								<div class="input-group">
+									<div class="input-group-addon">SEK</div>
+									<%= funding.number_field :sum, class: "form-control", placeholder: ""  %>
 								</div>
 							</div>
 						</div>
+					</div>
 					<% end %>
 
-				<%= f.link_to_add :fundings, class: "btn btn-primary center-block" do %> + Lägg till ytterligare finansiering<% end %>
+					<%= f.link_to_add :fundings, class: "btn btn-primary center-block" do %> + Lägg till ytterligare finansiering<% end %>
 					<br>
-				<% if can? :update, @press_room %>
+					<% if can? :update, @press_room %>
 					<div class="text-right">
 						<%= f.submit "Spara ändringar", class: "btn btn-success", role: "button" %>
 					</div>
-				<% end %>
+					<% end %>
 					<a class="anchor" name="keypeople"></a>
 					<h5>Teamet</h5>
-						<%= f.fields_for :people do |person| %>
-						<div class="row">
-							<div class="col-xs-12">
-								<div class="panel panel-default">
-									<div class="panel-body">
-										<%= f.link_to_remove do %><i class="fa fa-close fa-lg pull-right"></i><% end %>
-										<%= person.label :name, "Namn" %><br>
-										<%= person.text_field :name, class: "form-control", placeholder: "" %><br>
+					<%= f.fields_for :people do |person| %>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<%= f.link_to_remove do %><i class="fa fa-close fa-lg pull-right"></i><% end %>
+									<%= person.label :name, "Namn" %><br>
+									<%= person.text_field :name, class: "form-control", placeholder: "" %><br>
 
-										<%= person.label :position, "Arbetstitel" %><br>
-										<%= person.text_field :position, class: "form-control", placeholder: "Arbetstitel eller -funktion" %><br>
-										<%= person.label :presentation, "Beskriv personen kort" %>
-										<%= person.text_area :presentation, placeholder: "", class: "form-control" %>
-									</div>
+									<%= person.label :position, "Arbetstitel" %><br>
+									<%= person.text_field :position, class: "form-control", placeholder: "Arbetstitel eller -funktion" %><br>
+									<%= person.label :presentation, "Beskriv personen kort" %>
+									<%= person.text_area :presentation, placeholder: "", class: "form-control" %>
 								</div>
+							</div>
+						</div> <!-- / .col -->
+					</div> <!-- / .row -->
+					<% end %>
+					<%= f.link_to_add :people, class: "btn btn-primary center-block" do %> + Lägg till ytterligare personer<% end %>
+					<br>
+					<% if can? :manage, @press_room %>
+					<div class="text-right clearfix">
+						<%= f.submit "Spara ändringar", class: "btn btn-success", role: "button" %>
+					</div>
+					<% end %>
+					<br>
+				</div> <!-- / .col -->
+				<div class="col-sm-5 col-md-4">
+					<div class="row">
+						<div class="col-xs-12">
+							<h5>&nbsp;Senaste pressmeddelanden</h5>
+						</div>
+					</div>
+
+					<div class="row">
+						<% unless @press_room.press_releases.nil? %>
+						<% @press_room.press_releases[0..2].each do |press_release| %>
+						<div class="col-xs-12">
+							<div class="thumbnail">
+								<% if can? :manage, @press_room %>
+								<div class="pr-thumbnail-options">
+
+									<%= link_to press_room_press_release_path(press_release.press_room, press_release) do %> <button class="btn btn-sm btn-primary"><i class="fa fa-eye"></i>&nbsp;View</button> <% end %>
+
+									<%= link_to edit_press_room_press_release_path(@press_room, press_release), title: "Edit" do %>
+									<button class="btn btn-sm btn-default"><i class="fa fa-pencil" title="Edit this press release">&nbsp;Edit</i></button>
+									<% end %>
+
+									<%= link_to press_room_press_release_path(@press_room, press_release), title: "Delete" , method: :delete, data: { confirm: "Are you sure that you want to permanently delete this press release? This action can not be undone." } do %>
+									<button class="btn btn-sm btn-danger"><i class="fa fa-times" title="Permanently delete this press release">&nbsp;Delete</i></button>
+									<% end %>
+								</div>
+								<% end %>
+
+								<%= link_to press_room_press_release_path(@press_room, press_release) do %>
+								<% unless press_release.uploads.blank? %>
+								<%= image_tag press_release.uploads.first.file.url(:medium), alt: "" unless press_release.uploads.blank? %>
+								<% else %>
+								<%= image_tag "images/feature_img.png", alt: "" %>
+								<% end %>
+								<% end %>
+								<div class="caption">
+									<time class="pull-right text-muted clearfix" datetime="<%= press_release.embargo.strftime("%D") unless press_release.embargo.blank? %>">
+										<small>
+											<%= l(press_release.embargo, format: '%d %B %Y') unless press_release.embargo.blank? %>
+										</small>
+									</time>
+									<h4><%= link_to press_release.title, press_room_press_release_path(@press_room, press_release) %></h4>
+									<% if press_release.exclusive? %>
+									<div class="text-center">
+										<%= link_to press_room_press_release_path(press_release.press_room, press_release) do %>
+										<span class="label label-danger"><i class="fa fa-eye-slash" title="Detta pressmeddelande visas bara för de som har direktlänk till det">&nbsp;Dolt</i></span>
+										<% end %>
+									</div>
+									<% end %>
+								</div> <!-- / .caption -->
+								<div class="clearfix"></div>
+							</div>
+						</div> <!-- / .col-sm-6 -->
+						<% end %><% end %>
+
+					</div> <!-- / .row -->
+					<div class="text-center">
+						<%= link_to "Visa alla pressmeddelanden", press_room_press_releases_path(@press_room), class: "btn btn-default", role: "button" %>
+					</div>
+				</div> <!-- / .col-md-8 -->
+			</div> <!-- / .row -->
+		</div> <!-- / .container -->
+
+		<% if @press_room.company_name.blank? %>
+
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h3 class="modal-title text-center">Hej och välkommen!</h3>
+					</div>
+					<div class="modal-body hubertBasic">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-sm-4 hidden-xs">
+									<%= image_tag "../media/hubert.svg", alt: "Välkommen till NewsHubby", class: "img-responsive center-block", style: "height:300px;" %>
+								</div>
+								<div class="col-sm-8 col-xs-12">
+									<h4>Vänligen presentera ert företag:</h4>
+									<%= f.text_field :company_name, id: "company_name", placeholder: "Företagsnamn *" %> grundades i
+									<%= f.date_select :founded, order: [:month, :year] %>
+									och ligger i <%= f.text_field :location, placeholder: "Ort, Land *" %>. Ni kan hitta oss på http://<%= f.text_field :website, placeholder: "www.example.com/" %> och på Twitter <%= f.text_field :twitter, placeholder: "@twitternamn" %>, och nå oss via <%= f.text_field :press_email, placeholder: "epost för presskontakt *" %>,  eller på telefonnummer <%= f.text_field :phone, placeholder: "+46 555 55 55 55" %>
+									<br><br>
+									<h4>Ladda upp er företagslogotyp</h4>
+									<div class="input-group" style="width:100%;">
+										<input class="uploadFile" placeholder="Välj fil" disabled="disabled" />
+										<div class="fileUpload btn btn-primary">
+											<span><i class="fa fa-file-image-o"></i>&nbsp;Välj bild</span>
+											<%= f.file_field :logo, class: "upload" %>
+										</div>
+									</div>
+								</form>
 							</div> <!-- / .col -->
 						</div> <!-- / .row -->
-						<% end %>
-						<%= f.link_to_add :people, class: "btn btn-primary center-block" do %> + Lägg till ytterligare personer<% end %>
-						<br>
-						<% if can? :manage, @press_room %>
-							<div class="text-right clearfix">
-								<%= f.submit "Spara ändringar", class: "btn btn-success", role: "button" %>
-							</div>
-						<% end %>
-						<br>
-			</div> <!-- / .col -->
-			<div class="col-sm-5 col-md-4">
-				<div class="row">
-					<div class="col-xs-12">
-						<h5>&nbsp;Senaste pressmeddelanden</h5>
-					</div>
+					</div> <!-- / .container-fluid -->
 				</div>
-
-				<div class="row">
-					<% unless @press_room.press_releases.nil? %>
-					<% @press_room.press_releases[0..2].each do |press_release| %>
-					<div class="col-xs-12">
-						<div class="thumbnail">
-						<% if can? :manage, @press_room %>
-						<div class="pr-thumbnail-options">
-
-							<%= link_to press_room_press_release_path(press_release.press_room, press_release) do %> <button class="btn btn-sm btn-primary"><i class="fa fa-eye"></i>&nbsp;View</button> <% end %>
-
-							<%= link_to edit_press_room_press_release_path(@press_room, press_release), title: "Edit" do %>
-							<button class="btn btn-sm btn-default"><i class="fa fa-pencil" title="Edit this press release">&nbsp;Edit</i></button>
-							<% end %>
-
-							<%= link_to press_room_press_release_path(@press_room, press_release), title: "Delete" , method: :delete, data: { confirm: "Are you sure that you want to permanently delete this press release? This action can not be undone." } do %>
-							<button class="btn btn-sm btn-danger"><i class="fa fa-times" title="Permanently delete this press release">&nbsp;Delete</i></button>
-							<% end %>
-						</div>
-						<% end %>
-
-						<%= link_to press_room_press_release_path(@press_room, press_release) do %>
-						<% unless press_release.uploads.blank? %>
-						<%= image_tag press_release.uploads.first.file.url(:medium), alt: "" unless press_release.uploads.blank? %>
-						<% else %>
-						<%= image_tag "images/feature_img.png", alt: "" %>
-						<% end %>
-						<% end %>
-						<div class="caption">
-							<time class="pull-right text-muted clearfix" datetime="<%= press_release.embargo.strftime("%D") unless press_release.embargo.blank? %>">
-                              <small>
-                                  <%= l(press_release.embargo, format: '%d %B %Y') unless press_release.embargo.blank? %>
-                              </small>
-                          </time>
-							<h4><%= link_to press_release.title, press_room_press_release_path(@press_room, press_release) %></h4>
-							<% if press_release.exclusive? %>
-							<div class="text-center">
-								<%= link_to press_room_press_release_path(press_release.press_room, press_release) do %>
-								<span class="label label-danger"><i class="fa fa-eye-slash" title="Detta pressmeddelande visas bara för de som har direktlänk till det">&nbsp;Dolt</i></span>
-								<% end %>
-							</div>
-							<% end %>
-						</div> <!-- / .caption -->
-						<div class="clearfix"></div>
-						</div>
-					</div> <!-- / .col-sm-6 -->
-					<% end %><% end %>
-
-				</div> <!-- / .row -->
-				<div class="text-center">
-					<%= link_to "Visa alla pressmeddelanden", press_room_press_releases_path(@press_room), class: "btn btn-default", role: "button" %>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+					<small class="text-muted pull-left">* obligatoriskt</small>
+					<%= f.submit "Klar", id: "done_button", class: "btn btn-success btn-lg", disabled: true, role: "button" %>
 				</div>
-			</div> <!-- / .col-md-8 -->
-		</div> <!-- / .row -->
-	</div> <!-- / .container -->
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 
-<% if @press_room.company_name.blank? %>
+	<script>
+	$(document).ready(function(){
+		$('#myModal').modal('show');
 
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
-          <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <h3 class="modal-title text-center">Hej och välkommen!</h3>
-                  </div>
-                  <div class="modal-body hubertBasic">
-                      <div class="container-fluid">
-                      <div class="row">
-                      <div class="col-sm-4 hidden-xs">
-												<%= image_tag "../media/hubert.svg", alt: "Välkommen till NewsHubby", class: "img-responsive center-block", style: "height:300px;" %>
-                          </div>
-                      <div class="col-sm-8 col-xs-12">
-                      <h4>Vänligen presentera ert företag:</h4>
-												<%= f.text_field :company_name, id: "company_name", placeholder: "Företagsnamn *" %> grundades i
-												<%= f.date_select :founded, order: [:month, :year] %>
-                          och ligger i <%= f.text_field :location, placeholder: "Ort, Land *" %>. Ni kan hitta oss på http://<%= f.text_field :website, placeholder: "www.example.com/" %> och på Twitter <%= f.text_field :twitter, placeholder: "@twitternamn" %>, och nå oss via <%= f.text_field :press_email, placeholder: "epost för presskontakt *" %>,  eller på telefonnummer <%= f.text_field :phone, placeholder: "+46 555 55 55 55" %>
-                          <br><br>
-                          <h4>Ladda upp er företagslogotyp</h4>
-                          <div class="input-group" style="width:100%;">
-							<input class="uploadFile" placeholder="Välj fil" disabled="disabled" />
-  							<div class="fileUpload btn btn-primary">
-  								<span><i class="fa fa-file-image-o"></i>&nbsp;Välj bild</span>
-  								<%= f.file_field :logo, class: "upload" %>
-  							</div>
-                          </div>
-                          </form>
-                          </div> <!-- / .col -->
+		$('#company_name').keyup(function() {
+			if ($('#company_name').val() === '') {
+				//('#done_button').prop('disabled', true); For jQuery >= 1.6
+				$("#done_button").attr('disabled','disabled'); // For jQuery < 1.6
+			}
+			else {
+				//('#done_button').prop('disabled', false); For jQuery >= 1.6
+				$("#done_button").removeAttr('disabled'); // For jQuery < 1.6
 
-                      </div> <!-- / .row -->
-                      </div> <!-- / .container-fluid -->
-                  </div>
-                  <div class="modal-footer">
-                      <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-                      <small class="text-muted pull-left">* obligatoriskt</small>
-											<%= f.submit "Klar", id: "done_button", class: "btn btn-success btn-lg", disabled: true, role: "button" %>
-                  </div>
-              </div><!-- /.modal-content -->
-          </div><!-- /.modal-dialog -->
-      </div><!-- /.modal -->
+			}
+		});
 
-      <script>
-      $(document).ready(function(){
-          $('#myModal').modal('show');
-
-					$('#company_name').keyup(function() {
-						if ($('#company_name').val() === '') {
-						  //('#done_button').prop('disabled', true); For jQuery >= 1.6
-							$("#done_button").attr('disabled','disabled'); // For jQuery < 1.6
-						}
-						else {
-							//('#done_button').prop('disabled', false); For jQuery >= 1.6
-							$("#done_button").removeAttr('disabled'); // For jQuery < 1.6
-
-						}
-					});
-
-      });
-      </script>
-<% end %>
+	});
+	</script>
+	<% end %>
 
 
-<% end %>
-<% end %>
-<% end %>
+	<% end %>
+	<% end %>
+	<% end %>

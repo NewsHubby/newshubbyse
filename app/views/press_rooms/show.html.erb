@@ -28,7 +28,7 @@
                       <div class="panel-body">
                           <div class="row">
                               <div class="col-md-12">
-                                  
+
                                   <div class="col-sm-8">
                                       <h2><%= @press_room.company_name %></h2>
                                           <p>grundat i <%= l(@press_room.founded, format: '%B %Y') unless @press_room.founded.blank? %></p>
@@ -65,17 +65,17 @@
                       <div class="panel-body">
 
                           <div class="col-xs-12">
-															
+
 															<% unless @press_room.problem_solved.blank? %>
                               <h5>Problemlösning</h5>
                               <p><%= @press_room.problem_solved %></p>
 															<% end %>
-															
+
 															<% unless @press_room.business_model.blank? %>
                               <h5>Affärsplan</h5>
                               <p><%= @press_room.business_model %></p>
 															<% end %>
-															
+
 															<% unless @press_room.competition.blank? %>
                               <h5>Konkurrens</h5>
                               <p><%= @press_room.competition %></p>
@@ -95,7 +95,7 @@
                   <div class="panel panel-default">
                       <div class="panel-body">
                           <ul>
-                              
+
 															<% @press_room.fundings.each do |funding| %>
 															<% if funding.investment_type == "Bootstrapped" %>
 															<li>Bootstrapped</li>
@@ -153,7 +153,7 @@
                       </div>
                   </div>
 									<% @press_releases.each do |press_release| %>
-                  <div class="thumbnail"> 
+                  <div class="thumbnail">
                       <div class="pr-thumbnail-options">
 
                           <%= link_to [@press_room, press_release], class: "btn btn-sm btn-primary", role: "button" do %><i class="fa fa-eye"></i>&nbsp;Läs<% end %>
@@ -193,4 +193,4 @@
               </div> <!-- / .col -->
           </div> <!-- / .row -->
           <div class="push"></div>
-      </div> <!-- / .shortpage -->
+      </div> <!-- / .short-page -->
