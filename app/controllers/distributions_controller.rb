@@ -34,15 +34,15 @@ class DistributionsController < ApplicationController
   def create
     @press_release = PressRelease.friendly.find(params[:press_release_id])
     @press_room = PressRoom.friendly.find(params[:press_room_id])
-    
-    
+
+
     @distribution = Distribution.new(distribution_params)
     @distribution.save
     #respond_with(press_room_press_release_distribution_path([@distribution.press_release, @distribution.press_release, @distribution]))
-    
+
     DistributionMailer.distribution_mail(@distribution).deliver
     DistributionMailer.distribution_client_confirmation(@distribution).deliver
-    
+
     redirect_to press_room_press_release_distribution_path(@press_room.id, @press_release.id, @distribution)
   end
 

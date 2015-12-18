@@ -1,0 +1,28 @@
+<input name="subscription_type" type="hidden" value="standard"/>
+
+  <p>Nuvarande plan:<br>
+    <strong>Trial (Standard) - gratis i 30 dagar.
+    <span class="text-danger">
+      <% if !@time_left.blank? %>
+      <% if @time_left > 0 %>
+      <%= @time_left.round %>
+      dag(ar) över
+    <% else %>
+      <%= -@time_left.round %>
+      dag(ar) kvar
+      <% end %>
+      <% end %>
+    </span>
+    </strong>
+</p>
+<br>
+
+<div class="row">
+  <div class="col-sm-6">
+    <%= render 'devise/registrations/partials/standard_box', { button_title: "Uppgradera till Standard", popup_stripe: false } %>
+  </div>
+  <div class="col-sm-6">
+    <%= render 'devise/registrations/partials/premium_box', { button_title: "Uppgradera till Premium", popup_stripe: false } %>
+  </div>
+
+</div>

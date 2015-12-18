@@ -1,0 +1,116 @@
+<div class="modal fade payment-spinner" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <p>
+          Processing payment...
+        </p>
+        <i class="fa fa-refresh fa-spin fa-2x"></i>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="panel panel-primary" style="background-color: #f5f5f5;">
+  <div class="panel-heading">
+    <h4><i class=""></i>Premium</h4>
+  </div>
+  <div class="panel-body">
+    <h4>699 SEK / MÅN</h4>
+      <ul class="fa-ul">
+        <li><i class="fa-li fa fa-check"></i> Eget pressrum</li>
+        <li><i class="fa-li fa fa-check"></i> Tillgång till pressmeddelande-mallar</li>
+        <li><i class="fa-li fa fa-check"></i> Skapa obegränsat antal pressmeddelanden</li>
+        <li><i class="fa-li fa fa-check"></i> <strong>Obegränsad</strong> matchning och distribution till journalister</li>
+      </ul>
+    <br><br>
+    <button class="btn btn-primary" id="premium_payment_button"><%= button_title %></button>
+
+    <script>
+      var handlerPremium = StripeCheckout.configure({
+        key: '<%= Rails.configuration.stripe[:publishable_key] %>',
+        image: '/media/logo-small.png',
+        locale: 'auto',
+        token: function (token) {
+
+          var d = {
+            stripeToken: token.id,
+            stripeEmail: token.email,
+            subscription_type: 'premium'
+          }
+
+          $.ajax({
+            url: '/charges',
+            data: d,
+            beforeSend: function () {
+              console.log("BeforeSendPremium!");
+              $('.payment-spinner').modal({
+                show: true,
+                keyboard: false,
+                backdrop: true
+              });
+            },
+            error: function () {
+              console.log("Error!");
+              //swal("Oops!", "Något gick fel vid betalningen.", "error");
+              $('.payment-spinner').modal('hide');
+              alert("Något gick fel vid betalningen.");
+            },
+            success: function (data) {
+              $('.payment-spinner').modal('hide');
+              if (data.success) {
+                alert("Tack! Betalningen gick igenom.");
+                location.reload(true);
+                //swal("Tack!", data.message, "success");
+                /*
+                swal({
+                  title: "Tack!",
+                  text: data.message,
+                  type: "success"
+                },
+                function() {
+                  location.reload(true);
+                });
+                */
+              } else {
+                alert("Oops!\n" + data.message);
+                //swal("Oops!", data.message, "error");
+              }
+            },
+            type: 'POST'
+
+          });
+        }
+      });
+
+      $('#premium_payment_button').on('click', function (e) {
+        // Open Checkout with further options
+        handlerPremium.open({
+          name: 'newshubby',
+          description: 'Premium',
+          currency: "sek",
+          amount: 69900,
+          email: "<%= @press_room.email %>",
+          currency: 'sek'
+        });
+        e.preventDefault();
+      });
+
+      // Close Checkout on page navigation
+      $(window).on('popstate', function () {
+        handlerPremium.close();
+      });
+    </script>
+
+  </div>
+</div>
+
+<script>
+  $(document).ready(function () {
+
+    if (<%= popup_stripe %>) {
+      $('#premium_payment_button').click();
+    }
+
+  });
+</script>

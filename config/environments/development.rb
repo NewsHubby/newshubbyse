@@ -37,6 +37,8 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: "localhost:3000" }
 
+  #config.action_mailer.perform_deliveries = true
+
   # Mailer configuration
   config.action_mailer.smtp_settings = {
     address: "smtp.mandrillapp.com",
@@ -49,5 +51,5 @@ Rails.application.configure do
     user_name: ENV['EMAIL_USER_NAME'],
     password: ENV['EMAIL_PASSWORD']
   }
-  
+
 end

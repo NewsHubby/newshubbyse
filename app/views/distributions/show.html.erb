@@ -48,24 +48,24 @@
                         <li>Första utskicksdatum: <% if @distribution.distribution_date.blank? %>Inget distributionsdatum valt<% else %><%= l(@distribution.distribution_date, format: '%d %B %Y') %></li><% end %>
                         <li>Meddelande till NewsHubby:<ul><li><%= simple_format(@distribution.misc_information) %></li></ul></li>
                     </ul>
-                         
+
                 </div> <!-- / .panel-body -->
             </div> <!-- / .panel -->
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox"> Jag har läst och godkänner NewsHubbys <a href="#">användarvillkor för distribution</a>.
+                            <input type="checkbox" class="accept-terms-checkbox"> Jag har läst och godkänner NewsHubbys <a href="#">användarvillkor för distribution</a>.
                         </label>
                     </div>
                     <p class="small">Du faktureras maximalt för det belopp du själv har valt, om vi lyckas nå ut. När du klickar “Beställ” ger du NewsHubby ensamrätt till nyheten tills den är utskickad till alla medier och ni får ett meddelande om detta av NewsHubby.</p>
-                    <%= link_to "Beställ", root_url, type: "button", class: "btn btn-success btn-lg btn-block" %>
+                    <%= link_to "Beställ", root_url, type: "button", class: "btn btn-success btn-lg btn-block order-button" %>
                 </div>
             </div>
         </div>
 
 				<%= render "distributions/questions" %>
-        
+
 
     </div> <!--- / .container -->
     <div class="push"></div>

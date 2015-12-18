@@ -1,16 +1,16 @@
 Hej  <%= @distribution.press_release.press_room.company_name unless @distribution.press_release.press_room.company_name.blank? %>,
 
-Tack för er beställning av distribution av ert pressmeddelande.
+Tack för beställningen av distribution!
 
-Vi kommer att <% if @distribution.distribution_date.blank? %>höra av oss till er angående när ni vill att distributionen ska påbörjas.<% else %>påbörja pressutskicket den <%= l(@distribution.distribution_date, format: '%d %B %Y') %> klockan 08:00 och informerar er via mail när vi är klara.<% end %> Räkna med att det tar några dagar eller upp till en vecka att nå ut då vi kontaktar flera journalister/medier och att vi många gånger väljer att ge någon exklusivitet, det vill säga ensamrätt i ett par timmar. Detta gör vi för att öka möjligheten att en journalist ska vilja skriva om er nyhet.
+Vi kommer att utgå från dina eventuella önskemål, samt läsa av innehållet, för att matcha ditt pressmeddelande med relevanta journalister. Om du inte har gjort några önskemål så läser vi av innehållet för att göra så bra matchning som möjligt.
 
-OBS! Det är viktigt att inte ni själva, eller någon annan, skickar ut pressmeddelandet medan vi arbetar med det då det kan komma att minska era chanser att nå ut. 
+Räkna med att det tar några dagar eller upp till en vecka att nå ut då vi kontaktar flera journalister/ medier och att vi många gånger väljer att ge någon exklusivitet, det vill säga ensamrätt i ett par timmar. Detta gör vi för att öka möjligheten att en journalist ska vilja skriva om er nyhet.
+OBS! Det är viktigt att du inte skickar pressmeddelandet till någon annan medan vi arbetar, just med tanke på ensamrätten.
 
-Vi följer upp via mail efterhand PR-arbetet fortlöper.
+Vi följer upp via mail efterhand som PR-arbetet fortlöper.
 
-Vi hörs snart igen! 
+Vi hörs snart igen!
 
 Hälsningar NewsHubby-teamet
-
 
 Specifikationen över vad ni beställt från oss hittar ni här: <%= press_room_press_release_distribution_url(@distribution.press_release.press_room, @distribution.press_release, @distribution) %>

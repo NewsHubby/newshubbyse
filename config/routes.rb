@@ -3,15 +3,16 @@ Rails.application.routes.draw do
   get '/om' => 'press_rooms#about'
   get '/anvandarvillkor' => 'press_rooms#terms_and_conditions'
   get '/tack' => 'distributions#distribution_complete'
-  
+  #put '/charges/cancel_subscription' => 'charges#cancel_subscription'
+
   resources :questions, :path => 'faq'
-  
-  resources :categories do 
+
+  resources :categories do
     resources :press_release_types
   end
-  
+
   devise_for :press_rooms, :controllers => { :registrations => "registrations" }
-  
+
   resources :press_rooms, :path => '/' do
     get :autocomplete_press_release_title, :on => :collection
     resources :press_releases, path: 'pressreleases' do
@@ -20,9 +21,28 @@ Rails.application.routes.draw do
     resources :people
     resources :fundings
   end
-  
+
+  #resources :charges
+  #resources :charges do
+  #  collection do
+  #    post :cancel_subscription
+  #  end
+  #end
+  resources :charges do
+    collection do
+      post 'unsubscribe', :action => :cancel_subscription
+      post 'resume_subscription', :action => :resume_subscription
+      post 'upgrade_subscription', :action => :upgrade_subscription
+      post 'downgrade_subscription', :action => :downgrade_subscription
+    end
+  end
+
+  #resources :charges do
+  #  put :cancel_subscription, :on => :collection
+  #end
+
   root "press_rooms#index"
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

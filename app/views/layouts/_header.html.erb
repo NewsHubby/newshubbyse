@@ -79,29 +79,71 @@
 </nav>
 
 <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="signUpModal" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Stäng</span></button>
-                <h4 class="modal-title" id="signUpModal">Registrera</h4>
+                <h4 class="modal-title text-center" id="signUpModal">Registrera</h4>
             </div>
             <div class="modal-body">
                 <%= form_for(:press_room, :url => registration_path(:press_room)) do |f| %>
-                <div class="form-group">
-                    <label for="inputEmail1">Epost</label>
-                    <%= f.email_field :email, autocomplete: "off", autofocus: true, class: "form-control", id: "inputEmail1", placeholder: "", value: "" %>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="">Välj modell</label>
+                        <div class="radio">
+                            <label>
+                                <%= f.radio_button :subscription_type, "trial_standard", :checked => true %>
+                                Standard (30 dagar gratis)
+                                <br>
+                                <small>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </small>
+                            </label>
+                        </div>
+                        <hr>
+
+                        <div class="radio">
+                            <label>
+                                <%= f.radio_button :subscription_type, "standard" %>
+                                Standard
+                                <br>
+                                <small>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </small>
+                            </label>
+                        </div>
+                        <hr>
+
+                        <div class="radio">
+                            <label>
+                                <%= f.radio_button :subscription_type, "premium" %>
+                                Premium
+                                <br>
+                                <small>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</small>
+                            </label>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="col-sm-6 ">
+
+                        <div class="form-group">
+                            <label for="inputEmail1">Epost</label>
+                            <%= f.email_field :email, autocomplete: "off", autofocus: true, class: "form-control", id: "inputEmail1", placeholder: "", value: "" %>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword1">Lösenord</label>
+                            <%= f.password_field :password, autocomplete: "off", class: "form-control", id: "inputPassword1", placeholder: "" %>
+                            <p class="help-block">
+                              Lösenordet måste innehålla minst 8 tecken.
+                            </p>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <%= f.check_box :term_agreement, class: "accept-terms-checkbox" %> <small>Jag har läst och accepterar NewsHubbys <%= link_to "användarvillkor", anvandarvillkor_path, target: "_blank" %></small>
+                            </label>
+                        </div>
+                        <%= f.submit "Sign up", class: "btn btn-primary btn-lg btn-block signup-button", disabled: true %>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="inputPassword1">Lösenord</label>
-                    <%= f.password_field :password, autocomplete: "off", class: "form-control", id: "inputPassword1", placeholder: "" %>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <%= f.check_box :term_agreement %> <small>Jag har läst och accepterar NewsHubbys <%= link_to "användarvillkor", anvandarvillkor_path, target: "_blank" %></small>
-                    </label>
-                </div>
-                <%= f.submit "Sign up", class: "btn btn-primary btn-lg btn-block" %>
+
                 <% end %>
+
             </div> <!-- / .modal-body -->
         </div> <!-- / .modal-content -->
     </div> <!-- / .modal-dialog -->

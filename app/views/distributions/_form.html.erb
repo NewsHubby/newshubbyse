@@ -31,7 +31,7 @@
 				  <% if @distribution.errors.any? %>
 				    <div id="error_explanation">
 				      <h2><%= pluralize(@distribution.errors.count, "error") %> prohibited this distribution from being saved:</h2>
-							
+
 				      <ul>
 				      <% @distribution.errors.full_messages.each do |message| %>
 				        <li><%= message %></li>
@@ -39,79 +39,67 @@
 				      </ul>
 				    </div>
 				  <% end %>
-					
+
 					<%= f.hidden_field :press_release_id, value: @press_release.id %>
-					
+
         <div class="col-sm-6">
+          <% if @press_room.subscription_type != "premium" %>
              <div class="panel">
                  <div class="panel-body">
-                     <h4>Hur många publikationer vill ni max publiceras i och betala för?</h4>
-                     <p class="help-block">Vi gör allt för att er nyhet ska få den media den förtjänar, och ni betalar enbart för det resultat vi lyckas uppnå.</p>
+                     <h4>Hur många publikationer vill du max publiceras i och betala för?</h4>
+                     <p class="help-block">Vi gör allt för att er nyhet ska få den media den förtjänar, och du betalar enbart för det resultat vi lyckas uppnå.</p>
                          <div class="form-group">
                              <div class="radio">
                                 <label>
 																		<%= f.radio_button :no_publications, '1' %>
-                                    
                                     1 publikation - 5 000 kr
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
                                     <%= f.radio_button :no_publications, '2' %>
-																		
                                     2 publikationer - 10 000 kr
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
                                     <%= f.radio_button :no_publications, '3' %>
-																		
                                     3 publikationer - 15 000 kr
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
                                     <%= f.radio_button :no_publications, '4' %>
-																		
                                     4 publikationer - 20 000 kr
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
                                     <%= f.radio_button :no_publications, '5' %>
-																		
                                     5 publikationer - 25 000 kr
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
                                     <%= f.radio_button :no_publications, '5+' %>
-																		
                                     fler än 5 publikationer - 30 000 kr
                                 </label>
                             </div>
                             <br>
-                            <div class="radio">
-                                <label>
-                                    <%= f.radio_button :no_publications, 'Prenumeration' %>
-																		
-                                    Prenumeration - 2000 kr / månad (obegränsat antal utskick)
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                    <%= f.radio_button :no_publications, 'Redan prenumerant' %>
-																		
-                                    Redan prenumerant
-                                </label>
-                            </div>
+                            <h4>Eller om du hellre vill uppgradera till Premium:</h4>
+                            <% if @press_room.subscription_type.blank? or @press_room.subscription_type == "trial_standard" %>
+                              <%= render 'devise/registrations/partials/premium_box', { button_title: "Uppgradera till Premium", popup_stripe: false } %>
+                            <% elsif @press_room.subscription_type == "standard" %>
+                            <%= button_to "Uppgradera till Premium", { :controller => :charges, :action  => :upgrade_subscription}, { class: "btn btn-success", method: :post, data: { confirm: "Helt säker?" } } %>
+                            <% end %>
                          </div>
                  </div> <!-- / .panel-body -->
              </div> <!-- / .panel -->
+             <% end %>
 
              <div class="panel">
                  <div class="panel-body">
-                    <h4>Vilken publikation vill ni helst nå ut i med just det här pressmeddelandet? <span class="text-muted"></span></h4>
+                    <h4>Vilken publikation vill du helst nå ut i med just det här pressmeddelandet? <span class="text-muted"></span></h4>
                     <p class="help-block">Rangordna upp till fem stycken. (T ex Aftonbladet, TechCrunch, Mama)</p>
                     <div class="input-group input-group-sm">
                         <span class="input-group-addon" id="sizing-addon1">1.</span>

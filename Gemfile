@@ -33,7 +33,7 @@ gem 'devise'
 gem 'cancancan', '~> 1.10'
 
 # Friendly URLs
-gem 'friendly_id', '~> 5.1.0' 
+gem 'friendly_id', '~> 5.1.0'
 
 # Possessive for adding 's
 gem 'possessive'
@@ -78,6 +78,8 @@ group :production do
   gem 'mysql2'
 end
 
+gem 'stripe'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -89,4 +91,3 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-

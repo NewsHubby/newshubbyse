@@ -14,7 +14,7 @@
                             <% else %>
                                 <h4 class="prState text-primary">Pressmeddelandet är <strong class="prStateText">offentligt</strong></h4>
                             <% end %>
-                            
+
     						<% if @press_release.exclusive? %>
     							<p class="prLink">Använd länken nedan för dela pressmeddelandet medan det är dolt:</p>
                                 <div class="well prLink"><%= press_room_press_release_url(@press_release.press_room, @press_release) + "/?&hex=#{@press_release.hex}" %></div>
@@ -37,7 +37,7 @@
                            <div class="centerContainer">
     					        <div class="centerContent">
     								<h4>Låt Newshubby distribuera pressmeddelandet till media</h4><br>
-    									<%= link_to "Skicka ut pressmeddelandet", new_press_room_press_release_distribution_path(@press_room, @press_release), class: "btn btn-action btn-lg" %>
+    									<%= link_to "Skicka ut pressmeddelandet", new_press_room_press_release_distribution_path(@press_room, @press_release), class: "btn btn-success btn-lg" %>
     								<!-- <br><br><p><small>* No commitment by clicking. We'll contact you with a distribution plan and price.</small></p> -->
     						 	</div> <!-- / .centerContent -->
     						</div> <!-- / .centerContainer -->

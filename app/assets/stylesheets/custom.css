@@ -839,7 +839,6 @@ hr.horizontal-divider:after {
   position: absolute;
   bottom: 0px;
   float: left;
-  text-transform: uppercase;
   font-family: 'Source Sans Pro', sans-serif;
 }
 
@@ -881,7 +880,7 @@ hr.horizontal-divider:after {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-.index-container h1, .index-container h2, .index-container h3, .index-container h4, .index-container h5, .index-container h6, .index-container button {
+.index-container button {
   text-transform: uppercase;
   font-weight: 300;
 }

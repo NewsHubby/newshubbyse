@@ -32,7 +32,7 @@
     position: absolute;
     bottom: 0px;
     float: left;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     font-family: 'Source Sans Pro', sans-serif;
 
         h1 {
@@ -72,7 +72,7 @@
 .index-container {
     font-family: 'Source Sans Pro', sans-serif;
 
-    h1, h2, h3, h4, h5, h6, button {
+    button {
         text-transform: uppercase;
         font-weight: 300;
     }

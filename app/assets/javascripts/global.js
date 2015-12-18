@@ -17,4 +17,9 @@ $(document).ready(function() {
         });
     }
 
+    $('.accept-terms-checkbox').change(function() {
+        $('.signup-button').prop('disabled', !$(this).is(':checked'));
+        // $('.order-button').prop('disabled', !$(this).is(':checked'));
+    });
+
 });

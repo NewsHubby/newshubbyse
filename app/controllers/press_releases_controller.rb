@@ -1,57 +1,55 @@
 class PressReleasesController < ApplicationController
   before_action :set_press_release, only: [:show, :edit, :update, :destroy]
-    
+
   load_and_authorize_resource :press_room
-  load_and_authorize_resource :press_release, :through => :press_room  
-  
+  load_and_authorize_resource :press_release, :through => :press_room
+
   # GET /press_releases
   # GET /press_releases.json
   def index
     @press_room = PressRoom.friendly.find(params[:press_room_id])
-    
+
     if params[:search]
       @press_releases = PressRelease.where(exclusive: false).where("embargo <= ?", Date.today).search(params[:search])
-    else 
+    else
       @press_releases = @press_room.press_releases.all
     end
-    
-    
+
+
     if can? :update, @press_room
       @press_releases = @press_room.press_releases.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
     else
       @press_releases = @press_room.press_releases.where(exclusive: false).where("embargo <= ?", Date.today).search(params[:search]).order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
     end
-    
+
   end
 
   # GET /press_releases/1
   # GET /press_releases/1.json
   def show
-    
+
     if cannot? :manage, @press_release
       if @blocked
         flash[:notice] = "Pressmeddelandet finns inte!"
         redirect_to :root
       end
     end
-    
+
   end
 
   # GET /press_releases/new
   def new
-    
-    
-    
+
     @press_room = current_press_room
     @press_release = @press_room.press_releases.new(press_release_type_id: params[:press_release_type_id])
-    
+
     @press_release.hex = SecureRandom.urlsafe_base64(6)
-    
+
     @field_count = @press_release.press_release_type.fields.where.not(field_type: "line_break").count
-    
+
     @press_release.uploads.build
     @press_release.links.build
-    
+
     @press_release.save
     redirect_to edit_press_room_press_release_path(@press_room, @press_release)
   end
@@ -63,9 +61,9 @@ class PressReleasesController < ApplicationController
       flash[:notice] = "Färdigställ företagsinformationen först, tack!"
       redirect_to edit_press_room_path(current_press_room)
     end
-    
+
     @presto = true
-    
+
     @field_count = @press_release.press_release_type.fields.where.not(field_type: "line_break").count
   end
 
@@ -115,7 +113,7 @@ class PressReleasesController < ApplicationController
     def set_press_release
       @press_room = PressRoom.friendly.find(params[:press_room_id])
       @press_release = PressRelease.friendly.find(params[:id])
-      
+
       if @press_release.exclusive? && @press_release.hex != params[:hex]
         @blocked = true
       end
