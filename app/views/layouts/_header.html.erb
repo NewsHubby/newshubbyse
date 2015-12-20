@@ -93,19 +93,20 @@
                         <div class="radio">
                             <label>
                                 <%= f.radio_button :subscription_type, "trial_standard", :checked => true %>
-                                Standard (30 dagar gratis)
-                                <br>
-                                <small>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </small>
+                                <strong>Standard - (prova på 30 dagar gratis)</strong>
                             </label>
                         </div>
                         <hr>
-
                         <div class="radio">
                             <label>
                                 <%= f.radio_button :subscription_type, "standard" %>
-                                Standard
-                                <br>
-                                <small>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. </small>
+                                <strong>Standard - 199 SEK / MÅN</strong>
+                                <ul class="fa-ul">
+                                  <li><i class="fa-li fa fa-check text-success"></i> Eget pressrum</li>
+                                  <li><i class="fa-li fa fa-check text-success"></i> Tillgång till pressmeddelande-mallar</li>
+                                  <li><i class="fa-li fa fa-check text-success"></i> Skapa obegränsat antal pressmeddelanden</li>
+                                  <li><i class="fa-li fa fa-check text-success"></i> 5000 SEK per distribution. Betala endast när du når ut, och bestäm själv vad det maximalt får kosta.</li>
+                                </ul>
                             </label>
                         </div>
                         <hr>
@@ -113,9 +114,13 @@
                         <div class="radio">
                             <label>
                                 <%= f.radio_button :subscription_type, "premium" %>
-                                Premium
-                                <br>
-                                <small>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</small>
+                                <strong><i class="fa fa-star" style="color: gold;"></i>&nbsp;Premium - 699 SEK / MÅN</strong>
+                                  <ul class="fa-ul">
+                                    <li><i class="fa-li fa fa-check text-success"></i> Eget pressrum</li>
+                                    <li><i class="fa-li fa fa-check text-success"></i> Tillgång till pressmeddelande-mallar</li>
+                                    <li><i class="fa-li fa fa-check text-success"></i> Skapa obegränsat antal pressmeddelanden</li>
+                                    <li><i class="fa-li fa fa-check text-success"></i> <strong>Obegränsad</strong> matchning och distribution till journalister</li>
+                                  </ul>
                             </label>
                         </div>
                         <hr>
